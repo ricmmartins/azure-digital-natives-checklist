@@ -1,0 +1,91 @@
+#!/bin/bash
+#
+# Azure CLI script to add a security rule to a Network Security Group (NSG).
+#
+# Usage: ./add_nsg_rule.azcli <resource_group_name> <nsg_name> <rule_name> <priority> <direction> <access> <protocol> <source_address> <source_port> <dest_address> <dest_port>
+#
+# Example (Deny RDP from Internet):
+# ./add_nsg_rule.azcli my-rg my-nsg DenyRDP_Internet 1000 Inbound Deny Tcp Internet "*" "*" 3389
+#
+# Example (Allow SSH from specific IP):
+# ./add_nsg_rule.azcli my-rg my-nsg AllowSSH_Admin 1010 Inbound Allow Tcp 1.2.3.4 "*" "*" 22
+#
+# Prerequisites:
+# - Azure CLI installed and configured (run `az login`)
+
+# --- Configuration ---
+RESOURCE_GROUP="$1"
+NSG_NAME="$2"
+RULE_NAME="$3"
+PRIORITY="$4"
+DIRECTION="$5"      # Inbound or Outbound
+ACCESS="$6"         # Allow or Deny
+PROTOCOL="$7"       # Tcp, Udp, Icmp, Esp, Ah, or *
+SOURCE_ADDRESS="$8" # CIDR, IP, Service Tag (e.g., Internet, VirtualNetwork), or *
+SOURCE_PORT="$9"    # Port number or *
+DEST_ADDRESS="${10}" # CIDR, IP, Service Tag, or *
+DEST_PORT="${11}"   # Port number or *
+
+# --- Validation ---
+if [[ $# -ne 11 ]]; then
+    echo "Usage: $0 <resource_group_name> <nsg_name> <rule_name> <priority> <direction> <access> <protocol> <source_address> <source_port> <dest_address> <dest_port>"
+    echo "Example: $0 my-rg my-nsg DenyRDP_Internet 1000 Inbound Deny Tcp Internet \"*\" \"*\" 3389"
+    exit 1
+fi
+
+# Basic validation for priority (should be integer between 100 and 4096)
+if ! [[ "$PRIORITY" =~ ^[0-9]+$ ]] || [[ "$PRIORITY" -lt 100 ]] || [[ "$PRIORITY" -gt 4096 ]]; then
+    echo "Error: Priority must be an integer between 100 and 4096."
+    exit 1
+fi
+
+# Basic validation for Direction and Access
+shopt -s nocasematch
+if [[ "$DIRECTION" != "Inbound" && "$DIRECTION" != "Outbound" ]]; then
+    echo "Error: Direction must be Inbound or Outbound."
+    exit 1
+fi
+if [[ "$ACCESS" != "Allow" && "$ACCESS" != "Deny" ]]; then
+    echo "Error: Access must be Allow or Deny."
+    exit 1
+fi
+shopt -u nocasematch
+
+# Check if logged in to Azure
+if ! az account show > /dev/null 2>&1; then
+    echo "Error: Not logged in to Azure. Please run 'az login'."
+    exit 1
+fi
+
+# --- Logic ---
+echo "Attempting to add rule 	'$RULE_NAME' to NSG 	'$NSG_NAME' in RG 	'$RESOURCE_GROUP'..."
+echo "Priority: 	$PRIORITY"
+echo "Direction: 	$DIRECTION"
+echo "Access: 	$ACCESS"
+echo "Protocol: 	$PROTOCOL"
+echo "Source: 	$SOURCE_ADDRESS : $SOURCE_PORT"
+echo "Destination: 	$DEST_ADDRESS : $DEST_PORT"
+
+az network nsg rule create \
+    --resource-group "$RESOURCE_GROUP" \
+    --nsg-name "$NSG_NAME" \
+    --name "$RULE_NAME" \
+    --priority "$PRIORITY" \
+    --direction "$DIRECTION" \
+    --access "$ACCESS" \
+    --protocol "$PROTOCOL" \
+    --source-address-prefixes "$SOURCE_ADDRESS" \
+    --source-port-ranges "$SOURCE_PORT" \
+    --destination-address-prefixes "$DEST_ADDRESS" \
+    --destination-port-ranges "$DEST_PORT" \
+    --output none
+
+if [[ $? -eq 0 ]]; then
+  echo "Successfully added/updated rule '$RULE_NAME' to NSG '$NSG_NAME'."
+else
+  echo "Error adding/updating rule '$RULE_NAME'. Please check the parameters and Azure permissions."
+  exit 1
+fi
+
+exit 0
+
