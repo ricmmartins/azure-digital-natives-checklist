@@ -25,7 +25,6 @@ The checklist is derived from insights shared in the Microsoft Tech Community ar
 
 ```
 azure-startup-checklist/
-├── .github/                # Optional: GitHub community health files
 ├── docs/                   # Detailed explanations & links
 │   ├── identity-access.md
 │   ├── networking-security.md
@@ -35,7 +34,7 @@ azure-startup-checklist/
 │   ├── infrastructure-as-code.md
 │   ├── aks-app-architecture.md
 │   └── azure-openai.md
-├── scripts/                # Optional: Automation snippets
+├── scripts/                # Automation snippets
 ├── CHECKLIST.md            # The main actionable checklist
 ├── CONTRIBUTING.md         # Contribution guidelines
 ├── LICENSE                 # MIT License
