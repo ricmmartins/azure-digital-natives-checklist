@@ -1,0 +1,51 @@
+#!/bin/bash
+#
+# Azure CLI script to find resources missing a specific tag within a resource group.
+#
+# Usage: ./check_missing_tags.azcli <resource_group_name> <tag_name>
+# Example: ./check_missing_tags.azcli my-rg environment
+#
+# Prerequisites:
+# - Azure CLI installed and configured (run `az login`)
+# - jq installed (for JSON parsing)
+
+# --- Configuration ---
+RESOURCE_GROUP="$1"
+REQUIRED_TAG="$2"
+
+# --- Validation ---
+if [[ -z "$RESOURCE_GROUP" || -z "$REQUIRED_TAG" ]]; then
+  echo "Usage: $0 <resource_group_name> <tag_name>"
+  exit 1
+fi
+
+# Check if jq is installed
+if ! command -v jq &> /dev/null; then
+    echo "Error: jq is not installed. Please install jq to run this script."
+    echo "(e.g., sudo apt-get update && sudo apt-get install jq)"
+    exit 1
+fi
+
+# Check if logged in to Azure
+if ! az account show > /dev/null 2>&1; then
+    echo "Error: Not logged in to Azure. Please run 'az login'."
+    exit 1
+fi
+
+# --- Logic ---
+echo "Checking for resources in Resource Group '$RESOURCE_GROUP' missing the tag '$REQUIRED_TAG'..."
+
+# Get all resources in the resource group and filter those missing the required tag
+# Using Azure CLI and jq for parsing
+az resource list --resource-group "$RESOURCE_GROUP" --query "[?tags."\"$REQUIRED_TAG\"" == null]" -o json | jq -c '.[] | {name: .name, id: .id, type: .type}'
+
+MISSING_COUNT=$(az resource list --resource-group "$RESOURCE_GROUP" --query "[?tags."\"$REQUIRED_TAG\"" == null]" -o tsv | wc -l)
+
+if [[ $MISSING_COUNT -eq 0 ]]; then
+  echo "All resources found in '$RESOURCE_GROUP' have the tag '$REQUIRED_TAG'."
+else
+  echo "Found $MISSING_COUNT resource(s) missing the tag '$REQUIRED_TAG'. Details listed above."
+fi
+
+exit 0
+
