@@ -1,0 +1,70 @@
+#!/bin/bash
+#
+# Azure CLI script to list Activity Log Alerts configured for Resource Health events.
+#
+# Usage: ./check_resource_health_alerts.azcli [resource_group_name]
+#
+# Resource Group (Optional): If provided, filters alerts within that specific resource group.
+# Otherwise, lists alerts across the entire subscription.
+#
+# Example (Subscription scope):
+# ./check_resource_health_alerts.azcli
+#
+# Example (Resource Group scope):
+# ./check_resource_health_alerts.azcli my-monitoring-rg
+#
+# Prerequisites:
+# - Azure CLI installed and configured (run `az login`)
+# - jq installed (for JSON parsing)
+
+# --- Configuration ---
+RESOURCE_GROUP="$1"
+
+# --- Validation ---
+# Check if jq is installed
+if ! command -v jq &> /dev/null; then
+    echo "Error: jq is not installed. Please install jq to run this script."
+    echo "(e.g., sudo apt-get update && sudo apt-get install jq)"
+    exit 1
+fi
+
+# Check if logged in to Azure
+if ! az account show > /dev/null 2>&1; then
+    echo "Error: Not logged in to Azure. Please run 'az login'."
+    exit 1
+fi
+
+# --- Logic ---
+if [[ -z "$RESOURCE_GROUP" ]]; then
+  echo "Listing Activity Log Alerts potentially related to Resource Health across the current subscription..."
+  ALERT_LIST=$(az monitor activity-log alert list --output json)
+else
+  echo "Listing Activity Log Alerts potentially related to Resource Health in Resource Group '$RESOURCE_GROUP'..."
+  ALERT_LIST=$(az monitor activity-log alert list --resource-group "$RESOURCE_GROUP" --output json)
+fi
+
+if [[ $? -ne 0 ]]; then
+    echo "Error listing activity log alerts. Check permissions or resource group name."
+    exit 1
+fi
+
+# Filter alerts based on conditions commonly used for Resource Health
+# This looks for alerts where the 'category' is 'ResourceHealth'
+FILTERED_ALERTS=$(echo "$ALERT_LIST" | jq -c '[.[] | select(.condition.allOf[]?.category? == "ResourceHealth")]')
+
+MATCH_COUNT=$(echo "$FILTERED_ALERTS" | jq '. | length')
+
+if [[ $MATCH_COUNT -gt 0 ]]; then
+  echo "Found $MATCH_COUNT potentially matching Resource Health alert(s):"
+  echo "$FILTERED_ALERTS" | jq '.' # Pretty print the JSON output
+else
+  if [[ -z "$RESOURCE_GROUP" ]]; then
+    echo "No Activity Log Alerts found with conditions directly targeting 'ResourceHealth' category in the current subscription."
+  else
+    echo "No Activity Log Alerts found with conditions directly targeting 'ResourceHealth' category in Resource Group '$RESOURCE_GROUP'."
+  fi
+  echo "Note: Resource Health alerts might also be configured using different condition fields (e.g., operationName). Manual review might be needed for complete verification."
+fi
+
+exit 0
+

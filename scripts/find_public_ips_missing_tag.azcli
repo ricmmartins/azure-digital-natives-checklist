@@ -1,0 +1,42 @@
+#!/bin/bash
+#
+# Azure Resource Graph script to find Public IP Addresses missing a specific tag (e.g., 'Environment').
+#
+# Usage: ./find_public_ips_missing_tag.azcli <tag_name>
+# Example: ./find_public_ips_missing_tag.azcli Environment
+#
+# Prerequisites:
+# - Azure CLI installed and configured (run `az login`)
+# - Access to query Azure Resource Graph (typically requires Reader role at the scope being queried)
+
+# --- Configuration ---
+REQUIRED_TAG="$1"
+
+# --- Validation ---
+if [[ -z "$REQUIRED_TAG" ]]; then
+  echo "Usage: $0 <tag_name>"
+  echo "Example: $0 Environment"
+  exit 1
+fi
+
+# Check if logged in to Azure
+if ! az account show > /dev/null 2>&1; then
+    echo "Error: Not logged in to Azure. Please run 'az login'."
+    exit 1
+fi
+
+# --- Logic ---
+echo "Querying Azure Resource Graph for Public IP Addresses missing the tag '$REQUIRED_TAG' across accessible subscriptions..."
+
+# Define the Kusto Query Language (KQL) query
+KQL_QUERY="Resources | where type =~ 'microsoft.network/publicipaddresses' | where isnull(tags['$REQUIRED_TAG']) | project name, resourceGroup, subscriptionId, location, id"
+
+# Execute the query using Azure CLI
+az graph query -q "$KQL_QUERY" --output table
+
+# Optionally, get a count (requires jq if you want to parse the JSON output)
+# COUNT=$(az graph query -q "$KQL_QUERY" --output json | jq '.count')
+# echo "Found $COUNT Public IP Addresses missing the tag '$REQUIRED_TAG'. Details listed above."
+
+exit 0
+

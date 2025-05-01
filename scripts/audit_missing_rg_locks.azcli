@@ -1,0 +1,79 @@
+#!/bin/bash
+#
+# Azure CLI script to find Resource Groups tagged as 'Production' (or similar)
+# that are missing a 'CanNotDelete' lock.
+#
+# Usage: ./audit_missing_rg_locks.azcli <tag_key> <tag_value>
+# Example (for RGs tagged Environment=Production):
+# ./audit_missing_rg_locks.azcli Environment Production
+#
+# Prerequisites:
+# - Azure CLI installed and configured (run `az login`)
+# - jq installed (for JSON parsing)
+
+# --- Configuration ---
+PROD_TAG_KEY="$1"
+PROD_TAG_VALUE="$2"
+LOCK_TYPE="CanNotDelete" # Or 'ReadOnly'
+
+# --- Validation ---
+if [[ -z "$PROD_TAG_KEY" || -z "$PROD_TAG_VALUE" ]]; then
+  echo "Usage: $0 <tag_key> <tag_value>"
+  echo "Example: $0 Environment Production"
+  exit 1
+fi
+
+# Check if jq is installed
+if ! command -v jq &> /dev/null; then
+    echo "Error: jq is not installed. Please install jq to run this script."
+    echo "(e.g., sudo apt-get update && sudo apt-get install jq)"
+    exit 1
+fi
+
+# Check if logged in to Azure
+if ! az account show > /dev/null 2>&1; then
+    echo "Error: Not logged in to Azure. Please run 'az login'."
+    exit 1
+fi
+
+# --- Logic ---
+echo "Searching for Resource Groups tagged '$PROD_TAG_KEY=$PROD_TAG_VALUE' missing a '$LOCK_TYPE' lock..."
+
+# Get all resource groups with the specified tag
+RESOURCE_GROUPS=$(az group list --tag "$PROD_TAG_KEY=$PROD_TAG_VALUE" --query "[].{name:name, id:id}" -o json)
+
+if [[ -z "$RESOURCE_GROUPS" || "$RESOURCE_GROUPS" == "[]" ]]; then
+    echo "No Resource Groups found with the tag '$PROD_TAG_KEY=$PROD_TAG_VALUE'."
+    exit 0
+fi
+
+MISSING_LOCK_COUNT=0
+MISSING_LOCK_RGS=""
+
+# Iterate through each resource group found
+echo "Checking locks for matching Resource Groups:"
+echo $RESOURCE_GROUPS | jq -c '.[]' | while read rg_json; do
+    RG_NAME=$(echo $rg_json | jq -r '.name')
+    RG_ID=$(echo $rg_json | jq -r '.id')
+
+    # Check for the specified lock type at the resource group scope
+    LOCK_EXISTS=$(az lock list --resource-group "$RG_NAME" --query "[?level=='$LOCK_TYPE']" -o json)
+
+    if [[ -z "$LOCK_EXISTS" || "$LOCK_EXISTS" == "[]" ]]; then
+        echo "- Resource Group '$RG_NAME' (ID: $RG_ID) is MISSING a '$LOCK_TYPE' lock."
+        MISSING_LOCK_RGS+="$RG_NAME "
+        ((MISSING_LOCK_COUNT++))
+    # else
+        # echo "- Resource Group '$RG_NAME' has a '$LOCK_TYPE' lock."
+    fi
+done
+
+echo "---"
+if [[ $MISSING_LOCK_COUNT -eq 0 ]]; then
+  echo "All Resource Groups found with tag '$PROD_TAG_KEY=$PROD_TAG_VALUE' have a '$LOCK_TYPE' lock."
+else
+  echo "Found $MISSING_LOCK_COUNT Resource Group(s) tagged '$PROD_TAG_KEY=$PROD_TAG_VALUE' missing a '$LOCK_TYPE' lock: $MISSING_LOCK_RGS"
+fi
+
+exit 0
+

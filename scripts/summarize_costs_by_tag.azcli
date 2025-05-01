@@ -1,0 +1,96 @@
+#!/bin/bash
+#
+# Azure CLI script to summarize costs grouped by a specific tag (e.g., 'CostCenter')
+# for a given scope (Subscription or Resource Group) and time period.
+#
+# Usage: ./summarize_costs_by_tag.azcli <scope> <tag_key> [timeframe]
+#
+# Scope format:
+#   Subscription: /subscriptions/<subscription_id>
+#   Resource Group: /subscriptions/<subscription_id>/resourceGroups/<rg_name>
+#
+# Timeframe (Optional, defaults to Current Month):
+#   BillingMonthToDate, MonthToDate, TheLastMonth, TheLastBillingMonth, Custom
+#   (For Custom, you also need --time-period "YYYY-MM-DD/YYYY-MM-DD")
+#
+# Example (Current month costs by CostCenter for a subscription):
+# ./summarize_costs_by_tag.azcli /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx CostCenter
+#
+# Example (Last month costs by CostCenter for a resource group):
+# ./summarize_costs_by_tag.azcli /subscriptions/sub_id/resourceGroups/my-rg CostCenter TheLastMonth
+#
+# Prerequisites:
+# - Azure CLI installed and configured (run `az login`)
+# - Appropriate permissions to query cost management data (e.g., Cost Management Reader)
+
+# --- Configuration ---
+SCOPE="$1"
+TAG_KEY="$2"
+TIMEFRAME="${3:-MonthToDate}" # Default to MonthToDate if not provided
+
+# --- Validation ---
+if [[ -z "$SCOPE" || -z "$TAG_KEY" ]]; then
+  echo "Usage: $0 <scope> <tag_key> [timeframe]"
+  echo "Scope examples:" 
+  echo "  /subscriptions/<subscription_id>"
+  echo "  /subscriptions/<subscription_id>/resourceGroups/<rg_name>"
+  echo "Timeframe examples: MonthToDate, TheLastMonth, Custom (requires --time-period)"
+  exit 1
+fi
+
+# Check if logged in to Azure
+if ! az account show > /dev/null 2>&1; then
+    echo "Error: Not logged in to Azure. Please run 'az login'."
+    exit 1
+fi
+
+# Check if cost management extension is installed, install if not
+if ! az extension show -n costmanagement > /dev/null 2>&1; then
+    echo "Cost Management extension not found. Attempting to install..."
+    az extension add -n costmanagement
+    if [[ $? -ne 0 ]]; then
+        echo "Error: Failed to install costmanagement extension. Please install it manually ('az extension add -n costmanagement')."
+        exit 1
+    fi
+fi
+
+# --- Logic ---
+echo "Querying costs for scope '$SCOPE' grouped by tag '$TAG_KEY' for timeframe '$TIMEFRAME'..."
+
+# Construct the query definition JSON
+QUERY_DEF=$(cat <<EOF
+{
+  "type": "ActualCost",
+  "timeframe": "$TIMEFRAME",
+  "dataset": {
+    "granularity": "None",
+    "aggregation": {
+      "totalCost": {
+        "name": "Cost",
+        "function": "Sum"
+      }
+    },
+    "grouping": [
+      {
+        "type": "TagKey",
+        "name": "$TAG_KEY"
+      }
+    ]
+  }
+}
+EOF
+)
+
+# Execute the cost management query
+# Using @- to read JSON from stdin
+az costmanagement query --scope "$SCOPE" --query-definition "$QUERY_DEF" --output table
+
+if [[ $? -ne 0 ]]; then
+    echo "Error executing cost management query. Check scope, permissions, and timeframe."
+    exit 1
+fi
+
+echo "Query completed. Costs are grouped by the value of the tag '$TAG_KEY'. Rows with empty tag value represent costs for resources without that tag."
+
+exit 0
+

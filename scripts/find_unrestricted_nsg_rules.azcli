@@ -1,0 +1,65 @@
+#!/bin/bash
+#
+# Azure Resource Graph script to find Network Security Group (NSG) rules
+# allowing unrestricted inbound traffic (from 'Any' or 'Internet') on potentially risky ports.
+#
+# Usage: ./find_unrestricted_nsg_rules.azcli [port_list]
+#
+# Port List (Optional): Comma-separated list of destination ports to check.
+# Defaults to common management/sensitive ports: 22, 3389, 1433, 1521, 3306, 5432, 6379
+#
+# Example (Default ports):
+# ./find_unrestricted_nsg_rules.azcli
+#
+# Example (Custom ports):
+# ./find_unrestricted_nsg_rules.azcli 80,443,8080
+#
+# Prerequisites:
+# - Azure CLI installed and configured (run `az login`)
+# - Access to query Azure Resource Graph (typically requires Reader role at the scope being queried)
+
+# --- Configuration ---
+DEFAULT_PORTS="22,3389,1433,1521,3306,5432,6379"
+PORTS_TO_CHECK="${1:-$DEFAULT_PORTS}"
+
+# Convert comma-separated ports to KQL array format: '22', '3389', ...
+KQL_PORTS=$(echo "$PORTS_TO_CHECK" | sed "s/,/\', \'/g" | sed "s/^/\'/g" | sed "s/$/\'/g")
+
+# --- Validation ---
+# Check if logged in to Azure
+if ! az account show > /dev/null 2>&1; then
+    echo "Error: Not logged in to Azure. Please run 'az login'."
+    exit 1
+fi
+
+# --- Logic ---
+echo "Querying Azure Resource Graph for NSG rules allowing inbound traffic from 'Any' or 'Internet'"
+echo "on destination ports: [$KQL_PORTS] across accessible subscriptions..."
+
+# Define the Kusto Query Language (KQL) query
+# This query looks for inbound rules allowing from 'Any' or 'Internet' service tag
+# where the destination port range includes '*' or one of the specified ports.
+KQL_QUERY=""
+KQL_QUERY+="Resources"
+KQL_QUERY+=" | where type =~ 'microsoft.network/networksecuritygroups'"
+KQL_QUERY+=" | mv-expand rule = properties.securityRules"
+KQL_QUERY+=" | where rule.properties.direction =~ 'Inbound' and rule.properties.access =~ 'Allow'"
+KQL_QUERY+=" | where rule.properties.sourceAddressPrefix =~ '*' or rule.properties.sourceAddressPrefix =~ 'Internet' or rule.properties.sourceAddressPrefixes contains '*' or rule.properties.sourceAddressPrefixes contains 'Internet'"
+KQL_QUERY+=" | where rule.properties.destinationPortRange =~ '*' or rule.properties.destinationPortRanges has_any ($KQL_PORTS) or rule.properties.destinationPortRange in ($KQL_PORTS)"
+# Additional check if destinationPortRange is a range like '1000-2000'
+# This part is complex in KQL and might require parsing the range; simplified here.
+# A more robust check might involve checking if any port in KQL_PORTS falls within the range.
+KQL_QUERY+=" | project nsgName=name, ruleName=rule.name, rulePriority=rule.properties.priority, ruleAccess=rule.properties.access, ruleProtocol=rule.properties.protocol, ruleSource=rule.properties.sourceAddressPrefixes // rule.properties.sourceAddressPrefix, ruleDestPort=rule.properties.destinationPortRanges // rule.properties.destinationPortRange, resourceGroup, subscriptionId, nsgId=id"
+
+# Execute the query using Azure CLI
+az graph query -q "$KQL_QUERY" --output table
+
+if [[ $? -ne 0 ]]; then
+    echo "Error executing Azure Resource Graph query. Check permissions and query syntax."
+    exit 1
+fi
+
+echo "Query completed. Review the listed rules for overly permissive inbound access."
+
+exit 0
+

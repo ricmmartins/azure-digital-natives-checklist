@@ -1,0 +1,48 @@
+#!/bin/bash
+#
+# Azure CLI script to list users/groups assigned the 'Owner' role on a specific subscription.
+#
+# Usage: ./audit_subscription_owners.azcli <subscription_id>
+# Example: ./audit_subscription_owners.azcli xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+#
+# Prerequisites:
+# - Azure CLI installed and configured (run `az login`)
+# - jq installed (for JSON parsing)
+
+# --- Configuration ---
+SUBSCRIPTION_ID="$1"
+
+# --- Validation ---
+if [[ -z "$SUBSCRIPTION_ID" ]]; then
+  echo "Usage: $0 <subscription_id>"
+  exit 1
+fi
+
+# Check if jq is installed
+if ! command -v jq &> /dev/null; then
+    echo "Error: jq is not installed. Please install jq to run this script."
+    echo "(e.g., sudo apt-get update && sudo apt-get install jq)"
+    exit 1
+fi
+
+# Check if logged in to Azure
+if ! az account show > /dev/null 2>&1; then
+    echo "Error: Not logged in to Azure. Please run 'az login'."
+    exit 1
+fi
+
+# --- Logic ---
+SCOPE="/subscriptions/$SUBSCRIPTION_ID"
+echo "Listing principals assigned the 'Owner' role for subscription: $SUBSCRIPTION_ID"
+
+# Get role assignments for the 'Owner' role at the subscription scope
+# Filter for principal types 'User' and 'Group' and display relevant info
+az role assignment list --role "Owner" --scope "$SCOPE" --include-classic-administrators false --all -o json | \
+  jq -c ".[ ] | select(.principalType == \"User\" or .principalType == \"Group\") | {principalName: .principalName, principalType: .principalType, principalId: .principalId}"
+
+OWNER_COUNT=$(az role assignment list --role "Owner" --scope "$SCOPE" --include-classic-administrators false --all -o json | jq -c ".[ ] | select(.principalType == \"User\" or .principalType == \"Group\")" | wc -l)
+
+echo "Found $OWNER_COUNT User/Group principals assigned the 'Owner' role. Details listed above."
+
+exit 0
+
