@@ -10,6 +10,7 @@ This document provides further details and context for the Azure OpenAI (AOAI) s
     *   [Azure OpenAI Service documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/)
     *   [Introduction to prompt engineering](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/prompt-engineering)
     *   [Transparency Note for Azure OpenAI Service](https://learn.microsoft.com/en-us/legal/cognitive-services/openai/transparency-note)
+    *   [Everything you need to know about reasoning models (O1, O3, O4, Mini, and beyond)](https://techcommunity.microsoft.com/blog/azure-ai-services-blog/everything-you-need-to-know-about-reasoning-models-o1-o3-o4-mini-and-beyond/4406846)
     *   *(From article)* [AOAI Best Practices](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/azure-openai-best-practices-a-quick-reference-guide-to-optimize-your-deployments/4403546)
 
 ## [ ] Follow guidance for using your own data with AOAI
