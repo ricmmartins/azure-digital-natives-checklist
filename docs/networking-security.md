@@ -50,6 +50,6 @@ This document provides further details and context for the Networking & Security
     *   [About Azure Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/general/overview)
     *   [Use Key Vault references for App Service and Azure Functions](https://learn.microsoft.com/en-us/azure/app-service/app-service-key-vault-references)
     *   [Authenticate to Key Vault using Managed Identity](https://learn.microsoft.com/en-us/azure/key-vault/general/managed-identity)
-    *   *(From article)* [Building a Secure & Scalable Foundation]() - *Need to find this link*
-    *   *(From article)* [AKS Networking Guide]() - *Need to find this link*
+    *   *(From article)* [Building a Secure & Scalable Foundation](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/building-a-secure-and-scalable-foundation-for-your-startup-on-azure/4146456)
+    *   *(From article)* [AKS Networking Guide](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/aks-networking-made-easy-your-comprehensive-guide/4398603) 
 
