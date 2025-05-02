@@ -9,7 +9,7 @@ This document provides further details and context for the Identity & Access Man
 *   **Resources:**
     *   [What is Microsoft Entra ID?](https://learn.microsoft.com/en-us/entra/fundamentals/whatis)
     *   [Associate or add an Azure subscription to your Microsoft Entra tenant](https://learn.microsoft.com/en-us/entra/fundamentals/how-subscriptions-associated-directory)
-    *   *(From article)* [Demystifying Entra Tenants and Subscriptions]() - *Need to find this link* 
+    *   *(From article)* [Demystifying Entra Tenants and Subscriptions](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/demystifying-microsoft-entra-id-tenants-and-azure-subscriptions/4155261) 
 
 ## [ ] Implement Role-Based Access Control (RBAC) properly
 
@@ -27,7 +27,7 @@ This document provides further details and context for the Identity & Access Man
 *   **Resources:**
     *   [What are managed identities for Azure resources?](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview)
     *   [Azure services that support managed identities](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/services-support-managed-identities)
-    *   *(From article)* [From Zero to Hero: Identity in AKS]() - *Need to find this link*
+    *   *(From article)* [From Zero to Hero: Identity in AKS](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/from-zero-to-hero-with-identity-and-access-control-in-azure-kubernetes-service/4386350) 
 
 ## [ ] Enable Privileged Identity Management (PIM)
 
