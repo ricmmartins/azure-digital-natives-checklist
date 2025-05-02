@@ -1,3 +1,5 @@
 title: Azure Digital Natives Checklist
 description: Practical checklist for startups moving from MVP to production.
 theme: minima  # Default Jekyll theme
+include:
+  - assets/css/styles.css
