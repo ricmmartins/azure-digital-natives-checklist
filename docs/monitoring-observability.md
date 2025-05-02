@@ -49,4 +49,4 @@ This document provides further details and context for the Monitoring & Observab
 *   **Resources:**
     *   [Observability in Azure](https://learn.microsoft.com/en-us/azure/architecture/best-practices/observability)
     *   [Distributed tracing in Azure](https://learn.microsoft.com/en-us/azure/azure-monitor/app/distributed-tracing)
-    *   *(From article)* [MELT in Azure]() - *Need to find this link*
+    *   *(From article)* [MELT in Azure](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/azure-monitor--melt-a-comprehensive-approach-to-cloud-observability/4251166)
