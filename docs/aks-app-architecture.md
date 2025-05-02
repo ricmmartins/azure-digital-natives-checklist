@@ -9,7 +9,7 @@ This document provides further details and context for the AKS & Application Arc
 *   **Resources:**
     *   [Azure Kubernetes Service (AKS) documentation](https://learn.microsoft.com/en-us/azure/aks/)
     *   [AKS baseline architecture](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks/baseline-aks)
-    *   *(From article)* [AKS Guide for Startups]() - *Need to find this link*
+    *   *(From article)* [AKS Guide for Startups](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/azure-kubernetes-service-%E2%80%93-a-friendly-guide-for-startups/4374796)
 
 ## [ ] Plan AKS storage, upgrades, identity, and cluster models
 
@@ -20,7 +20,7 @@ This document provides further details and context for the AKS & Application Arc
     *   **Identity:** Integrate AKS with Microsoft Entra ID for user authentication and Kubernetes RBAC. Use Managed Identities for AKS cluster components and application pods to access other Azure resources securely. [AKS integration with Microsoft Entra ID](https://learn.microsoft.com/en-us/azure/aks/managed-aad), [Use managed identities in AKS](https://learn.microsoft.com/en-us/azure/aks/use-managed-identity)
     *   **Cluster Models:** Understand node pools (system vs. user), virtual nodes (for serverless containers), and availability zones for high availability. [Core Kubernetes infrastructure concepts in AKS](https://learn.microsoft.com/en-us/azure/aks/concepts-clusters-workloads)
 *   **Resources:** *(Links included above)*
-    *   *(From article links for storage, upgrades, identity, cluster models)* - *Need to find these specific links*
+    
 
 ## [ ] Integrate AKS with Azure Monitor
 
