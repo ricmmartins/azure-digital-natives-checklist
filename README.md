@@ -16,7 +16,7 @@ The checklist is derived from insights shared in the Microsoft Tech Community ar
 ## How to Use
 
 1.  **Review the Checklist:** Start with the main [CHECKLIST.md](./CHECKLIST.md) file. It provides a high-level overview of key areas and actionable items using Markdown checkboxes.
-2.  **Dive Deeper:** For more context, rationale, and links to official documentation or tutorials for specific checklist items, navigate to the corresponding file within the [docs/](../docs/) directory.
+2.  **Dive Deeper:** For more context, rationale, and links to official documentation or tutorials for specific checklist items, navigate to the corresponding file within the [docs/](./docs/) directory.
 3.  **Track Progress:** Fork this repository or copy the `CHECKLIST.md` content and use the checkboxes (`- [ ]`) to track your team's progress.
 4.  **Explore Scripts (Optional):** Check the [scripts/](./scripts/) directory for potential automation snippets (Azure CLI, Bicep, etc.) to help implement certain recommendations (Note: This section may be under development).
 5.  **Contribute:** Share your own experiences, suggest improvements, or add relevant resources by following the guidelines in [CONTRIBUTING.md](./CONTRIBUTING.md).
