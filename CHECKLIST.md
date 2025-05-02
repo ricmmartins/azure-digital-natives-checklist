@@ -8,7 +8,7 @@ Use this checklist to guide your Azure setup from MVP to a more production-grade
 
 Getting identity right from the start is crucial. Cleaning it up later is significantly harder.
 
-- [ ] **Use Microsoft Entra ID as the single source of truth:** Centralize user and service identities. [Learn More](docs/identity-access.md#entra-id)
+- [ ]  **Use Microsoft Entra ID as the single source of truth:** Centralize user and service identities. [Learn More](docs/identity-access.md#entra-id)
 - [ ] **Implement Role-Based Access Control (RBAC) properly:** Avoid using the broad "Owner" role. Assign least privilege access based on roles and responsibilities. [Learn More](docs/identity-access.md#rbac)
 - [ ] **Utilize Managed Identities:** Eliminate the need to store credentials in code or configuration for Azure service authentication. [Learn More](docs/identity-access.md#managed-identities)
 - [ ] **Enable Privileged Identity Management (PIM):** Implement just-in-time access for privileged roles to enhance security. [Learn More](docs/identity-access.md#pim)
