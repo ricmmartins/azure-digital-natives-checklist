@@ -10,7 +10,7 @@ This document provides further details and context for the Azure OpenAI (AOAI) s
     *   [Azure OpenAI Service documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/)
     *   [Introduction to prompt engineering](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/prompt-engineering)
     *   [Transparency Note for Azure OpenAI Service](https://learn.microsoft.com/en-us/legal/cognitive-services/openai/transparency-note)
-    *   *(From article)* [AOAI Best Practices]() - *Need to find this link*
+    *   *(From article)* [AOAI Best Practices](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/azure-openai-best-practices-a-quick-reference-guide-to-optimize-your-deployments/4403546)
 
 ## [ ] Follow guidance for using your own data with AOAI
 
@@ -19,7 +19,6 @@ This document provides further details and context for the Azure OpenAI (AOAI) s
 *   **Resources:**
     *   [Azure OpenAI on your data](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/use-your-data)
     *   [Retrieval Augmented Generation (RAG) in Azure AI Search](https://learn.microsoft.com/en-us/azure/search/retrieval-augmented-generation-overview)
-    *   *(From article)* [this doc]() - *Need to find this link for using own data*
 
 ## [ ] Understand AOAI data processing and storage
 
