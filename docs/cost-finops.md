@@ -45,6 +45,6 @@ This document provides further details and context for the Cost Management & Fin
 *   **Resources:**
     *   [What is FinOps? (Azure Documentation)](https://learn.microsoft.com/en-us/azure/cost-management-billing/finops/overview-finops)
     *   [FinOps Foundation](https://www.finops.org/)
-    *   *(From article)* [FinOps Toolkit]() - *Need to find this link*
-    *   *(From article)* [Slash Your Azure Bill – Tips for Startups]() - *Need to find this link*
+    *   *(From article)* [FinOps Toolkit](https://microsoft.github.io/finops-toolkit/)
+    *   *(From article)* [Slash Your Azure Bill – Tips for Startups](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/slash-your-azure-bill-top-tips-for-startups/4141839)
 
