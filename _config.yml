@@ -1,5 +1,5 @@
 title: Azure Digital Natives Checklist
 description: Practical checklist for startups moving from MVP to production.
-remote_theme: cayman
+remote_theme: modernist
 plugins:
   - jekyll-remote-theme
