@@ -1,5 +1,4 @@
 ---
-title: Azure Startup Checklist Repository
 nav_order: 1
 ---
 
