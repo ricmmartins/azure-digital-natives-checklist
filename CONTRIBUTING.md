@@ -29,4 +29,4 @@ We welcome contributions to improve this checklist and make it even more valuabl
 
 Thank you for helping make this resource better!
 
-## Back to the [main page](../README.md)
+## Back to the [main page](https://azdnguide.com/)
