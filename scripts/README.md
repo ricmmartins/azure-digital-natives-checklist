@@ -1,4 +1,6 @@
 ---
+title: Automation Scripts
+layout: default
 nav_exclude: true
 ---
 
