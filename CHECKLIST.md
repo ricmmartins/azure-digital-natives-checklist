@@ -1,3 +1,8 @@
+---
+layout: default
+title: Checklist
+---
+
 # Azure Startup Checklist
 
 This checklist provides actionable steps for digital native startups to implement Azure best practices, based on insights from the Microsoft Tech Community article "The Digital Native's Checklist for Azure".
