@@ -1,3 +1,8 @@
+---
+layout: default
+title: Azure Startup Checklist Repository
+---
+
 # Azure Startup Checklist Repository
 
 ## Overview
