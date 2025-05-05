@@ -28,3 +28,5 @@ Contributions to the documentation are welcome! To suggest improvements or add n
 ## License
 
 This project is licensed under the [MIT License](../LICENSE).
+
+## Back to the [main page](../README.md)
