@@ -1,3 +1,8 @@
+---
+layout: default
+title: Contributing
+---
+
 # Contributing to the Azure Startup Checklist
 
 We welcome contributions to improve this checklist and make it even more valuable for the startup community!
