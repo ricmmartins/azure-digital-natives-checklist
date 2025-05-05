@@ -139,3 +139,4 @@ This directory contains helper scripts (primarily using Azure CLI) designed to a
     ```
 *   **Output:** Lists the details of matching alerts found in JSON format. Notes that alerts might be configured differently, so manual review may still be needed for full verification.
 
+## Back to the [main page](../README.md)
