@@ -86,5 +86,5 @@ Considerations for leveraging Generative AI services on Azure.
 
 - [ ] **Review Azure for AWS Professionals documentation (if applicable):** Understand Azure service equivalents if transitioning from AWS. [Learn More](https://aka.ms/Azure4AWSPros)
 
-## Back to the [main page](../README.md)
+## Back to the [main page](https://azdnguide.com/)
 
