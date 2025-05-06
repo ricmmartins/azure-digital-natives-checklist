@@ -28,8 +28,6 @@ The checklist is derived from insights shared in the Microsoft Tech Community ar
 
 ## Repository Structure
 
-If you want to see the respository directly on GitHub, here is the link [https://github.com/ricmmartins/azure-digital-natives-checklist](https://github.com/ricmmartins/azure-digital-natives-checklist)
-
 ```
 azure-startup-checklist/
 ├── docs/                   # Detailed explanations & links
@@ -47,6 +45,7 @@ azure-startup-checklist/
 ├── LICENSE                 # MIT License
 └── README.md               # This file
 ```
+If you want to see the respository directly on GitHub, here is the link [https://github.com/ricmmartins/azure-digital-natives-checklist](https://github.com/ricmmartins/azure-digital-natives-checklist)
 
 ## Disclaimer
 
