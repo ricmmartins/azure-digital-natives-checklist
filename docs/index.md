@@ -21,7 +21,7 @@ This folder contains supporting documentation and guides for the **Azure Digital
 
 1. Browse the documentation files in this folder to find relevant guides and instructions.
 2. Follow the step-by-step instructions to implement the best practices in your Azure environment.
-3. Refer to the main repository's [README](../README.md) for an overview of the project.
+3. Refer to the main repository's page for an overview of the project.
 
 ## Contributing
 
