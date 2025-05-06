@@ -1,4 +1,4 @@
-# Azure Startup Checklist Repository
+# Azure Startup Checklist 
 
 ## Overview
 
