@@ -1,5 +1,12 @@
 title: Azure Digital Natives Checklist
 description: Practical checklist for startups moving from MVP to production.
 remote_theme: just-the-docs/just-the-docs
+
+# Use the Kramdown parser in GFM mode to enable task lists
+markdown: kramdown
+kramdown:
+  input: GFM
+  task_lists: true
+
 plugins:
   - jekyll-remote-theme
