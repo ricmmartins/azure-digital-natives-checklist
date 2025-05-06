@@ -1,3 +1,7 @@
+---
+nav_exclude: true
+---
+
 # Documentation: Infrastructure as Code (IaC)
 
 This document provides further details and context for the Infrastructure as Code (IaC) section of the Azure Startup Checklist.
