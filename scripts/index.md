@@ -4,7 +4,7 @@ permalink: /scripts/
 nav_order: 4
 ---
 
-# Automation Scripts
+# Scripts Folder
 
 This directory contains helper scripts (primarily using Azure CLI) designed to assist with implementing or auditing some of the best practices outlined in the main `CHECKLIST.md`.
 
