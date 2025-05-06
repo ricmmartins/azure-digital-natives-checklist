@@ -28,5 +28,3 @@ We welcome contributions to improve this checklist and make it even more valuabl
 *   Ensure Markdown formatting is correct.
 
 Thank you for helping make this resource better!
-
-## Back to the [main page](https://azdnguide.com/)
