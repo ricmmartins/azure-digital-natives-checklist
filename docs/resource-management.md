@@ -1,3 +1,7 @@
+---
+nav_exclude: true
+---
+
 # Documentation: Resource Management & Organization
 
 This document provides further details and context for the Resource Management & Organization section of the Azure Startup Checklist.
