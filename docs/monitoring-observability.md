@@ -1,3 +1,7 @@
+---
+nav_exclude: true
+---
+
 # Documentation: Monitoring & Observability
 
 This document provides further details and context for the Monitoring & Observability section of the Azure Startup Checklist.
