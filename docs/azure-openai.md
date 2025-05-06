@@ -1,3 +1,7 @@
+---
+nav_exclude: true
+---
+
 # Documentation: Azure OpenAI (AOAI)
 
 This document provides further details and context for the Azure OpenAI (AOAI) section of the Azure Startup Checklist.
