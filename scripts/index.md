@@ -16,7 +16,7 @@ This directory contains helper scripts (primarily using Azure CLI) designed to a
 
 ## Scripts
 
-### 1. `check_missing_tags.azcli`
+### 1. [check_missing_tags.azcli](https://github.com/ricmmartins/azure-digital-natives-checklist/blob/main/scripts/check_missing_tags.azcli)
 
 *   **Purpose:** Finds resources within a specified resource group that are missing a specific tag key.
 *   **Usage:**
@@ -29,7 +29,7 @@ This directory contains helper scripts (primarily using Azure CLI) designed to a
     ```
 *   **Output:** Lists the resources (name, ID, type) missing the specified tag in JSON format and provides a summary count.
 
-### 2. `add_nsg_rule.azcli`
+### 2. [add_nsg_rule.azcli](https://github.com/ricmmartins/azure-digital-natives-checklist/blob/main/scripts/add_nsg_rule.azcli)
 
 *   **Purpose:** Adds or updates a security rule in a specified Network Security Group (NSG).
 *   **Usage:**
@@ -61,7 +61,7 @@ This directory contains helper scripts (primarily using Azure CLI) designed to a
 **Disclaimer:** Always test scripts in a non-production environment before running them against production resources. Review the script logic to ensure it meets your specific requirements.
 
 
-### 3. `audit_subscription_owners.azcli`
+### 3. [audit_subscription_owners.azcli](https://github.com/ricmmartins/azure-digital-natives-checklist/blob/main/scripts/audit_subscription_owners.azcli)
 
 *   **Purpose:** Lists users and groups assigned the built-in 'Owner' role directly on a specified subscription.
 *   **Usage:**
@@ -74,7 +74,7 @@ This directory contains helper scripts (primarily using Azure CLI) designed to a
     ```
 *   **Output:** Lists the principal name, type, and ID for each User/Group owner found in JSON format, along with a summary count.
 
-### 4. `find_public_ips_missing_tag.azcli`
+### 4. [find_public_ips_missing_tag.azcli](https://github.com/ricmmartins/azure-digital-natives-checklist/blob/main/scripts/find_public_ips_missing_tag.azcli)
 
 *   **Purpose:** Uses Azure Resource Graph to find Public IP Address resources across all accessible subscriptions that are missing a specific tag key.
 *   **Usage:**
@@ -87,7 +87,7 @@ This directory contains helper scripts (primarily using Azure CLI) designed to a
     ```
 *   **Output:** A table listing the name, resource group, subscription ID, location, and resource ID of the Public IPs missing the specified tag.
 
-### 5. `audit_missing_rg_locks.azcli`
+### 5. [audit_missing_rg_locks.azcli](https://github.com/ricmmartins/azure-digital-natives-checklist/blob/main/scripts/audit_missing_rg_locks.azcli)
 
 *   **Purpose:** Finds Resource Groups that have a specific tag (e.g., `Environment=Production`) but are missing a `CanNotDelete` lock.
 *   **Usage:**
@@ -100,7 +100,7 @@ This directory contains helper scripts (primarily using Azure CLI) designed to a
     ```
 *   **Output:** A message indicating which tagged Resource Groups are missing the `CanNotDelete` lock, along with a summary count.
 
-### 6. `summarize_costs_by_tag.azcli`
+### 6. [summarize_costs_by_tag.azcli](https://github.com/ricmmartins/azure-digital-natives-checklist/blob/main/scripts/summarize_costs_by_tag.azcli)
 
 *   **Purpose:** Queries Azure Cost Management to show actual costs grouped by the values of a specific tag key for a given scope (subscription or resource group) and timeframe.
 *   **Usage:**
@@ -117,7 +117,7 @@ This directory contains helper scripts (primarily using Azure CLI) designed to a
     ```
 *   **Output:** A table showing the cost aggregated by each value of the specified tag key.
 
-### 7. `find_unrestricted_nsg_rules.azcli`
+### 7. [find_unrestricted_nsg_rules.azcli](https://github.com/ricmmartins/azure-digital-natives-checklist/blob/main/scripts/find_unrestricted_nsg_rules.azcli)
 
 *   **Purpose:** Uses Azure Resource Graph to find Network Security Group (NSG) rules that allow inbound traffic from `Any` or `Internet` on potentially risky ports.
 *   **Usage:**
@@ -131,7 +131,7 @@ This directory contains helper scripts (primarily using Azure CLI) designed to a
     ```
 *   **Output:** A table listing the NSG name, rule name, priority, protocol, source, destination port, and other details for potentially risky rules found.
 
-### 8. `check_resource_health_alerts.azcli`
+### 8. [check_resource_health_alerts.azcli](https://github.com/ricmmartins/azure-digital-natives-checklist/blob/main/scripts/check_resource_health_alerts.azcli)
 
 *   **Purpose:** Lists Azure Monitor Activity Log Alerts that appear to be configured to trigger based on Resource Health events (specifically checking for the `ResourceHealth` category in the alert condition).
 *   **Usage:**
