@@ -9,7 +9,7 @@ This folder contains supporting documentation and guides for the **Azure Digital
 
 ## Contents
 
-- **[Identity Management](/docs/identity-access.md#entra-id)**: Best practices and configurations for securing identity on Azure.
+- **[Identity Management](/docs/identity-access.html#entra-id)**: Best practices and configurations for securing identity on Azure.
 - **[Security](/docs/networking-security.html#vnets-subnets-nsgs)**: Guidelines for enhancing the security posture of your Azure environment.
 - **[Resource management](/docs/resource-management.html#organization-strategy)**: Avoid resource sprawl and maintain clarity on ownership and purpose.
 - **[Cost Management](/docs/cost-finops.html#cost-management)**: Tips and tools for optimizing and controlling expenses in Azure.
