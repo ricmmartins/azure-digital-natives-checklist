@@ -1,6 +1,6 @@
 ---
 title: Automation Scripts
-layout: default
+permalink: /scripts/ 
 nav_exclude: true
 ---
 
