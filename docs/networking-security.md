@@ -1,3 +1,7 @@
+---
+nav_exclude: true
+---
+
 # Documentation: Networking & Security
 
 This document provides further details and context for the Networking & Security section of the Azure Startup Checklist.
