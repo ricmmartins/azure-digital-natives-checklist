@@ -1,5 +1,8 @@
 title: Azure Digital Natives Checklist
 description: Practical checklist for startups moving from MVP to production.
+url: "https://ricmmartins.github.io"
+baseurl: "/azure-digital-natives-checklist"
+
 remote_theme: just-the-docs/just-the-docs
 
 # Use the Kramdown parser in GFM mode to enable task lists
