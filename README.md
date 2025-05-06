@@ -1,3 +1,7 @@
+---
+title: Welcome
+---
+
 # Azure Startup Checklist 
 
 ## Overview
