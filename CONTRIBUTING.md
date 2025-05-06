@@ -9,7 +9,7 @@ We welcome contributions to improve this checklist and make it even more valuabl
 
 ## How to Contribute
 
-*   **Report Issues:** If you find errors, outdated information, or areas for improvement, please open an issue on the GitHub repository.
+*   **Report Issues:** If you find errors, outdated information, or areas for improvement, please open an issue on the [GitHub repository](https://github.com/ricmmartins/azure-digital-natives-checklist).
 *   **Suggest Enhancements:** Have ideas for new checklist items, categories, or helpful resources? Open an issue to discuss.
 *   **Submit Pull Requests:**
     1.  Fork the repository.
