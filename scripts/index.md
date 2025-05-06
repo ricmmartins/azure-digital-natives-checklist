@@ -1,7 +1,7 @@
 ---
-title: Automation Scripts
+title: Scripts
 permalink: /scripts/ 
-nav_exclude: true
+nav_order: 4
 ---
 
 # Automation Scripts
