@@ -1,3 +1,8 @@
+---
+title: Docs
+nav_order: 3
+---
+
 # Docs Folder
 
 This folder contains supporting documentation and guides for the **Azure Digital Natives Checklist** repository. The documents here are designed to help startups moving from MVP to production in their Azure environments.
