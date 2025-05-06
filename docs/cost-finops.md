@@ -1,3 +1,7 @@
+---
+nav_exclude: true
+---
+
 # Documentation: Cost Management & FinOps
 
 This document provides further details and context for the Cost Management & FinOps section of the Azure Startup Checklist.
