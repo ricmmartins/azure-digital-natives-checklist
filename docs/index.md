@@ -9,13 +9,14 @@ This folder contains supporting documentation and guides for the **Azure Digital
 
 ## Contents
 
-- **Identity Management**: Best practices and configurations for securing identity on Azure.
-- **Security**: Guidelines for enhancing the security posture of your Azure environment.
-- **Cost Management**: Tips and tools for optimizing and controlling expenses in Azure.
-- **Monitoring**: Instructions for setting up monitoring and alerting for your services.
-- **Infrastructure as Code (IaC)**: Examples and scripts for automating your Azure infrastructure setup.
-- **Azure Kubernetes Service (AKS)**: Deployment and management guides for AKS.
-- **OpenAI Integrations**: Resources for integrating OpenAI services into your Azure-based applications.
+- **[Identity Management](docs/identity-access.md#entra-id)**: Best practices and configurations for securing identity on Azure.
+- **[Security](/docs/networking-security.html#vnets-subnets-nsgs)**: Guidelines for enhancing the security posture of your Azure environment.
+- **[Resource management](/docs/resource-management.html#organization-strategy)**: Avoid resource sprawl and maintain clarity on ownership and purpose.
+- **[Cost Management](/docs/cost-finops.html#cost-management)**: Tips and tools for optimizing and controlling expenses in Azure.
+- **[Monitoring](/docs/monitoring-observability.html#azure-monitor)**: Instructions for setting up monitoring and alerting for your services.
+- **[Infrastructure as Code (IaC)](/docs/infrastructure-as-code.html#iac-tools)**: Examples and scripts for automating your Azure infrastructure setup.
+- **[Azure Kubernetes Service (AKS)](/docs/aks-app-architecture.html#aks-guidance)**: Deployment and management guides for AKS.
+- **[OpenAI Integrations](/docs/azure-openai.html#aoai-best-practices)**: Resources for integrating OpenAI services into your Azure-based applications.
 
 ## How to Use
 
