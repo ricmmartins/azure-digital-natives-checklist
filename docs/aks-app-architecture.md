@@ -1,5 +1,4 @@
 ---
-title: Documentation: AKS & Application Architecture
 nav_exclude: true
 ---
 
