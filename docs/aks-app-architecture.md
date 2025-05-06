@@ -1,3 +1,8 @@
+---
+title: Documentation: AKS & Application Architecture
+nav_exclude: true
+---
+
 # Documentation: AKS & Application Architecture
 
 This document provides further details and context for the AKS & Application Architecture section of the Azure Startup Checklist, focusing on Azure Kubernetes Service (AKS).
