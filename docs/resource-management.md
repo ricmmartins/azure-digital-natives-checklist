@@ -6,7 +6,7 @@ nav_exclude: true
 
 This document provides further details and context for the Resource Management & Organization section of the Azure Startup Checklist.
 
-## [ ] Define and follow a resource organization strategy
+- [ ] **Define and follow a resource organization strategy**
 
 *   **Why:** A clear hierarchy (Management Groups -> Subscriptions -> Resource Groups) provides structure for applying policies (Azure Policy), managing access (RBAC), organizing costs, and simplifying resource discovery. Without it, environments quickly become chaotic and difficult to manage.
 *   **How:**
@@ -19,7 +19,7 @@ This document provides further details and context for the Resource Management &
     *   [Azure subscription and service limits, quotas, and constraints](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits) (Understand subscription boundaries)
     *   [Azure Resource Manager overview](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview) (Resource Groups)
 
-## [ ] Implement a consistent tagging strategy
+- [ ] **Implement a consistent tagging strategy**
 
 *   **Why:** Tags are key-value pairs that add metadata to Azure resources. They are essential for cost allocation, automation, resource filtering, security boundary definition, and operational management. Inconsistent or missing tags make these tasks difficult or impossible.
 *   **How:** Define a mandatory and recommended set of tags for your organization. Common tags include:
