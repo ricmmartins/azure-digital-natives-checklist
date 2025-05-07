@@ -6,7 +6,7 @@ nav_exclude: true
 
 This document provides further details and context for the Cost Management & FinOps section of the Azure Startup Checklist.
 
-## [ ] Utilize Azure Cost Management + Billing
+- [ ] **Utilize Azure Cost Management + Billing**
 
 *   **Why:** Understanding where your Azure spend is going is fundamental. Azure Cost Management provides tools to monitor, analyze, and optimize your costs.
 *   **How:** Regularly access the Cost Management + Billing section in the Azure portal. Use cost analysis tools to break down costs by service, resource group, tag, location, etc. Set up scheduled exports for offline analysis if needed.
@@ -14,7 +14,7 @@ This document provides further details and context for the Cost Management & Fin
     *   [What is Azure Cost Management + Billing?](https://learn.microsoft.com/en-us/azure/cost-management-billing/cost-management-billing-overview)
     *   [Quickstart: Explore and analyze costs with cost analysis](https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/quick-acm-cost-analysis)
 
-## [ ] Set up budgets and spending alerts
+- [ ] **Set up budgets and spending alerts**
 
 *   **Why:** Budgets act as spending limits or targets, and alerts provide early warnings when costs are approaching or exceeding these thresholds. This prevents unexpected billing surprises.
 *   **How:** Create budgets at different scopes (subscription, resource group). Define budget amounts and time periods (monthly, quarterly, annually). Configure alert thresholds (e.g., at 80%, 100% of budget) and specify recipients for notifications (email, action group).
@@ -22,7 +22,7 @@ This document provides further details and context for the Cost Management & Fin
     *   [Tutorial: Create and manage Azure budgets](https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/tutorial-acm-create-budgets)
     *   [Use cost alerts to monitor usage and spending](https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending)
 
-## [ ] Regularly review Azure Advisor recommendations
+- [ ] **Regularly review Azure Advisor recommendations**
 
 *   **Why:** Azure Advisor is a free service that analyzes your resource configuration and usage telemetry to provide personalized recommendations for optimizing cost, performance, reliability, operational excellence, and security.
 *   **How:** Access Azure Advisor regularly through the Azure portal. Review recommendations, especially in the "Cost" category. Evaluate the potential savings and implementation effort for each suggestion.
@@ -30,7 +30,7 @@ This document provides further details and context for the Cost Management & Fin
     *   [Introduction to Azure Advisor](https://learn.microsoft.com/en-us/azure/advisor/advisor-overview)
     *   [Optimize Azure costs with Azure Advisor](https://learn.microsoft.com/en-us/azure/advisor/advisor-cost-recommendations)
 
-## [ ] Evaluate cost optimization options
+- [ ] **Evaluate cost optimization options**
 
 *   **Why:** Azure offers several pricing models and purchasing options that can significantly reduce costs for predictable workloads.
 *   **How:**
@@ -42,7 +42,7 @@ This document provides further details and context for the Cost Management & Fin
     *   [What are Azure savings plans for compute?](https://learn.microsoft.com/en-us/azure/cost-management-billing/savings-plan/savings-plan-compute-overview)
     *   [Use Azure Spot Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/spot-vms)
 
-## [ ] Understand FinOps basics
+- [ ] **Understand FinOps basics**
 
 *   **Why:** FinOps is a cultural practice that brings financial accountability to the variable spend model of the cloud, enabling teams to make informed trade-offs between speed, cost, and quality.
 *   **How:** Familiarize your team with FinOps principles: collaboration between finance, tech, and business teams; visibility into cloud spending; accountability for costs; and ongoing optimization.
