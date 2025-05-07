@@ -15,7 +15,7 @@ This document provides further details and context for the AKS & Application Arc
     *   [AKS baseline architecture](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks/baseline-aks)
     *   *(From article)* [AKS Guide for Startups](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/azure-kubernetes-service-%E2%80%93-a-friendly-guide-for-startups/4374796)
 
-## [ ] Plan AKS storage, upgrades, identity, and cluster models
+- [ ] **Plan AKS storage, upgrades, identity, and cluster models**
 
 *   **Why:** These are fundamental aspects of your AKS cluster that impact performance, cost, security, and manageability.
 *   **How:**
@@ -27,7 +27,7 @@ This document provides further details and context for the AKS & Application Arc
 *   *(From article links for [storage](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/from-zero-to-hero-mastering-storage-in-azure-kubernetes-service-aks/4397734), [upgrades](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/embracing-aks-built-in-upgrade-features-and-exploring-custom-solutions/4398230), [identity](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/from-zero-to-hero-with-identity-and-access-control-in-azure-kubernetes-service/4386350), [cluster models](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/aks-standard-vs-aks-automatic-a-comprehensive-comparison/4264516))*
     
 
-## [ ] Integrate AKS with Azure Monitor
+- [ ] **Integrate AKS with Azure Monitor**
 
 *   **Why:** Monitoring your cluster and containerized applications is crucial for troubleshooting, performance tuning, and understanding resource consumption.
 *   **How:** Enable Azure Monitor Container Insights for your AKS cluster. This collects metrics and logs from controllers, nodes, and containers, providing rich visualizations and alerting capabilities.
@@ -35,7 +35,7 @@ This document provides further details and context for the AKS & Application Arc
     *   [Azure Monitor Container Insights overview](https://learn.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-overview)
     *   [Enable Container Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-enable-aks)
 
-## [ ] Follow AKS best practices
+- [ ] **Follow AKS best practices**
 
 *   **Why:** Adhering to recommended practices helps ensure your AKS environment is secure, reliable, scalable, and cost-effective.
 *   **How:** Review and implement best practices across various areas including cluster security, networking, storage, scheduling, multi-tenancy, and business continuity/disaster recovery (BCDR).
