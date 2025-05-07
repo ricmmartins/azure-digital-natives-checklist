@@ -6,7 +6,7 @@ nav_exclude: true
 
 This document provides further details and context for the AKS & Application Architecture section of the Azure Startup Checklist, focusing on Azure Kubernetes Service (AKS).
 
-- [ ] Review AKS guidance for startups
+- [ ] **Review AKS guidance for startups**
 
 *   **Why:** AKS simplifies deploying, managing, and scaling containerized applications using Kubernetes. Understanding core concepts and startup-specific considerations is key to leveraging it effectively.
 *   **How:** Familiarize yourself with AKS features, pricing, and common architectural patterns relevant to startups.
