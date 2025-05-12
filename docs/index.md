@@ -17,6 +17,7 @@ This folder contains supporting documentation and guides for the **Azure Digital
 - [Infrastructure as Code (IaC)](/docs/infrastructure-as-code.html#iac-tools): Examples and scripts for automating your Azure infrastructure setup.
 - [Azure Kubernetes Service (AKS)](/docs/aks-app-architecture.html#aks-guidance): Deployment and management guides for AKS.
 - [OpenAI Integrations](/docs/azure-openai.html#aoai-best-practices): Resources for integrating OpenAI services into your Azure-based applications.
+- [VM Scale Sets](/docs/vm-scale-sets.html): Resources for using VM Scale Sets to manage home built clusters (aka, not AKS, Cycle Cloud, or Batch).
 
 ## How to Use
 
