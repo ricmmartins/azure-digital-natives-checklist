@@ -38,7 +38,8 @@ azure-startup-checklist/
 │   ├── monitoring-observability.md
 │   ├── infrastructure-as-code.md
 │   ├── aks-app-architecture.md
-│   └── azure-openai.md
+│   ├── azure-openai.md
+|   └── vm-scale-sets.md
 ├── scripts/                # Automation snippets
 ├── CHECKLIST.md            # The main actionable checklist
 ├── CONTRIBUTING.md         # Contribution guidelines
