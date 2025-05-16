@@ -77,7 +77,7 @@ Credentials are securely handled by:
 
 ## Example Bicep Code
 
-```bicep
+```json
 param location string = 'francecentral'
 param vmssName string = 'mi300x-vmss'
 param instanceCount int = 16
