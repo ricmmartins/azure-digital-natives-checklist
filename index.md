@@ -3,7 +3,7 @@ title: Welcome
 nav_order: 1
 ---
 
-# Azure Startup Checklist Repository
+# Azure Digital Natives Guide Repository
 
 ## Overview
 
