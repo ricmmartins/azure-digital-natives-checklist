@@ -77,7 +77,7 @@ Credentials are securely handled by:
 
 ## Example Bicep Code
 
-```arm
+```bicep
 param location string = 'francecentral'
 param vmssName string = 'mi300x-vmss'
 param instanceCount int = 16
@@ -228,7 +228,6 @@ resource vnet 'Microsoft.Network/virtualNetworks@2024-05-01' = {
   }
 }
 ```
-
 ---
 
 ## Summary and Documentation of Initialization Script (`mi300x-cloudinit.sh`)
