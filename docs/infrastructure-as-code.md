@@ -37,9 +37,27 @@ This document provides further details and context for the Infrastructure as Cod
 - [ ] **Consider Azure Landing Zones**
 
 *   **Why:** Azure Landing Zones provide a prescriptive architectural approach, based on Cloud Adoption Framework principles, to set up your Azure environment with foundational capabilities for identity, governance, security, networking, and operations at scale. Even for startups, adopting Landing Zone concepts early can establish a solid foundation for future growth.
-*   **How:** Review the Azure Landing Zone conceptual architecture and implementation options. Start with a basic implementation tailored to your needs, focusing on core areas like subscription organization, identity, and basic governance (e.g., using Azure Policy for tagging).
+*   **How:** Review the Azure Landing Zone conceptual architecture and implementation options. Start with a basic implementation tailored to your needs, focusing on core areas like subscription organization, identity, and basic governance (e.g., using Azure Policy for tagging). Consider the subscription vending approach for scaling across teams.
 *   **Resources:**
     *   [What is an Azure landing zone?](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/)
     *   [Azure Landing Zone design principles](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-principles)
     *   [Implement Cloud Adoption Framework Azure landing zones](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/implementation-options)
+    *   [Subscription vending](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending)
+    *   [Management group and subscription organization](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org)
+
+- [ ] **Use Azure Verified Modules for standardized IaC**
+
+*   **Why:** Azure Verified Modules (AVM) are pre-built, tested, and maintained Bicep and Terraform modules that follow Azure best practices. Using them reduces boilerplate, enforces consistency, and accelerates infrastructure deployment.
+*   **How:** Browse the Azure Verified Modules registry for modules that match your infrastructure needs. Use them as building blocks in your IaC templates instead of writing custom resource definitions from scratch.
+*   **Resources:**
+    *   [Azure Verified Modules](https://azure.github.io/Azure-Verified-Modules/)
+    *   [Bicep public module registry](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/modules#public-module-registry)
+
+- [ ] **Use Azure Developer CLI (azd) for streamlined development**
+
+*   **Why:** Azure Developer CLI (azd) provides a developer-centric experience for provisioning and deploying Azure applications from templates, reducing the complexity of getting started with Azure services.
+*   **How:** Use `azd init` to initialize projects from templates, `azd provision` to create Azure resources, and `azd deploy` to deploy your application code. Explore the template gallery for common architectures.
+*   **Resources:**
+    *   [What is Azure Developer CLI?](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/overview)
+    *   [Azure Developer CLI templates](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/azd-templates)
 

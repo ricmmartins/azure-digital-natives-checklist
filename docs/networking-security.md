@@ -35,10 +35,10 @@ This document provides further details and context for the Networking & Security
 - [ ] **Deploy Azure Firewall and DDoS Protection where appropriate**
 
 *   **Why:** Azure Firewall provides centralized network traffic filtering (L3-L7) for your VNets. Azure DDoS Protection (Standard tier) offers enhanced mitigation against volumetric and protocol-based DDoS attacks beyond the basic infrastructure protection.
-*   **How:** Consider deploying Azure Firewall in a central hub VNet to inspect traffic entering/leaving your Azure environment or between spokes. Evaluate the need for DDoS Protection Standard based on the criticality and public exposure of your applications.
+*   **How:** Consider deploying Azure Firewall in a central hub VNet to inspect traffic entering/leaving your Azure environment or between spokes. Evaluate the need for Azure DDoS Network Protection based on the criticality and public exposure of your applications.
 *   **Resources:**
     *   [What is Azure Firewall?](https://learn.microsoft.com/en-us/azure/firewall/overview)
-    *   [Azure DDoS Protection Standard overview](https://learn.microsoft.com/en-us/azure/ddos-protection/ddos-protection-overview)
+    *   [Azure DDoS Network Protection overview](https://learn.microsoft.com/en-us/azure/ddos-protection/ddos-protection-overview)
 
 - [ ] **Minimize public IP exposure**
 

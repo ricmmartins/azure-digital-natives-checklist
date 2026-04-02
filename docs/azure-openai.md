@@ -4,14 +4,14 @@ parent: Docs
 nav_order: 8
 ---
 
-# Documentation: Azure OpenAI (AOAI)
+# Documentation: Azure AI Services
 
-This document provides further details and context for the Azure OpenAI (AOAI) section of the Azure Startup Checklist.
+This document provides further details and context for the Azure AI section of the Azure Digital Natives Guide.
 
 - [ ] **Review AOAI best practices**
 
 *   **Why:** Leveraging large language models (LLMs) effectively requires understanding best practices for prompt engineering, model selection, security, and responsible AI.
-*   **How:** Familiarize yourself with Azure OpenAI documentation covering key concepts, model capabilities (GPT-4, GPT-3.5-Turbo, Embeddings, DALL-E), and recommended patterns.
+*   **How:** Familiarize yourself with Azure OpenAI documentation covering key concepts, model capabilities (GPT-4o, GPT-4.1, o-series reasoning models, Embeddings, DALL-E), and recommended patterns.
 *   **Resources:**
     *   [Azure OpenAI Service documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/)
     *   [Introduction to prompt engineering](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/prompt-engineering)
@@ -45,4 +45,22 @@ This document provides further details and context for the Azure OpenAI (AOAI) s
     *   [Azure OpenAI Service quotas and limits](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/quotas-limits)
     *   [Monitor Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/monitoring)
     *   [Azure OpenAI Pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/)
+
+- [ ] **Implement Responsible AI practices**
+
+*   **Why:** AI systems can produce harmful, biased, or inaccurate content. Responsible AI practices ensure your applications are fair, transparent, and safe for users.
+*   **How:** Enable content filtering on Azure OpenAI deployments. Implement human-in-the-loop patterns for high-stakes decisions. Review the Microsoft Responsible AI Standard and apply it to your AI workloads. Use Azure AI Content Safety to detect harmful content.
+*   **Resources:**
+    *   [Microsoft Responsible AI Standard](https://learn.microsoft.com/en-us/azure/ai-services/responsible-use-of-ai-overview)
+    *   [Content filtering in Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/content-filter)
+    *   [Azure AI Content Safety](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/overview)
+
+- [ ] **Explore Azure AI Foundry for end-to-end AI development**
+
+*   **Why:** Azure AI Foundry provides a unified platform for building, evaluating, and deploying AI applications, including model catalog, prompt flow, and evaluation tools — going beyond raw model access.
+*   **How:** Use Azure AI Foundry to explore the model catalog, build prompt flows for orchestration, evaluate model outputs for quality and safety, and deploy AI solutions with built-in monitoring.
+*   **Resources:**
+    *   [What is Azure AI Foundry?](https://learn.microsoft.com/en-us/azure/ai-studio/what-is-ai-studio)
+    *   [Azure AI Search for RAG patterns](https://learn.microsoft.com/en-us/azure/search/search-what-is-azure-search)
+    *   [Semantic Kernel overview](https://learn.microsoft.com/en-us/semantic-kernel/overview/)
 

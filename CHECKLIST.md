@@ -64,6 +64,8 @@ Automate infrastructure deployment and management for consistency and repeatabil
 - [ ] **Adopt an IaC tool (Bicep, ARM Templates, Terraform):** Define and manage your Azure infrastructure using code instead of manual portal configuration. [Learn More](docs/infrastructure-as-code.md#iac-tools)
 - [ ] **Integrate IaC into CI/CD pipelines:** Automate infrastructure provisioning and updates as part of your deployment process. [Learn More](docs/infrastructure-as-code.md#cicd-integration)
 - [ ] **Consider Azure Landing Zones:** Implement a structured approach for governance, security, and scalability, even for smaller environments. [Learn More](docs/infrastructure-as-code.md#landing-zones)
+- [ ] **Use Azure Verified Modules for standardized IaC:** Leverage pre-built, tested Bicep/Terraform modules that follow Azure best practices. [Learn More](docs/infrastructure-as-code.md)
+- [ ] **Use Azure Developer CLI (azd) for streamlined development:** Simplify provisioning and deploying Azure apps from templates. [Learn More](docs/infrastructure-as-code.md)
 
 ## AKS & Application Architecture
 
@@ -74,14 +76,16 @@ Best practices for running containerized applications on Azure Kubernetes Servic
 - [ ] **Integrate AKS with Azure Monitor:** Enable container insights and monitoring for your Kubernetes clusters and workloads. [Learn More](docs/aks-app-architecture.md#aks-monitoring)
 - [ ] **Follow AKS best practices:** Adhere to recommended practices for security, networking, scaling, and operations. [Learn More](docs/aks-app-architecture.md#aks-best-practices)
 
-## Azure OpenAI (AOAI)
+## Azure AI Services
 
-Considerations for leveraging Generative AI services on Azure.
+Considerations for leveraging AI and Generative AI services on Azure.
 
 - [ ] **Review AOAI best practices:** Understand recommended approaches for developing and deploying solutions with Azure OpenAI. [Learn More](docs/azure-openai.md#aoai-best-practices)
 - [ ] **Follow guidance for using your own data with AOAI:** Implement secure and effective patterns for retrieval-augmented generation (RAG). [Learn More](docs/azure-openai.md#aoai-custom-data)
 - [ ] **Understand AOAI data processing and storage:** Be aware of how prompts, completions, and embeddings are handled. [Learn More](docs/azure-openai.md#aoai-data-handling)
 - [ ] **Monitor AOAI data residency, concurrency, and cost:** Plan for and manage these factors, especially as usage scales. [Learn More](docs/azure-openai.md#aoai-operational-considerations)
+- [ ] **Implement Responsible AI practices:** Enable content filtering, human-in-the-loop patterns, and follow the Microsoft Responsible AI Standard. [Learn More](docs/azure-openai.md)
+- [ ] **Explore Azure AI Foundry for end-to-end AI development:** Use AI Foundry for model catalog, prompt flow, evaluation, and deployment. [Learn More](docs/azure-openai.md)
 
 ## Well-Architected Framework
 
@@ -144,6 +148,33 @@ Define, measure, and manage your reliability targets.
 - [ ] **Calculate composite SLAs for your architecture:** Multiply individual SLAs to understand end-to-end availability targets. [Learn More](docs/sla-slo.md)
 - [ ] **Define SLOs and SLIs for your application:** Set Service Level Objectives and Indicators that matter to your customers. [Learn More](docs/sla-slo.md)
 - [ ] **Implement error budgets and monitor SLO compliance:** Use error budgets to balance velocity against reliability. [Learn More](docs/sla-slo.md)
+
+## Platform Engineering
+
+Build internal developer platforms for self-service infrastructure and faster delivery.
+
+- [ ] **Build an Internal Developer Platform (IDP):** Create self-service capabilities for developers to provision infrastructure and deploy apps without tickets. [Learn More](docs/platform-engineering.md)
+- [ ] **Standardize developer environments with Azure Deployment Environments:** Provide pre-configured, project-specific environments for developers. [Learn More](docs/platform-engineering.md)
+- [ ] **Implement service catalogs and golden paths:** Provide curated templates that enforce standards while empowering developer autonomy. [Learn More](docs/platform-engineering.md)
+- [ ] **Measure platform adoption with developer experience metrics:** Track DORA metrics and developer satisfaction to iterate on your platform. [Learn More](docs/platform-engineering.md)
+
+## GitHub Integration
+
+Leverage GitHub for secure, integrated Azure development workflows.
+
+- [ ] **Use GitHub Actions for Azure deployments:** Leverage GitHub Actions with Azure-specific actions for CI/CD. [Learn More](docs/github-integration.md)
+- [ ] **Authenticate securely with OIDC workload identity federation:** Replace long-lived secrets with OpenID Connect federation for secretless deployments. [Learn More](docs/github-integration.md)
+- [ ] **Enable GitHub Advanced Security (GHAS):** Use code scanning, secret scanning, and dependency review to find vulnerabilities early. [Learn More](docs/github-integration.md)
+- [ ] **Integrate GitHub Copilot into your development workflow:** Accelerate Azure development with AI-assisted code suggestions. [Learn More](docs/github-integration.md)
+
+## Migration Strategies
+
+Plan and execute workload migrations to Azure.
+
+- [ ] **Assess your workloads with Azure Migrate:** Discover, assess, and plan migration of on-premises or other-cloud workloads. [Learn More](docs/migration-strategies.md)
+- [ ] **Choose the right migration strategy (the 5 Rs):** Understand Rehost, Replatform, Refactor, Rearchitect, and Rebuild. [Learn More](docs/migration-strategies.md)
+- [ ] **Use Azure Database Migration Service for database migrations:** Migrate databases with minimal downtime. [Learn More](docs/migration-strategies.md)
+- [ ] **Follow the Cloud Adoption Framework migration methodology:** Use CAF's structured approach for planning, migrating, and optimizing. [Learn More](docs/migration-strategies.md)
 
 ## Bonus
 

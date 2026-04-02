@@ -32,7 +32,7 @@ This document provides further details and context for the Data Services section
 - [ ] **Secure database access with Private Endpoints and Managed Identities**
 
 *   **Why:** Exposing databases to the public internet significantly increases the attack surface. Connection strings with embedded credentials can be leaked through source code, logs, or configuration files. Private Endpoints and Managed Identities eliminate these risks by keeping traffic on the Azure backbone and removing credentials from your code.
-*   **How:** Deploy Private Endpoints for every database service to ensure traffic flows over the Microsoft private network. Disable public network access on your database resources. Use Managed Identities for authentication instead of storing passwords or connection strings in application configuration. Configure Azure Active Directory authentication for Azure SQL Database and PostgreSQL Flexible Server.
+*   **How:** Deploy Private Endpoints for every database service to ensure traffic flows over the Microsoft private network. Disable public network access on your database resources. Use Managed Identities for authentication instead of storing passwords or connection strings in application configuration. Configure Microsoft Entra ID authentication for Azure SQL Database and PostgreSQL Flexible Server.
 *   **Resources:**
     *   [Azure Private Endpoint overview](https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview)
     *   [Use Microsoft Entra authentication with Azure SQL](https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-overview)

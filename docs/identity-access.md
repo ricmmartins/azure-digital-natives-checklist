@@ -41,6 +41,6 @@ This document provides further details and context for the Identity & Access Man
 *   **How:** Identify critical roles (e.g., Global Administrator, Subscription Owner, Contributor). Configure these roles in PIM to require activation, potentially with justification or approval workflows. Regularly audit PIM activity.
 *   **Resources:**
     *   [What is Microsoft Entra Privileged Identity Management?](https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-configure)
-    *   [Assign Azure AD roles in Privileged Identity Management](https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-how-to-assign-azure-ad-role)
+    *   [Assign Microsoft Entra roles in Privileged Identity Management](https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-how-to-assign-azure-ad-role)
     *   [Assign Azure resource roles in Privileged Identity Management](https://learn.microsoft.com/en-us/azure/role-based-access-control/privileged-identity-management/pim-resource-roles-assign-roles)
 

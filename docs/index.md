@@ -26,6 +26,9 @@ This folder contains supporting documentation and guides for the **Azure Digital
 - [Data Services](/docs/data-services.html): Choosing databases, high availability, security, and storage strategies.
 - [Application Architecture](/docs/app-architecture.html): Compute selection, resilience patterns, API management, and messaging.
 - [SLA & SLO Management](/docs/sla-slo.html): Azure SLAs, composite SLAs, SLOs/SLIs, and error budgets.
+- [Platform Engineering](/docs/platform-engineering.html): Internal developer platforms, self-service infrastructure, and developer experience.
+- [GitHub Integration](/docs/github-integration.html): GitHub Actions, OIDC federation, GHAS, and Copilot for Azure development.
+- [Migration Strategies](/docs/migration-strategies.html): Azure Migrate, the 5 Rs, database migration, and CAF methodology.
 
 ## How to Use
 
