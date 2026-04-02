@@ -1,9 +1,24 @@
 title: Azure Digital Natives Guide
-description: Practical guide for startups moving from MVP to production.
+description: The comprehensive Azure checklist and reference guide for digital native customers — covering identity, security, cost management, monitoring, IaC, AKS, AI, and more.
 url: "https://azdnguide.com"
 baseurl: ""
+lang: en
 
 remote_theme: just-the-docs/just-the-docs
+
+# Search
+search_enabled: true
+search:
+  heading_level: 2
+  previews: 3
+  preview_words_before: 5
+  preview_words_after: 10
+
+# Header links
+aux_links:
+  "GitHub":
+    - "https://github.com/ricmmartins/azure-digital-natives-checklist"
+aux_links_new_tab: true
 
 # Use the Kramdown parser in GFM mode to enable task lists
 markdown: kramdown
