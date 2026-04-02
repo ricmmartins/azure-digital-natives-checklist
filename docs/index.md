@@ -19,6 +19,13 @@ This folder contains supporting documentation and guides for the **Azure Digital
 - [Azure Kubernetes Service (AKS)](/docs/aks-app-architecture.html#aks-guidance): Deployment and management guides for AKS.
 - [OpenAI Integrations](/docs/azure-openai.html#aoai-best-practices): Resources for integrating OpenAI services into your Azure-based applications.
 - [VM Scale Sets](/docs/vm-scale-sets.html): Resources for using VM Scale Sets to manage home built clusters (aka, not AKS, Cycle Cloud, or Batch).
+- [Well-Architected Framework](/docs/well-architected.html): Align your workloads with the five WAF pillars for reliable, secure, and cost-effective solutions.
+- [Disaster Recovery & Business Continuity](/docs/disaster-recovery.html): RPO/RTO planning, Azure Backup, Site Recovery, and DR testing.
+- [DevOps & CI/CD](/docs/devops-cicd.html): CI/CD pipelines, deployment strategies, and pipeline security best practices.
+- [Compliance & Governance](/docs/compliance-governance.html): Azure Policy, Management Groups, regulatory compliance, and data governance.
+- [Data Services](/docs/data-services.html): Choosing databases, high availability, security, and storage strategies.
+- [Application Architecture](/docs/app-architecture.html): Compute selection, resilience patterns, API management, and messaging.
+- [SLA & SLO Management](/docs/sla-slo.html): Azure SLAs, composite SLAs, SLOs/SLIs, and error budgets.
 
 ## How to Use
 

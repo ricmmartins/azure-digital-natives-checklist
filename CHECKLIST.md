@@ -83,6 +83,68 @@ Considerations for leveraging Generative AI services on Azure.
 - [ ] **Understand AOAI data processing and storage:** Be aware of how prompts, completions, and embeddings are handled. [Learn More](docs/azure-openai.md#aoai-data-handling)
 - [ ] **Monitor AOAI data residency, concurrency, and cost:** Plan for and manage these factors, especially as usage scales. [Learn More](docs/azure-openai.md#aoai-operational-considerations)
 
+## Well-Architected Framework
+
+Align your Azure workloads with the Azure Well-Architected Framework for reliable, secure, cost-effective, and performant solutions.
+
+- [ ] **Understand the five pillars of the Well-Architected Framework:** Learn how Reliability, Security, Cost Optimization, Operational Excellence, and Performance Efficiency apply to your workloads. [Learn More](docs/well-architected.md)
+- [ ] **Run the Well-Architected Review:** Assess your workloads against WAF pillars using the official review tool. [Learn More](docs/well-architected.md)
+- [ ] **Align architecture decisions with WAF pillars:** Use the framework as a decision-making guide for every infrastructure and application choice. [Learn More](docs/well-architected.md)
+
+## Disaster Recovery & Business Continuity
+
+Prepare for the unexpected with tested disaster recovery plans.
+
+- [ ] **Define RPO and RTO for each workload:** Set Recovery Point and Recovery Time Objectives for every critical system. [Learn More](docs/disaster-recovery.md)
+- [ ] **Implement Azure Backup for critical resources:** Protect VMs, databases, and storage with automated backups. [Learn More](docs/disaster-recovery.md)
+- [ ] **Design for geo-redundancy with Azure Site Recovery:** Orchestrate disaster recovery across Azure regions. [Learn More](docs/disaster-recovery.md)
+- [ ] **Test your disaster recovery plan regularly:** Validate your DR plans with test failovers — untested plans are assumptions. [Learn More](docs/disaster-recovery.md)
+
+## DevOps & CI/CD
+
+Automate your software delivery pipeline for speed and reliability.
+
+- [ ] **Implement CI/CD pipelines for application deployment:** Use GitHub Actions or Azure DevOps for automated build, test, and deploy workflows. [Learn More](docs/devops-cicd.md)
+- [ ] **Automate infrastructure deployment with IaC pipelines:** Run Bicep/Terraform through pipelines, not manually. [Learn More](docs/devops-cicd.md)
+- [ ] **Use deployment strategies to minimize risk:** Implement blue/green, canary, or rolling deployments to reduce blast radius. [Learn More](docs/devops-cicd.md)
+- [ ] **Secure your CI/CD pipelines:** Use OIDC/workload identity federation, protect secrets, and enable branch protection. [Learn More](docs/devops-cicd.md)
+
+## Compliance & Governance
+
+Establish guardrails and meet regulatory obligations from day one.
+
+- [ ] **Implement Azure Policy for guardrails:** Enforce organizational standards and assess compliance at scale. [Learn More](docs/compliance-governance.md)
+- [ ] **Organize resources with Management Groups:** Apply governance consistently across multiple subscriptions. [Learn More](docs/compliance-governance.md)
+- [ ] **Understand your compliance obligations:** Map applicable regulatory frameworks (SOC 2, HIPAA, GDPR) to Azure compliance offerings. [Learn More](docs/compliance-governance.md)
+- [ ] **Implement data governance with Microsoft Purview:** Use Purview for data cataloging, classification, and lineage tracking. [Learn More](docs/compliance-governance.md)
+
+## Data Services
+
+Choose and manage the right data services for your workloads.
+
+- [ ] **Choose the right database for your workload:** Understand when to use Cosmos DB, Azure SQL, PostgreSQL Flexible Server, or Redis Cache. [Learn More](docs/data-services.md)
+- [ ] **Implement database high availability and backups:** Configure geo-replication, failover, and point-in-time restore. [Learn More](docs/data-services.md)
+- [ ] **Secure database access with Private Endpoints and Managed Identities:** Never expose databases publicly; use Private Endpoints and Managed Identities. [Learn More](docs/data-services.md)
+- [ ] **Design your data tier for scalability:** Understand partitioning, read replicas, connection pooling, and elastic scaling. [Learn More](docs/data-services.md)
+
+## Application Architecture
+
+Design resilient, scalable applications on Azure.
+
+- [ ] **Choose the right Azure compute service:** Understand trade-offs between App Service, Container Apps, Functions, and AKS. [Learn More](docs/app-architecture.md)
+- [ ] **Design for resilience with retry and circuit breaker patterns:** Implement transient fault handling and circuit breakers. [Learn More](docs/app-architecture.md)
+- [ ] **Implement API management for your services:** Use Azure API Management for rate limiting, auth, versioning, and monitoring. [Learn More](docs/app-architecture.md)
+- [ ] **Use asynchronous messaging for loosely coupled architectures:** Leverage Service Bus and Event Grid to decouple services. [Learn More](docs/app-architecture.md)
+
+## SLA & SLO Management
+
+Define, measure, and manage your reliability targets.
+
+- [ ] **Understand Azure SLAs for every service you use:** Know guaranteed uptime and what counts as downtime for each service. [Learn More](docs/sla-slo.md)
+- [ ] **Calculate composite SLAs for your architecture:** Multiply individual SLAs to understand end-to-end availability targets. [Learn More](docs/sla-slo.md)
+- [ ] **Define SLOs and SLIs for your application:** Set Service Level Objectives and Indicators that matter to your customers. [Learn More](docs/sla-slo.md)
+- [ ] **Implement error budgets and monitor SLO compliance:** Use error budgets to balance velocity against reliability. [Learn More](docs/sla-slo.md)
+
 ## Bonus
 
 - [ ] **Review Azure for AWS Professionals documentation (if applicable):** Understand Azure service equivalents if transitioning from AWS. [Learn More](https://aka.ms/Azure4AWSPros)
