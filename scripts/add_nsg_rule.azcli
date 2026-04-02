@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 #
 # Azure CLI script to add a security rule to a Network Security Group (NSG).
 #
@@ -14,17 +15,17 @@
 # - Azure CLI installed and configured (run `az login`)
 
 # --- Configuration ---
-RESOURCE_GROUP="$1"
-NSG_NAME="$2"
-RULE_NAME="$3"
-PRIORITY="$4"
-DIRECTION="$5"      # Inbound or Outbound
-ACCESS="$6"         # Allow or Deny
-PROTOCOL="$7"       # Tcp, Udp, Icmp, Esp, Ah, or *
-SOURCE_ADDRESS="$8" # CIDR, IP, Service Tag (e.g., Internet, VirtualNetwork), or *
-SOURCE_PORT="$9"    # Port number or *
-DEST_ADDRESS="${10}" # CIDR, IP, Service Tag, or *
-DEST_PORT="${11}"   # Port number or *
+RESOURCE_GROUP="${1:-}"
+NSG_NAME="${2:-}"
+RULE_NAME="${3:-}"
+PRIORITY="${4:-}"
+DIRECTION="${5:-}"      # Inbound or Outbound
+ACCESS="${6:-}"         # Allow or Deny
+PROTOCOL="${7:-}"       # Tcp, Udp, Icmp, Esp, Ah, or *
+SOURCE_ADDRESS="${8:-}" # CIDR, IP, Service Tag (e.g., Internet, VirtualNetwork), or *
+SOURCE_PORT="${9:-}"    # Port number or *
+DEST_ADDRESS="${10:-}"  # CIDR, IP, Service Tag, or *
+DEST_PORT="${11:-}"     # Port number or *
 
 # --- Validation ---
 if [[ $# -ne 11 ]]; then
@@ -58,15 +59,15 @@ if ! az account show > /dev/null 2>&1; then
 fi
 
 # --- Logic ---
-echo "Attempting to add rule 	'$RULE_NAME' to NSG 	'$NSG_NAME' in RG 	'$RESOURCE_GROUP'..."
-echo "Priority: 	$PRIORITY"
-echo "Direction: 	$DIRECTION"
-echo "Access: 	$ACCESS"
-echo "Protocol: 	$PROTOCOL"
-echo "Source: 	$SOURCE_ADDRESS : $SOURCE_PORT"
-echo "Destination: 	$DEST_ADDRESS : $DEST_PORT"
+echo "Attempting to add rule '$RULE_NAME' to NSG '$NSG_NAME' in RG '$RESOURCE_GROUP'..."
+printf "  Priority:    %s\n" "$PRIORITY"
+printf "  Direction:   %s\n" "$DIRECTION"
+printf "  Access:      %s\n" "$ACCESS"
+printf "  Protocol:    %s\n" "$PROTOCOL"
+printf "  Source:      %s : %s\n" "$SOURCE_ADDRESS" "$SOURCE_PORT"
+printf "  Destination: %s : %s\n" "$DEST_ADDRESS" "$DEST_PORT"
 
-az network nsg rule create \
+if az network nsg rule create \
     --resource-group "$RESOURCE_GROUP" \
     --nsg-name "$NSG_NAME" \
     --name "$RULE_NAME" \
@@ -78,14 +79,10 @@ az network nsg rule create \
     --source-port-ranges "$SOURCE_PORT" \
     --destination-address-prefixes "$DEST_ADDRESS" \
     --destination-port-ranges "$DEST_PORT" \
-    --output none
-
-if [[ $? -eq 0 ]]; then
+    --output none; then
   echo "Successfully added/updated rule '$RULE_NAME' to NSG '$NSG_NAME'."
 else
   echo "Error adding/updating rule '$RULE_NAME'. Please check the parameters and Azure permissions."
   exit 1
 fi
-
-exit 0
 

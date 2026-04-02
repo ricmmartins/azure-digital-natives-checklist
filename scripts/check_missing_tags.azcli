@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 #
 # Azure CLI script to find resources missing a specific tag within a resource group.
 #
@@ -10,8 +11,8 @@
 # - jq installed (for JSON parsing)
 
 # --- Configuration ---
-RESOURCE_GROUP="$1"
-REQUIRED_TAG="$2"
+RESOURCE_GROUP="${1:-}"
+REQUIRED_TAG="${2:-}"
 
 # --- Validation ---
 if [[ -z "$RESOURCE_GROUP" || -z "$REQUIRED_TAG" ]]; then
@@ -35,17 +36,17 @@ fi
 # --- Logic ---
 echo "Checking for resources in Resource Group '$RESOURCE_GROUP' missing the tag '$REQUIRED_TAG'..."
 
-# Get all resources in the resource group and filter those missing the required tag
-# Using Azure CLI and jq for parsing
-az resource list --resource-group "$RESOURCE_GROUP" --query "[?tags."\"$REQUIRED_TAG\"" == null]" -o json | jq -c '.[] | {name: .name, id: .id, type: .type}'
+# Get all resources in the resource group (single API call)
+RESULTS=$(az resource list --resource-group "$RESOURCE_GROUP" -o json)
 
-MISSING_COUNT=$(az resource list --resource-group "$RESOURCE_GROUP" --query "[?tags."\"$REQUIRED_TAG\"" == null]" -o tsv | wc -l)
+# Filter resources missing the required tag using jq (handles special chars in tag names)
+echo "$RESULTS" | jq -c --arg tag "$REQUIRED_TAG" '.[] | select(.tags[$tag] == null or .tags[$tag] == "") | {name: .name, id: .id, type: .type}'
 
-if [[ $MISSING_COUNT -eq 0 ]]; then
+MISSING_COUNT=$(echo "$RESULTS" | jq --arg tag "$REQUIRED_TAG" '[.[] | select(.tags[$tag] == null or .tags[$tag] == "")] | length')
+
+if [[ "$MISSING_COUNT" -eq 0 ]]; then
   echo "All resources found in '$RESOURCE_GROUP' have the tag '$REQUIRED_TAG'."
 else
-  echo "Found $MISSING_COUNT resource(s) missing the tag '$REQUIRED_TAG'. Details listed above."
+  echo "Found $MISSING_COUNT resource(s) missing the tag '$REQUIRED_TAG'."
 fi
-
-exit 0
 

@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 #
 # Azure CLI script to find Resource Groups tagged as 'Production' (or similar)
 # that are missing a 'CanNotDelete' lock.
@@ -53,8 +54,8 @@ MISSING_LOCK_RGS=""
 # Iterate through each resource group found
 echo "Checking locks for matching Resource Groups:"
 while read rg_json; do
-    RG_NAME=$(echo $rg_json | jq -r '.name')
-    RG_ID=$(echo $rg_json | jq -r '.id')
+    RG_NAME=$(echo "$rg_json" | jq -r '.name')
+    RG_ID=$(echo "$rg_json" | jq -r '.id')
 
     # Check for the specified lock type at the resource group scope
     LOCK_EXISTS=$(az lock list --resource-group "$RG_NAME" --query "[?level=='$LOCK_TYPE']" -o json)
@@ -66,7 +67,7 @@ while read rg_json; do
     # else
         # echo "- Resource Group '$RG_NAME' has a '$LOCK_TYPE' lock."
     fi
-done < <(echo $RESOURCE_GROUPS | jq -c '.[]')
+done < <(echo "$RESOURCE_GROUPS" | jq -c '.[]')
 
 echo "---"
 if [[ $MISSING_LOCK_COUNT -eq 0 ]]; then

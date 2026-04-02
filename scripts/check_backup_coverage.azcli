@@ -1,0 +1,73 @@
+#!/bin/bash
+set -euo pipefail
+#
+# Azure CLI script to find Azure VMs that are NOT protected by Azure Backup
+# (no Recovery Services vault backup configured) using Azure Resource Graph.
+#
+# Usage: ./check_backup_coverage.azcli [resource_group_name]
+#
+# If resource_group_name is provided, results are scoped to that resource group.
+# Otherwise, all VMs in accessible subscriptions are checked.
+#
+# Example (all subscriptions):
+# ./check_backup_coverage.azcli
+#
+# Example (specific resource group):
+# ./check_backup_coverage.azcli my-production-rg
+#
+# Prerequisites:
+# - Azure CLI installed and configured (run `az login`)
+# - Azure CLI resource-graph extension
+
+# --- Configuration ---
+RESOURCE_GROUP="${1:-}"
+
+# --- Validation ---
+if ! az account show > /dev/null 2>&1; then
+    echo "Error: Not logged in to Azure. Please run 'az login'."
+    exit 1
+fi
+
+# Ensure the resource-graph extension is installed
+if ! az extension show --name resource-graph > /dev/null 2>&1; then
+    echo "Installing Azure CLI resource-graph extension..."
+    az extension add --name resource-graph --only-show-errors
+fi
+
+# --- Logic ---
+if [[ -n "$RESOURCE_GROUP" ]]; then
+    echo "Checking backup coverage for VMs in Resource Group '$RESOURCE_GROUP'..."
+    RG_FILTER="| where resourceGroup =~ '$RESOURCE_GROUP'"
+else
+    echo "Checking backup coverage for all VMs across accessible subscriptions..."
+    RG_FILTER=""
+fi
+
+KQL_QUERY="RecoveryServicesResources
+| where type =~ 'microsoft.recoveryservices/vaults/backupfabrics/protectioncontainers/protecteditems'
+| where properties.backupManagementType == 'AzureIaasVM'
+| project protectedVM = tolower(properties.sourceResourceId)
+| join kind=rightanti (
+    Resources
+    | where type =~ 'microsoft.compute/virtualmachines'
+    $RG_FILTER
+    | project vmId = tolower(id), vmName = name, resourceGroup, subscriptionId
+) on \$left.protectedVM == \$right.vmId
+| project vmName, resourceGroup, subscriptionId"
+
+RESULTS=$(az graph query -q "$KQL_QUERY" -o json --only-show-errors)
+
+RESULT_COUNT=$(echo "$RESULTS" | jq '.count // (.data | length)')
+
+echo ""
+az graph query -q "$KQL_QUERY" -o table --only-show-errors
+
+echo "---"
+if [[ "$RESULT_COUNT" -eq 0 ]]; then
+    echo "All VMs are protected by Azure Backup."
+else
+    echo "Found $RESULT_COUNT VM(s) NOT protected by Azure Backup."
+    echo "Recommendation: Configure backup for these VMs using a Recovery Services vault."
+fi
+
+exit 0

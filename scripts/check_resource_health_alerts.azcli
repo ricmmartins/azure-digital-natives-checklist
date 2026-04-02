@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 #
 # Azure CLI script to list Activity Log Alerts configured for Resource Health events.
 #
@@ -18,7 +19,7 @@
 # - jq installed (for JSON parsing)
 
 # --- Configuration ---
-RESOURCE_GROUP="$1"
+RESOURCE_GROUP="${1:-}"
 
 # --- Validation ---
 # Check if jq is installed
@@ -37,26 +38,26 @@ fi
 # --- Logic ---
 if [[ -z "$RESOURCE_GROUP" ]]; then
   echo "Listing Activity Log Alerts potentially related to Resource Health across the current subscription..."
-  ALERT_LIST=$(az monitor activity-log alert list --output json)
+  if ! ALERT_LIST=$(az monitor activity-log alert list --output json); then
+      echo "Error listing activity log alerts. Check permissions."
+      exit 1
+  fi
 else
   echo "Listing Activity Log Alerts potentially related to Resource Health in Resource Group '$RESOURCE_GROUP'..."
-  ALERT_LIST=$(az monitor activity-log alert list --resource-group "$RESOURCE_GROUP" --output json)
+  if ! ALERT_LIST=$(az monitor activity-log alert list --resource-group "$RESOURCE_GROUP" --output json); then
+      echo "Error listing activity log alerts. Check permissions or resource group name."
+      exit 1
+  fi
 fi
 
-if [[ $? -ne 0 ]]; then
-    echo "Error listing activity log alerts. Check permissions or resource group name."
-    exit 1
-fi
-
-# Filter alerts based on conditions commonly used for Resource Health
-# This looks for alerts where the 'category' is 'ResourceHealth'
-FILTERED_ALERTS=$(echo "$ALERT_LIST" | jq -c '[.[] | select(.condition.allOf[]?.category? == "ResourceHealth")]')
+# Filter alerts where condition has a field matching 'category' with equals 'ResourceHealth'
+FILTERED_ALERTS=$(echo "$ALERT_LIST" | jq -c '[.[] | select(.condition.allOf[]? | (.field == "category" and .equals == "ResourceHealth"))]')
 
 MATCH_COUNT=$(echo "$FILTERED_ALERTS" | jq '. | length')
 
-if [[ $MATCH_COUNT -gt 0 ]]; then
+if [[ "$MATCH_COUNT" -gt 0 ]]; then
   echo "Found $MATCH_COUNT potentially matching Resource Health alert(s):"
-  echo "$FILTERED_ALERTS" | jq '.' # Pretty print the JSON output
+  echo "$FILTERED_ALERTS" | jq '.'
 else
   if [[ -z "$RESOURCE_GROUP" ]]; then
     echo "No Activity Log Alerts found with conditions directly targeting 'ResourceHealth' category in the current subscription."
@@ -65,6 +66,4 @@ else
   fi
   echo "Note: Resource Health alerts might also be configured using different condition fields (e.g., operationName). Manual review might be needed for complete verification."
 fi
-
-exit 0
 

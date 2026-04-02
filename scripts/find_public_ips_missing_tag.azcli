@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 #
 # Azure Resource Graph script to find Public IP Addresses missing a specific tag (e.g., 'Environment').
 #
@@ -7,10 +8,11 @@
 #
 # Prerequisites:
 # - Azure CLI installed and configured (run `az login`)
+# - Azure Resource Graph extension (auto-installed if missing)
 # - Access to query Azure Resource Graph (typically requires Reader role at the scope being queried)
 
 # --- Configuration ---
-REQUIRED_TAG="$1"
+REQUIRED_TAG="${1:-}"
 
 # --- Validation ---
 if [[ -z "$REQUIRED_TAG" ]]; then
@@ -25,18 +27,22 @@ if ! az account show > /dev/null 2>&1; then
     exit 1
 fi
 
+# Check if resource-graph extension is installed
+if ! az extension show -n resource-graph > /dev/null 2>&1; then
+    echo "Resource Graph extension not found. Attempting to install..."
+    if ! az extension add -n resource-graph; then
+        echo "Error: Failed to install resource-graph extension. Please install it manually ('az extension add -n resource-graph')."
+        exit 1
+    fi
+fi
+
 # --- Logic ---
 echo "Querying Azure Resource Graph for Public IP Addresses missing the tag '$REQUIRED_TAG' across accessible subscriptions..."
 
-# Define the Kusto Query Language (KQL) query
 KQL_QUERY="Resources | where type =~ 'microsoft.network/publicipaddresses' | where isnull(tags['$REQUIRED_TAG']) | project name, resourceGroup, subscriptionId, location, id"
 
-# Execute the query using Azure CLI
-az graph query -q "$KQL_QUERY" --output table
-
-# Optionally, get a count (requires jq if you want to parse the JSON output)
-# COUNT=$(az graph query -q "$KQL_QUERY" --output json | jq '.count')
-# echo "Found $COUNT Public IP Addresses missing the tag '$REQUIRED_TAG'. Details listed above."
-
-exit 0
+if ! az graph query -q "$KQL_QUERY" --first 1000 --output table; then
+    echo "Error executing Azure Resource Graph query. Check permissions and query syntax."
+    exit 1
+fi
 

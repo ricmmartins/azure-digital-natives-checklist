@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 #
 # Azure CLI script to summarize costs grouped by a specific tag (e.g., 'CostCenter')
 # for a given scope (Subscription or Resource Group) and time period.
@@ -21,12 +22,13 @@
 #
 # Prerequisites:
 # - Azure CLI installed and configured (run `az login`)
+# - jq installed (for safe JSON construction)
 # - Appropriate permissions to query cost management data (e.g., Cost Management Reader)
 
 # --- Configuration ---
-SCOPE="$1"
-TAG_KEY="$2"
-TIMEFRAME="${3:-MonthToDate}" # Default to MonthToDate if not provided
+SCOPE="${1:-}"
+TAG_KEY="${2:-}"
+TIMEFRAME="${3:-MonthToDate}"
 
 # --- Validation ---
 if [[ -z "$SCOPE" || -z "$TAG_KEY" ]]; then
@@ -38,6 +40,13 @@ if [[ -z "$SCOPE" || -z "$TAG_KEY" ]]; then
   exit 1
 fi
 
+# Check if jq is installed
+if ! command -v jq &> /dev/null; then
+    echo "Error: jq is not installed. Please install jq to run this script."
+    echo "(e.g., sudo apt-get update && sudo apt-get install jq)"
+    exit 1
+fi
+
 # Check if logged in to Azure
 if ! az account show > /dev/null 2>&1; then
     echo "Error: Not logged in to Azure. Please run 'az login'."
@@ -47,8 +56,7 @@ fi
 # Check if cost management extension is installed, install if not
 if ! az extension show -n costmanagement > /dev/null 2>&1; then
     echo "Cost Management extension not found. Attempting to install..."
-    az extension add -n costmanagement
-    if [[ $? -ne 0 ]]; then
+    if ! az extension add -n costmanagement; then
         echo "Error: Failed to install costmanagement extension. Please install it manually ('az extension add -n costmanagement')."
         exit 1
     fi
@@ -57,40 +65,35 @@ fi
 # --- Logic ---
 echo "Querying costs for scope '$SCOPE' grouped by tag '$TAG_KEY' for timeframe '$TIMEFRAME'..."
 
-# Construct the query definition JSON
-QUERY_DEF=$(cat <<EOF
-{
-  "type": "ActualCost",
-  "timeframe": "$TIMEFRAME",
-  "dataset": {
-    "granularity": "None",
-    "aggregation": {
-      "totalCost": {
-        "name": "Cost",
-        "function": "Sum"
-      }
-    },
-    "grouping": [
-      {
-        "type": "TagKey",
-        "name": "$TAG_KEY"
-      }
-    ]
-  }
-}
-EOF
-)
+# Construct the query definition JSON safely using jq to handle special characters
+QUERY_DEF=$(jq -n \
+  --arg timeframe "$TIMEFRAME" \
+  --arg tagKey "$TAG_KEY" \
+  '{
+    type: "ActualCost",
+    timeframe: $timeframe,
+    dataset: {
+      granularity: "None",
+      aggregation: {
+        totalCost: {
+          name: "Cost",
+          function: "Sum"
+        }
+      },
+      grouping: [
+        {
+          type: "TagKey",
+          name: $tagKey
+        }
+      ]
+    }
+  }')
 
 # Execute the cost management query
-# Using @- to read JSON from stdin
-az costmanagement query --scope "$SCOPE" --query-definition "$QUERY_DEF" --output table
-
-if [[ $? -ne 0 ]]; then
+if ! echo "$QUERY_DEF" | az costmanagement query --scope "$SCOPE" --query-definition @- --output table; then
     echo "Error executing cost management query. Check scope, permissions, and timeframe."
     exit 1
 fi
 
 echo "Query completed. Costs are grouped by the value of the tag '$TAG_KEY'. Rows with empty tag value represent costs for resources without that tag."
-
-exit 0
 

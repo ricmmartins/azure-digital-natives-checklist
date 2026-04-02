@@ -13,6 +13,9 @@ This directory contains helper scripts (primarily using Azure CLI) designed to a
 *   **Azure CLI:** Most scripts require the Azure CLI to be installed and configured. You need to be logged in (`az login`).
 *   **jq:** Some scripts may use `jq` for parsing JSON output from Azure CLI. Install it if needed (e.g., `sudo apt update && sudo apt install jq` on Debian/Ubuntu).
 *   **Permissions:** Ensure the identity you are logged in with via Azure CLI has the necessary permissions to read resources or make changes as required by the specific script.
+*   **Azure CLI Extensions:** Some scripts require additional extensions (`resource-graph`, `costmanagement`) which will be auto-installed if missing.
+
+**Disclaimer:** Always test scripts in a non-production environment before running them against production resources. Review the script logic to ensure it meets your specific requirements.
 
 ## Scripts
 
@@ -58,10 +61,8 @@ This directory contains helper scripts (primarily using Azure CLI) designed to a
     ```
 *   **Output:** Confirmation message upon success or error details.
 
-**Disclaimer:** Always test scripts in a non-production environment before running them against production resources. Review the script logic to ensure it meets your specific requirements.
 
-
-### 3. [audit_subscription_owners.azcli](https://github.com/ricmmartins/azure-digital-natives-checklist/blob/main/scripts/audit_subscription_owners.azcli)
+### 3.[audit_subscription_owners.azcli](https://github.com/ricmmartins/azure-digital-natives-checklist/blob/main/scripts/audit_subscription_owners.azcli)
 
 *   **Purpose:** Lists users and groups assigned the built-in 'Owner' role directly on a specified subscription.
 *   **Usage:**
@@ -144,3 +145,61 @@ This directory contains helper scripts (primarily using Azure CLI) designed to a
     ./check_resource_health_alerts.azcli
     ```
 *   **Output:** Lists the details of matching alerts found in JSON format. Notes that alerts might be configured differently, so manual review may still be needed for full verification.
+
+### 9. [audit_diagnostic_settings.azcli](https://github.com/ricmmartins/azure-digital-natives-checklist/blob/main/scripts/audit_diagnostic_settings.azcli)
+
+*   **Purpose:** Finds resources in a resource group that are missing diagnostic settings (no logs/metrics being sent to Log Analytics, Storage, or Event Hub).
+*   **Usage:**
+    ```bash
+    ./audit_diagnostic_settings.azcli <resource_group_name>
+    ```
+*   **Example:**
+    ```bash
+    ./audit_diagnostic_settings.azcli my-production-rg
+    ```
+*   **Output:** Lists resources with no diagnostic settings configured and provides a summary count.
+
+### 10. [audit_storage_public_access.azcli](https://github.com/ricmmartins/azure-digital-natives-checklist/blob/main/scripts/audit_storage_public_access.azcli)
+
+*   **Purpose:** Finds storage accounts with public blob access enabled across all accessible subscriptions using Azure Resource Graph.
+*   **Usage:**
+    ```bash
+    ./audit_storage_public_access.azcli
+    ```
+*   **Output:** A table listing storage accounts where `allowBlobPublicAccess` is true or not explicitly disabled, with a summary count.
+
+### 11. [check_backup_coverage.azcli](https://github.com/ricmmartins/azure-digital-natives-checklist/blob/main/scripts/check_backup_coverage.azcli)
+
+*   **Purpose:** Finds Azure VMs that are NOT protected by Azure Backup (no Recovery Services vault backup configured) using Azure Resource Graph.
+*   **Usage:**
+    ```bash
+    ./check_backup_coverage.azcli [resource_group_name]
+    ```
+*   **Resource Group (Optional):** Scopes results to a specific resource group; otherwise checks all accessible subscriptions.
+*   **Example (all subscriptions):**
+    ```bash
+    ./check_backup_coverage.azcli
+    ```
+*   **Example (specific resource group):**
+    ```bash
+    ./check_backup_coverage.azcli my-production-rg
+    ```
+*   **Output:** A table listing unprotected VMs with a summary count and recommendation to configure backup.
+
+### 12. [audit_key_vault_expiring_secrets.azcli](https://github.com/ricmmartins/azure-digital-natives-checklist/blob/main/scripts/audit_key_vault_expiring_secrets.azcli)
+
+*   **Purpose:** Finds Key Vault secrets and certificates that are expiring within a specified number of days.
+*   **Usage:**
+    ```bash
+    ./audit_key_vault_expiring_secrets.azcli <key_vault_name> [days_threshold]
+    ```
+*   **Days Threshold (Optional):** Number of days to look ahead. Defaults to 30.
+*   **Example (default 30-day threshold):**
+    ```bash
+    ./audit_key_vault_expiring_secrets.azcli my-keyvault
+    ```
+*   **Example (custom 90-day threshold):**
+    ```bash
+    ./audit_key_vault_expiring_secrets.azcli my-keyvault 90
+    ```
+*   **Output:** Lists expiring or already-expired secrets and certificates with days remaining, along with a summary count.
