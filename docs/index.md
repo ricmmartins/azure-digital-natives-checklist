@@ -29,6 +29,8 @@ This folder contains supporting documentation and guides for the **Azure Digital
 - [Platform Engineering](/docs/platform-engineering.html): Internal developer platforms, self-service infrastructure, and developer experience.
 - [GitHub Integration](/docs/github-integration.html): GitHub Actions, OIDC federation, GHAS, and Copilot for Azure development.
 - [Migration Strategies](/docs/migration-strategies.html): Azure Migrate, the 5 Rs, database migration, and CAF methodology.
+- [Architecture Decision Records](/docs/architecture-decisions.html): ADRs for key decisions — AKS vs Container Apps, Bicep vs Terraform, database selection, and more.
+- [Reference Architectures](/docs/reference-architectures.html): Mermaid diagrams for SaaS multi-tenant, event-driven microservices, and RAG AI patterns.
 
 ## How to Use
 

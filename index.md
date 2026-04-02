@@ -39,7 +39,19 @@ azure-digital-natives-checklist/
 │   ├── infrastructure-as-code.md
 │   ├── aks-app-architecture.md
 │   ├── azure-openai.md
-│   └── vm-scale-sets.md
+│   ├── vm-scale-sets.md
+│   ├── well-architected.md
+│   ├── disaster-recovery.md
+│   ├── devops-cicd.md
+│   ├── compliance-governance.md
+│   ├── data-services.md
+│   ├── app-architecture.md
+│   ├── sla-slo.md
+│   ├── platform-engineering.md
+│   ├── github-integration.md
+│   ├── migration-strategies.md
+│   ├── architecture-decisions.md
+│   └── reference-architectures.md
 ├── scripts/                # Automation snippets
 ├── CHECKLIST.md            # The main actionable checklist
 ├── CONTRIBUTING.md         # Contribution guidelines
