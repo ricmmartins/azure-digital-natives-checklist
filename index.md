@@ -7,7 +7,7 @@ nav_order: 1
 
 ## Overview
 
-Welcome! This repository provides an actionable guidance, checklist, docs and scripts for digital native startups building on Microsoft Azure. It aims to consolidate essential best practices, particularly for teams moving from Minimum Viable Product (MVP) stages towards more robust, and production-grade environments.
+Welcome! This repository provides actionable guidance, checklists, docs and scripts for digital native startups building on Microsoft Azure. It aims to consolidate essential best practices, particularly for teams moving from Minimum Viable Product (MVP) stages towards more robust, and production-grade environments.
 
 This guide is derived from insights shared in the Microsoft Tech Community article: [The Digital Native's Checklist for Azure: Stuff I wish every startup knew](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/the-digital-natives-checklist-for-azure-stuff-i-wish-every-startup-knew/4406669).
 
@@ -29,7 +29,7 @@ This guide is derived from insights shared in the Microsoft Tech Community artic
 ## Repository Structure
 
 ```
-azure-startup-checklist/
+azure-digital-natives-checklist/
 ├── docs/                   # Detailed explanations & links
 │   ├── identity-access.md
 │   ├── networking-security.md
@@ -39,14 +39,14 @@ azure-startup-checklist/
 │   ├── infrastructure-as-code.md
 │   ├── aks-app-architecture.md
 │   ├── azure-openai.md
-|   └── vm-scale-sets.md
+│   └── vm-scale-sets.md
 ├── scripts/                # Automation snippets
 ├── CHECKLIST.md            # The main actionable checklist
 ├── CONTRIBUTING.md         # Contribution guidelines
 ├── LICENSE                 # MIT License
-└── README.md               # This file
+└── index.md                # This file
 ```
-If you want to see the respository directly on GitHub, here is the link [https://github.com/ricmmartins/azure-digital-natives-checklist](https://github.com/ricmmartins/azure-digital-natives-checklist)
+If you want to see the repository directly on GitHub, here is the link [https://github.com/ricmmartins/azure-digital-natives-checklist](https://github.com/ricmmartins/azure-digital-natives-checklist)
 
 ## Disclaimer
 

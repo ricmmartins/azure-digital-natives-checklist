@@ -1,5 +1,7 @@
 ---
-nav_exclude: true
+title: Infrastructure as Code
+parent: Docs
+nav_order: 6
 ---
 
 # Documentation: Infrastructure as Code (IaC)

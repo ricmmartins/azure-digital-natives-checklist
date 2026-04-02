@@ -1,5 +1,7 @@
 ---
-nav_exclude: true
+title: Azure OpenAI
+parent: Docs
+nav_order: 8
 ---
 
 # Documentation: Azure OpenAI (AOAI)

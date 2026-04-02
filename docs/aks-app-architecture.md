@@ -1,5 +1,7 @@
 ---
-nav_exclude: true
+title: AKS & Application Architecture
+parent: Docs
+nav_order: 7
 ---
 
 # Documentation: AKS & Application Architecture

@@ -1,5 +1,7 @@
 ---
-nav_exclude: true
+title: Monitoring & Observability
+parent: Docs
+nav_order: 5
 ---
 
 # Documentation: Monitoring & Observability

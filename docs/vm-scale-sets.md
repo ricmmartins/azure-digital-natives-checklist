@@ -1,5 +1,7 @@
 ---
-nav_exclude: true
+title: VM Scale Sets
+parent: Docs
+nav_order: 9
 ---
 
 # Azure Virtual Machine Scale Sets (VMSS)
@@ -77,6 +79,8 @@ Credentials are securely handled by:
 
 ## Example Bicep Code
 
+> ⚠️ **Cost Warning:** The `Standard_ND96isr_MI300X_v5` SKU used in this example is a high-end GPU instance. Running 16 instances will incur significant costs. Adjust `instanceCount` and SKU to match your actual workload requirements and budget.
+
 ```bicep
 param location string = 'francecentral'
 param vmssName string = 'mi300x-vmss'
@@ -115,7 +119,7 @@ resource nsg 'Microsoft.Network/networkSecurityGroups@2024-11-01' = {
           protocol: 'Tcp'
           access: 'Allow'
           direction: 'Inbound'
-          sourceAddressPrefix: '*'
+          sourceAddressPrefix: '10.0.0.0/16' // Restrict to your VNet CIDR. Replace with your specific IP range for production.
           sourcePortRange: '*'
           destinationAddressPrefix: '*'
           destinationPortRange: '22'

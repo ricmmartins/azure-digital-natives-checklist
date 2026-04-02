@@ -1,5 +1,7 @@
 ---
-nav_exclude: true
+title: Resource Management
+parent: Docs
+nav_order: 3
 ---
 
 # Documentation: Resource Management & Organization

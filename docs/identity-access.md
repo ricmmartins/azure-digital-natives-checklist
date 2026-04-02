@@ -1,5 +1,7 @@
 ---
-nav_exclude: true
+title: Identity & Access Management
+parent: Docs
+nav_order: 1
 ---
 
 # Documentation: Identity & Access Management

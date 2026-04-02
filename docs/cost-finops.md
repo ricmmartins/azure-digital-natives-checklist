@@ -1,5 +1,7 @@
 ---
-nav_exclude: true
+title: Cost Management & FinOps
+parent: Docs
+nav_order: 4
 ---
 
 # Documentation: Cost Management & FinOps

@@ -87,3 +87,11 @@ Considerations for leveraging Generative AI services on Azure.
 
 - [ ] **Review Azure for AWS Professionals documentation (if applicable):** Understand Azure service equivalents if transitioning from AWS. [Learn More](https://aka.ms/Azure4AWSPros)
 
+## VM Scale Sets (VMSS)
+
+Best practices for deploying and managing VM Scale Sets for custom compute workloads.
+
+- [ ] **Understand VMSS core concepts:** Learn about orchestration modes, scaling policies, and fault domain distribution. [Learn More](docs/vm-scale-sets.md)
+- [ ] **Plan VMSS networking and security:** Design NSG rules, load balancing, and secure access patterns for your scale sets. [Learn More](docs/vm-scale-sets.md)
+- [ ] **Implement automated scaling and updates:** Configure autoscale rules and upgrade policies for reliable operations. [Learn More](docs/vm-scale-sets.md)
+
