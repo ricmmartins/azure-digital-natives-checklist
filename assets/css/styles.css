@@ -158,13 +158,71 @@ a:not([class]):hover {
   box-shadow: 0 0 0 3px rgba(0, 120, 212, 0.2);
 }
 
+/* Search icon — override purple on focus (theme: .search-input:focus+.search-label .search-icon) */
+.search-input:focus + .search-label .search-icon {
+  color: var(--azure-blue);
+}
+
+.search-label .search-icon {
+  color: #959396;
+}
+
+/* Search result icons (theme: .search-result-doc .search-result-icon) */
+.search-result-doc .search-result-icon {
+  color: var(--azure-blue);
+}
+
+/* Search result hover background */
+.search-result:hover,
+.search-result.active {
+  background-color: var(--azure-light);
+}
+
 /* Search results link color */
 .search-result-title {
   color: var(--azure-blue);
 }
 
+/* Search button (mobile) — override purple border */
+.search-button {
+  border-color: rgba(0, 120, 212, 0.3);
+}
+
+/* Buttons — override purple text */
+.btn {
+  color: var(--azure-blue);
+}
+
+.btn:hover,
+.btn.zeroclipboard-is-hover {
+  color: var(--azure-dark);
+}
+
+.btn-outline {
+  color: var(--azure-blue);
+  box-shadow: inset 0 0 0 2px #c8d1d9;
+}
+
+.btn-outline:hover,
+.btn-outline:active {
+  color: var(--azure-dark);
+  box-shadow: inset 0 0 0 3px #c8d1d9;
+}
+
+/* Code copy button focus */
+div.highlighter-rouge > button:focus,
+div.listingblock > div.content > button:focus,
+figure.highlight > button:focus {
+  outline: 2px solid var(--azure-blue);
+}
+
 /* Button hover */
 .site-button:hover {
+  background-image: linear-gradient(-90deg, var(--azure-light) 0%, rgba(222, 236, 249, 0.8) 100%);
+}
+
+/* Nav expander hover background */
+.nav-list .nav-list-item .nav-list-expander:hover {
   background-image: linear-gradient(-90deg, var(--azure-light) 0%, rgba(222, 236, 249, 0.8) 100%);
 }
 
