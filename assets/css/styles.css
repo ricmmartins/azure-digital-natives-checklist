@@ -95,6 +95,33 @@ body {
   text-decoration: underline;
 }
 
+/* ── Navigation link colors (override theme purple) ── */
+.site-nav .nav-list-link {
+  color: #24292f;
+}
+
+.site-nav .nav-list-link:hover,
+.site-nav .nav-list-link.active {
+  color: var(--azure-blue);
+}
+
+.site-title {
+  color: var(--azure-dark) !important;
+}
+
+.site-title:hover {
+  color: var(--azure-blue) !important;
+}
+
+/* Override default theme link color from purple to Azure blue */
+a {
+  color: var(--azure-blue);
+}
+
+a:not([class]):hover {
+  text-decoration-color: rgba(0, 120, 212, 0.45);
+}
+
 /* ── Horizontal rule styling ─────────────────────── */
 .main-content hr {
   border: none;
