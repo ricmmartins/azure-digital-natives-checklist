@@ -6,7 +6,7 @@ nav_order: 21
 
 # Reference Architectures
 
-These reference architectures provide proven starting points for common digital-native application patterns on Azure. Each includes a Mermaid diagram showing the key components and their relationships.
+These reference architectures provide proven starting points for common digital-native application patterns on Azure. Each includes a diagram showing the key components and their relationships.
 
 ---
 
@@ -14,33 +14,7 @@ These reference architectures provide proven starting points for common digital-
 
 A multi-tenant SaaS architecture serves multiple customers from a shared infrastructure while maintaining data isolation and consistent performance. This pattern is the backbone of most B2B software companies on Azure, balancing cost efficiency (shared resources) with tenant security (data isolation).
 
-```mermaid
-graph LR
-    Users([Users]) --> AFD[Azure Front Door]
-    AFD --> App[App Service / Container Apps]
-    App --> Redis[Azure Cache for Redis]
-    App --> SQL[(Azure SQL Database)]
-    App --> KV[Key Vault]
-    App --> Monitor[Azure Monitor]
-    Entra[Entra ID] --> AFD
-    Entra --> App
-
-    SQL -- tenant isolation --- SQL
-
-    subgraph Data Tier
-        SQL
-        Redis
-    end
-
-    subgraph Security
-        Entra
-        KV
-    end
-
-    subgraph Observability
-        Monitor
-    end
-```
+![SaaS Multi-Tenant Application Architecture](/assets/diagrams/saas-multi-tenant.svg)
 
 **Key Design Decisions:**
 - **Tenant isolation model** — Choose between database-per-tenant (strongest isolation, higher cost), schema-per-tenant (moderate isolation), or row-level security with shared tables (lowest cost, requires careful implementation). Start with row-level security and graduate tenants as needed.
@@ -57,35 +31,7 @@ graph LR
 
 Event-driven microservices decouple services through asynchronous messaging, enabling independent scaling, deployment, and failure isolation. This pattern is ideal for systems where different components operate at different speeds or where you need to process high volumes of events reliably.
 
-```mermaid
-graph TD
-    Client([Clients]) --> APIM[API Management]
-    APIM --> SvcA[Service A<br/>Container Apps]
-    APIM --> SvcB[Service B<br/>Container Apps]
-    SvcA --> SB[Service Bus]
-    SvcB --> EG[Event Grid]
-    SB --> Func[Azure Functions<br/>Processors]
-    EG --> Func
-    Func --> Cosmos[(Cosmos DB)]
-    SvcA --> Cosmos
-    SvcB --> Cosmos
-    ACR[Container Registry] --> SvcA
-    ACR --> SvcB
-    Monitor[Azure Monitor] --> SvcA
-    Monitor --> SvcB
-    Monitor --> Func
-
-    subgraph Messaging
-        SB
-        EG
-    end
-
-    subgraph Compute
-        SvcA
-        SvcB
-        Func
-    end
-```
+![Event-Driven Microservices Architecture](/assets/diagrams/event-driven-microservices.svg)
 
 **Key Design Decisions:**
 - **Service Bus vs Event Grid** — Use Service Bus for command-style messages requiring guaranteed ordered delivery and processing (e.g., order processing, payment workflows). Use Event Grid for event notifications where multiple subscribers react to state changes (e.g., blob uploaded, resource provisioned). Many systems use both.
@@ -102,33 +48,7 @@ graph TD
 
 Retrieval-Augmented Generation (RAG) grounds large language model responses in your organization's data, reducing hallucinations and providing answers based on authoritative sources. This pattern is the foundation of enterprise AI assistants, knowledge bases, and document Q&A systems.
 
-```mermaid
-graph LR
-    User([Users]) --> WebApp[Web App]
-    WebApp --> AOAI[Azure OpenAI]
-    WebApp --> Search[AI Search]
-    Search --> Blob[(Blob Storage<br/>Documents)]
-    AOAI --> Search
-    WebApp --> KV[Key Vault]
-    Entra[Entra ID] --> WebApp
-    Monitor[Azure Monitor] --> WebApp
-    Monitor --> AOAI
-    Monitor --> Search
-
-    subgraph AI Services
-        AOAI
-        Search
-    end
-
-    subgraph Data
-        Blob
-    end
-
-    subgraph Security
-        Entra
-        KV
-    end
-```
+![AI-Powered Application RAG Pattern Architecture](/assets/diagrams/ai-rag-pattern.svg)
 
 **Key Design Decisions:**
 - **Chunking strategy** — How you split documents into chunks for indexing directly impacts answer quality. Start with fixed-size chunks (512–1024 tokens) with overlap (10–15%), then iterate with semantic chunking based on your content structure. Test with real user queries early.

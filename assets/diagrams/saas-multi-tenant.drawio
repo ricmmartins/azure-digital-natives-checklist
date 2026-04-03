@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net" agent="GitHub Copilot" version="26.0">
+  <diagram name="SaaS Multi-Tenant Application" id="saas-multi-tenant">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="SaaS Multi-Tenant Application" style="text;html=1;fontSize=20;fontStyle=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#1A1A2E;" vertex="1" parent="1">
+          <mxGeometry x="280" y="15" width="440" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="users" value="Users" style="shape=actor;whiteSpace=wrap;html=1;fontSize=11;fillColor=#0078D4;strokeColor=#005A9E;fontColor=#333333;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="50" y="195" width="40" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="afd" value="Azure Front Door" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=10;image=img/lib/azure2/networking/Front_Doors.svg;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="220" y="195" width="50" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="app" value="App Service /&lt;br&gt;Container Apps" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=10;image=img/lib/azure2/compute/App_Services.svg;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="450" y="195" width="50" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="dt" value="Data Tier" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#43A047;dashed=1;dashPattern=8 8;arcSize=10;fontStyle=1;verticalAlign=top;fontSize=12;fontColor=#2E7D32;container=1;collapsible=0;pointerEvents=0;" vertex="1" parent="1">
+          <mxGeometry x="650" y="80" width="200" height="330" as="geometry"/>
+        </mxCell>
+        <mxCell id="redis" value="Azure Cache&lt;br&gt;for Redis" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=10;image=img/lib/azure2/databases/Cache_Redis.svg;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;" vertex="1" parent="dt">
+          <mxGeometry x="75" y="50" width="50" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="sql" value="Azure SQL&lt;br&gt;Database" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=10;image=img/lib/azure2/databases/Azure_SQL.svg;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;" vertex="1" parent="dt">
+          <mxGeometry x="75" y="195" width="50" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="sec" value="Security &amp; Identity" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;dashed=1;dashPattern=8 8;arcSize=10;fontStyle=1;verticalAlign=top;fontSize=12;fontColor=#E65100;container=1;collapsible=0;pointerEvents=0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="430" width="370" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="entra" value="Entra ID" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=10;image=img/lib/azure2/identity/Azure_Active_Directory.svg;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;" vertex="1" parent="sec">
+          <mxGeometry x="50" y="45" width="50" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="kv" value="Key Vault" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=10;image=img/lib/azure2/security/Key_Vaults.svg;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;" vertex="1" parent="sec">
+          <mxGeometry x="265" y="45" width="50" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="obs" value="Observability" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE7F6;strokeColor=#6A1B9A;dashed=1;dashPattern=8 8;arcSize=10;fontStyle=1;verticalAlign=top;fontSize=12;fontColor=#6A1B9A;container=1;collapsible=0;pointerEvents=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="430" width="180" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="mon" value="Azure Monitor" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=10;image=img/lib/azure2/management_governance/Monitor.svg;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;" vertex="1" parent="obs">
+          <mxGeometry x="65" y="45" width="50" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="note1" value="Row-level security&lt;br&gt;for tenant isolation" style="text;html=1;fontSize=9;fontStyle=2;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="690" y="355" width="120" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0078D4;strokeWidth=2;" edge="1" source="users" target="afd" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0078D4;strokeWidth=2;" edge="1" source="afd" target="app" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#43A047;strokeWidth=1.5;" edge="1" source="app" target="redis" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#43A047;strokeWidth=1.5;" edge="1" source="app" target="sql" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#E65100;strokeWidth=1.5;dashed=1;" edge="1" source="app" target="kv" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#E65100;strokeWidth=1.5;dashed=1;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" source="entra" target="afd" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#E65100;strokeWidth=1.5;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" source="entra" target="app" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#6A1B9A;strokeWidth=1.5;dashed=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="app" target="mon" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

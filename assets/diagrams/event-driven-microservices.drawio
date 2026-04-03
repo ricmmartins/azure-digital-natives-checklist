@@ -1,0 +1,82 @@
+<mxfile host="app.diagrams.net" agent="GitHub Copilot" version="26.0">
+  <diagram name="Event-Driven Microservices" id="event-driven-microservices">
+    <mxGraphModel dx="1422" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="Event-Driven Microservices" style="text;html=1;fontSize=20;fontStyle=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#1A1A2E;" vertex="1" parent="1">
+          <mxGeometry x="250" y="10" width="400" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="clients" value="Clients" style="shape=actor;whiteSpace=wrap;html=1;fontSize=11;fillColor=#0078D4;strokeColor=#005A9E;fontColor=#333333;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="435" y="60" width="40" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="apim" value="API Management" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=10;image=img/lib/azure2/integration/API_Management_Services.svg;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="430" y="180" width="50" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="compute" value="Compute" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;dashed=1;dashPattern=8 8;arcSize=10;fontStyle=1;verticalAlign=top;fontSize=12;fontColor=#1565C0;container=1;collapsible=0;pointerEvents=0;" vertex="1" parent="1">
+          <mxGeometry x="220" y="290" width="470" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="svca" value="Service A&lt;br&gt;Container Apps" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=10;image=img/lib/azure2/compute/App_Services.svg;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;" vertex="1" parent="compute">
+          <mxGeometry x="60" y="40" width="50" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="svcb" value="Service B&lt;br&gt;Container Apps" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=10;image=img/lib/azure2/compute/App_Services.svg;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;" vertex="1" parent="compute">
+          <mxGeometry x="350" y="40" width="50" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="messaging" value="Messaging" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;dashed=1;dashPattern=8 8;arcSize=10;fontStyle=1;verticalAlign=top;fontSize=12;fontColor=#E65100;container=1;collapsible=0;pointerEvents=0;" vertex="1" parent="1">
+          <mxGeometry x="220" y="490" width="470" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="sb" value="Service Bus" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=10;image=img/lib/azure2/integration/Service_Bus.svg;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;" vertex="1" parent="messaging">
+          <mxGeometry x="60" y="40" width="50" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="eg" value="Event Grid" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=10;image=img/lib/azure2/integration/Event_Grid_Domains.svg;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;" vertex="1" parent="messaging">
+          <mxGeometry x="350" y="40" width="50" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="func" value="Azure Functions&lt;br&gt;Processors" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=10;image=img/lib/azure2/compute/Function_Apps.svg;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="430" y="690" width="50" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="cosmos" value="Cosmos DB" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=10;image=img/lib/azure2/databases/Azure_Cosmos_DB.svg;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="430" y="820" width="50" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="acr" value="Container&lt;br&gt;Registry" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=10;image=img/lib/azure2/containers/Container_Registries.svg;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="50" y="335" width="50" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="mon2" value="Azure Monitor" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=10;image=img/lib/azure2/management_governance/Monitor.svg;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="830" y="440" width="50" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0078D4;strokeWidth=2;" edge="1" source="clients" target="apim" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1565C0;strokeWidth=1.5;exitX=0.3;exitY=1;exitDx=0;exitDy=0;" edge="1" source="apim" target="svca" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1565C0;strokeWidth=1.5;exitX=0.7;exitY=1;exitDx=0;exitDy=0;" edge="1" source="apim" target="svcb" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#E65100;strokeWidth=1.5;" edge="1" source="svca" target="sb" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#E65100;strokeWidth=1.5;" edge="1" source="svcb" target="eg" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#E65100;strokeWidth=1.5;entryX=0.3;entryY=0;entryDx=0;entryDy=0;" edge="1" source="sb" target="func" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#E65100;strokeWidth=1.5;entryX=0.7;entryY=0;entryDx=0;entryDy=0;" edge="1" source="eg" target="func" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#43A047;strokeWidth=2;" edge="1" source="func" target="cosmos" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e9" value="images" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#888888;strokeWidth=1;dashed=1;fontSize=9;fontColor=#888888;" edge="1" source="acr" target="svca" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e10" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#888888;strokeWidth=1;dashed=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="mon2" target="svcb" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#888888;strokeWidth=1;dashed=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="mon2" target="func" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
