@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#50e6ff"/>
+      <stop offset="100%" stop-color="#0078d4"/>
+    </linearGradient>
+  </defs>
+  <path d="M16 2 L30 16 L16 30 L2 16 Z" fill="url(#g)"/>
+  <text x="16" y="20.5" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-weight="700" font-size="12" fill="#fff">DN</text>
+</svg>
