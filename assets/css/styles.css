@@ -85,7 +85,90 @@ body {
   accent-color: var(--azure-blue);
 }
 
-/* ── Link styling ────────────────────────────────── */
+/* ── Override theme purple (#7253ed) with Azure blue ── */
+a {
+  color: var(--azure-blue);
+}
+
+a:not([class]):hover {
+  text-decoration-color: rgba(0, 120, 212, 0.45);
+}
+
+.icon {
+  color: var(--azure-blue);
+}
+
+/* Nav links */
+.nav-list .nav-list-item .nav-list-link {
+  color: #24292f;
+}
+
+.nav-list .nav-list-item .nav-list-link:hover,
+.nav-list .nav-list-item .nav-list-link.active {
+  color: var(--azure-blue);
+  background-image: linear-gradient(-90deg, var(--azure-light) 0%, rgba(222, 236, 249, 0.8) 80%, rgba(222, 236, 249, 0) 100%);
+}
+
+/* Child nav links */
+.nav-list .nav-list-item > .nav-list .nav-list-item .nav-list-link {
+  color: #5c5962;
+}
+
+.nav-list .nav-list-item > .nav-list .nav-list-item .nav-list-link:hover,
+.nav-list .nav-list-item > .nav-list .nav-list-item .nav-list-link.active {
+  color: var(--azure-blue);
+}
+
+/* Category nav links */
+.nav-list.nav-category-list > .nav-list-item > .nav-list > .nav-list-item > .nav-list-link {
+  color: var(--azure-blue);
+}
+
+.nav-list.nav-category-list > .nav-list-item > .nav-list > .nav-list-item > .nav-list-expander {
+  color: var(--azure-blue);
+}
+
+/* Expander arrows */
+.nav-list .nav-list-item .nav-list-expander {
+  color: var(--azure-blue);
+}
+
+.nav-list .nav-list-item > .nav-list .nav-list-item .nav-list-expander {
+  color: #5c5962;
+}
+
+/* Site title */
+.site-title {
+  color: var(--azure-dark) !important;
+}
+
+.site-title:hover {
+  color: var(--azure-blue) !important;
+  background-image: linear-gradient(-90deg, var(--azure-light) 0%, rgba(222, 236, 249, 0.8) 80%, rgba(222, 236, 249, 0) 100%);
+}
+
+/* Anchor heading icons */
+.main-content .anchor-heading svg {
+  color: var(--azure-blue);
+}
+
+/* Search input focus */
+.search-input:focus {
+  border-color: var(--azure-blue);
+  box-shadow: 0 0 0 3px rgba(0, 120, 212, 0.2);
+}
+
+/* Search results link color */
+.search-result-title {
+  color: var(--azure-blue);
+}
+
+/* Button hover */
+.site-button:hover {
+  background-image: linear-gradient(-90deg, var(--azure-light) 0%, rgba(222, 236, 249, 0.8) 100%);
+}
+
+/* ── Main content link styling ───────────────────── */
 .main-content a {
   color: var(--azure-blue);
   text-decoration: none;
@@ -93,33 +176,6 @@ body {
 
 .main-content a:hover {
   text-decoration: underline;
-}
-
-/* ── Navigation link colors (override theme purple) ── */
-.site-nav .nav-list-link {
-  color: #24292f;
-}
-
-.site-nav .nav-list-link:hover,
-.site-nav .nav-list-link.active {
-  color: var(--azure-blue);
-}
-
-.site-title {
-  color: var(--azure-dark) !important;
-}
-
-.site-title:hover {
-  color: var(--azure-blue) !important;
-}
-
-/* Override default theme link color from purple to Azure blue */
-a {
-  color: var(--azure-blue);
-}
-
-a:not([class]):hover {
-  text-decoration-color: rgba(0, 120, 212, 0.45);
 }
 
 /* ── Horizontal rule styling ─────────────────────── */
