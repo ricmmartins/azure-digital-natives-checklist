@@ -6,6 +6,10 @@ lang: en
 
 remote_theme: just-the-docs/just-the-docs
 
+# Mermaid diagram support
+mermaid:
+  version: "11"
+
 # Search
 search_enabled: true
 search:
