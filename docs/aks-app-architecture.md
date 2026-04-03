@@ -45,9 +45,3 @@ This document provides further details and context for the AKS & Application Arc
     *   [Best practices for cluster operators and application developers in AKS](https://learn.microsoft.com/en-us/azure/aks/best-practices)
     *   [AKS Well-Architected Framework review](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/azure-kubernetes-service)
 
----
-
-## 📚 Recommended Reading
-
-- [Azure Support Slack Bot on Azure Container Apps: Production-Ready Guide](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/azure-support-slack-bot-on-azure-container-apps-production-ready-guide/4436423) — End-to-end guide for building and deploying a containerized app on Azure Container Apps
-

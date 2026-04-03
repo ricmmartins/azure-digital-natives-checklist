@@ -69,4 +69,5 @@ This document provides further details and context for the Azure AI section of t
 ## 📚 Recommended Reading
 
 - [Monitoring Azure OpenAI Without Switching from Your Existing Observability Platform](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/monitoring-azure-openai-without-switching-from-your-existing-observability-platf/4458898) — Integrate Azure OpenAI telemetry with Datadog, Grafana, or your existing monitoring stack
+- [Production-Grade API Gateway Patterns for Microsoft Foundry](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/production-grade-api-gateway-patterns-for-microsoft-foundry/4490494) — API gateway architecture patterns for throttling, auth, and routing at scale
 
