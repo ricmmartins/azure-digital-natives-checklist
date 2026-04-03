@@ -3,65 +3,47 @@ title: Welcome
 nav_order: 1
 ---
 
-# Azure Digital Natives Guide Repository
+# Azure Digital Natives Guide
 
-## Overview
+The practical Azure reference for startups and digital-native companies moving from MVP to production.
 
-Welcome! This repository provides actionable guidance, checklists, docs and scripts for digital native companies building on Microsoft Azure. It aims to consolidate essential best practices, particularly for teams moving from Minimum Viable Product (MVP) stages towards more robust, and production-grade environments.
+{: .fs-5 .fw-300 }
 
-This guide is derived from insights shared in the Microsoft Tech Community article: [The Digital Native's Checklist for Azure: Stuff I wish every startup knew](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/the-digital-natives-checklist-for-azure-stuff-i-wish-every-startup-knew/4406669).
+---
 
-## Purpose
+## Why this guide?
 
-*   **Provide a practical starting point:** Offer a clear list of crucial Azure configurations and practices.
-*   **Promote best practices early:** Encourage foundational security, cost management, and operational excellence from the beginning.
-*   **Facilitate knowledge sharing:** Create a reusable asset for teams and individuals within the digital native ecosystem.
-*   **Bridge the gap:** Help teams transition smoothly from rapid prototyping to scalable and maintainable solutions.
+Startups ship fast — but "fast" often means skipping identity hygiene, ignoring cost controls, and hardcoding secrets. By the time you hit product-market fit, the technical debt is already expensive to unwind.
 
-## How to Use
+This guide distills the lessons learned from working with digital-native customers on Azure into a single, opinionated checklist backed by deep-dive documentation on every topic. It covers what you should get right **early** — before scale makes it painful.
 
-1.  **Review the Checklist:** Start with the main [CHECKLIST.md](./CHECKLIST.md) file. It provides a high-level overview of key areas and actionable items using Markdown checkboxes.
-2.  **Dive Deeper:** For more context, rationale, and links to official documentation or tutorials for specific checklist items, navigate to the corresponding file within the [docs/](./docs/) directory.
-3.  **Track Progress:** Fork [this repository](https://github.com/ricmmartins/azure-digital-natives-checklist) or copy the `CHECKLIST.md` content and use the checkboxes to track your team's progress.
-4.  **Explore Scripts (Optional):** Check the [scripts/](./scripts/) directory for potential automation snippets (Azure CLI, Bicep, etc.) to help implement certain recommendations (Note: This section may be under development).
-5.  **Contribute:** Share your own experiences, suggest improvements, or add relevant resources by following the guidelines in [CONTRIBUTING.md](./CONTRIBUTING.md).
+Derived from the Microsoft Tech Community article: [The Digital Native's Checklist for Azure](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/the-digital-natives-checklist-for-azure-stuff-i-wish-every-startup-knew/4406669).
 
-## Repository Structure
+## What's inside
 
-```
-azure-digital-natives-checklist/
-├── docs/                   # Detailed explanations & links
-│   ├── identity-access.md
-│   ├── networking-security.md
-│   ├── resource-management.md
-│   ├── cost-finops.md
-│   ├── monitoring-observability.md
-│   ├── infrastructure-as-code.md
-│   ├── aks-app-architecture.md
-│   ├── azure-openai.md
-│   ├── vm-scale-sets.md
-│   ├── well-architected.md
-│   ├── disaster-recovery.md
-│   ├── devops-cicd.md
-│   ├── compliance-governance.md
-│   ├── data-services.md
-│   ├── app-architecture.md
-│   ├── sla-slo.md
-│   ├── platform-engineering.md
-│   ├── github-integration.md
-│   ├── migration-strategies.md
-│   ├── architecture-decisions.md
-│   └── reference-architectures.md
-├── scripts/                # Automation snippets
-├── CHECKLIST.md            # The main actionable checklist
-├── CONTRIBUTING.md         # Contribution guidelines
-├── LICENSE                 # MIT License
-└── index.md                # This file
-```
-If you want to see the repository directly on GitHub, here is the link [https://github.com/ricmmartins/azure-digital-natives-checklist](https://github.com/ricmmartins/azure-digital-natives-checklist)
+| Section | What you'll find |
+|---------|-----------------|
+| [**The Checklist**](CHECKLIST) | 100+ actionable items with checkboxes — track your team's progress from MVP to production-ready |
+| [**Deep-dive docs**](docs/) | Why/How/Resources for every checklist item — identity, networking, cost, monitoring, IaC, AKS, AI, and more |
+| [**Tech Stack Decisions**](docs/architecture-decisions) | Side-by-side comparisons: AKS vs Container Apps, Bicep vs Terraform, database selection, and more |
+| [**Reference Architectures**](docs/reference-architectures) | Architecture diagrams for SaaS multi-tenant, event-driven microservices, and RAG AI patterns |
 
-## Disclaimer
+## How to use this guide
 
-This checklist provides general guidance. Always tailor Azure configurations to your specific application requirements, compliance needs, and risk tolerance. Refer to official Azure documentation for the most up-to-date information.
+1. **Start with the [Checklist](CHECKLIST)** — scan the categories, check off what you've already done, and identify your gaps.
+2. **Dive deeper** — each checklist item links to a detailed page with rationale, implementation guidance, and official Azure documentation.
+3. **Track progress** — checkboxes persist in your browser using local storage. For team tracking, [fork the repo](https://github.com/ricmmartins/azure-digital-natives-checklist) and use the checklist in your own workflow.
+4. **Contribute** — found a gap or have a better practice? [Open a PR](CONTRIBUTING).
 
-Let's build smart, not just fast!
+## Who is this for?
+
+- **Startup CTOs and architects** making foundational Azure decisions
+- **Senior engineers** building the first production-grade infrastructure
+- **Platform teams** creating golden paths and internal developer platforms
+- **Solution architects** guiding digital-native customers on Azure
+
+---
+
+*This guide provides general guidance. Always tailor Azure configurations to your specific application requirements, compliance needs, and risk tolerance. Refer to [official Azure documentation](https://learn.microsoft.com/azure/) for the most up-to-date information.*
+
+**Let's build smart, not just fast.**

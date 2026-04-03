@@ -5,26 +5,57 @@ nav_order: 5
 
 # Contributing to the Azure Digital Natives Guide
 
-We welcome contributions to improve this checklist and make it even more valuable for the digital native community!
+We welcome contributions that make this guide more useful for startups and digital-native companies building on Azure. Whether you're fixing a broken link, adding a missing best practice, or improving existing guidance — your contributions help the community.
 
-## How to Contribute
+## Ways to Contribute
 
-*   **Report Issues:** If you find errors, outdated information, or areas for improvement, please open an issue on the [GitHub repository](https://github.com/ricmmartins/azure-digital-natives-checklist).
-*   **Suggest Enhancements:** Have ideas for new checklist items, categories, or helpful resources? Open an issue to discuss.
-*   **Submit Pull Requests:**
-    1.  Fork [the repository](https://github.com/ricmmartins/azure-digital-natives-checklist).
-    2.  Create a new branch for your changes (`git checkout -b feature/your-improvement`).
-    3.  Make your changes.
-    4.  Commit your changes (`git commit -am 'Add some feature'`).
-    5.  Push to the branch (`git push origin feature/your-improvement`).
-    6.  Open a Pull Request against the `main` branch of the [original repository](https://github.com/ricmmartins/azure-digital-natives-checklist).
+### Report issues
+Found an error, outdated link, or missing topic? [Open an issue](https://github.com/ricmmartins/azure-digital-natives-checklist/issues) describing what needs to change.
 
-## Guidelines
+### Suggest enhancements
+Have an idea for a new checklist item, comparison table, or reference architecture? Open an issue to discuss before submitting a PR.
 
-*   Keep checklist items actionable and concise.
-*   Provide context and rationale in the corresponding `docs/` file.
-*   Link to official Azure documentation or reputable sources whenever possible.
-*   Maintain a neutral and objective tone.
-*   Ensure Markdown formatting is correct.
+### Submit a Pull Request
+1. Fork [the repository](https://github.com/ricmmartins/azure-digital-natives-checklist).
+2. Create a branch (`git checkout -b feature/your-improvement`).
+3. Make your changes following the content guidelines below.
+4. Test locally with `bundle exec jekyll serve` if possible.
+5. Submit a Pull Request against `main`.
 
-Thank you for helping make this resource better!
+## Content Guidelines
+
+### Structure
+Every doc page follows a consistent format for each checklist item:
+
+- **`- [ ] Item title`** — The actionable item (matches the checklist)
+- **Why:** One paragraph explaining why this matters for a startup/digital-native company
+- **How:** Practical implementation guidance — not theory, but what to actually do
+- **Resources:** Links to official Microsoft/Azure documentation (prefer `learn.microsoft.com`)
+- **Quick check (optional):** A one-liner Azure CLI command to verify the current state
+
+### Tone and style
+- **Opinionated but fair** — recommend a default, explain the trade-offs
+- **Startup-friendly** — assume the reader is smart but may not have deep Azure experience
+- **Actionable** — every section should answer "what do I do next?"
+- **Concise** — respect the reader's time; link to official docs for deep dives instead of duplicating content
+
+### Quality bar
+- All links should point to official Microsoft documentation (`learn.microsoft.com`, `docs.github.com`) or reputable sources
+- Include at least 2 resource links per item
+- Avoid screenshots (they go stale fast) — prefer CLI commands and configuration guidance
+- Keep language neutral and inclusive
+
+### Checklist sync
+If you add a new item to a doc page, add the corresponding `- [ ]` entry to `CHECKLIST.md` in the matching section with a `[Learn More]` link.
+
+## Code of Conduct
+
+This project follows the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). Be respectful and constructive in all interactions.
+
+## License
+
+By contributing, you agree that your contributions will be licensed under the [MIT License](./LICENSE).
+
+---
+
+Thank you for helping make this guide better for the community!

@@ -1,5 +1,136 @@
+/* Azure Digital Natives Guide — Custom Styles */
+
+/* ── Brand colors ─────────────────────────────────── */
+:root {
+  --azure-blue: #0078d4;
+  --azure-dark: #004578;
+  --azure-light: #deecf9;
+  --success-green: #107c10;
+  --warning-amber: #d83b01;
+  --surface-bg: #fafbfc;
+  --callout-border: #0078d4;
+  --callout-bg: #f3f8fd;
+  --tip-border: #107c10;
+  --tip-bg: #f0faf0;
+  --warning-bg: #fef7f0;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--surface-bg);
+  color: #24292f;
+}
+
+/* ── Quick check callout boxes ───────────────────── */
+/* Style the Quick check sections that appear in doc pages */
+.main-content strong:first-child {
+  /* Ensures bold items are prominent */
+}
+
+.main-content blockquote {
+  border-left: 4px solid var(--azure-blue);
+  background: var(--callout-bg);
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  border-radius: 0 4px 4px 0;
+}
+
+/* ── Code block improvements ─────────────────────── */
+.main-content pre {
+  border-radius: 6px;
+  border: 1px solid #d0d7de;
+}
+
+.main-content code {
+  font-size: 0.875em;
+}
+
+/* ── Table styling ───────────────────────────────── */
+.main-content table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.main-content table th {
+  background-color: var(--azure-light);
+  color: var(--azure-dark);
+  font-weight: 600;
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #c8d1d9;
+}
+
+.main-content table td {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #d0d7de;
+  vertical-align: top;
+}
+
+.main-content table tr:nth-child(even) {
+  background-color: #f6f8fa;
+}
+
+/* ── Checkbox (checklist) improvements ───────────── */
+.task-list-item {
+  list-style: none;
+  margin-left: -1.5rem;
+  padding: 0.25rem 0;
+}
+
+.task-list-item input[type="checkbox"] {
+  margin-right: 0.5rem;
+  transform: scale(1.15);
+  cursor: pointer;
+  accent-color: var(--azure-blue);
+}
+
+/* ── Link styling ────────────────────────────────── */
+.main-content a {
+  color: var(--azure-blue);
+  text-decoration: none;
+}
+
+.main-content a:hover {
+  text-decoration: underline;
+}
+
+/* ── Horizontal rule styling ─────────────────────── */
+.main-content hr {
+  border: none;
+  border-top: 2px solid #d0d7de;
+  margin: 2rem 0;
+}
+
+/* ── Image diagrams (SVG) ────────────────────────── */
+.main-content img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  margin: 1rem 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Landing page enhancements ───────────────────── */
+.main-content > h1:first-of-type {
+  font-size: 2.25rem;
+  color: var(--azure-dark);
+  border-bottom: 3px solid var(--azure-blue);
+  padding-bottom: 0.5rem;
+}
+
+/* ── Navigation improvements ─────────────────────── */
+.site-title {
+  font-weight: 700;
+}
+
+/* ── Print styling ───────────────────────────────── */
+@media print {
+  .site-nav, .site-header, .site-footer {
+    display: none;
+  }
+  .main-content {
+    max-width: 100%;
+  }
 }

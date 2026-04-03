@@ -47,6 +47,7 @@ Avoid resource sprawl and maintain clarity on ownership and purpose.
 - [ ] **Apply resource locks on production resources:** Prevent accidental deletion of critical resource groups with CanNotDelete locks. [Learn More](docs/resource-management.md#resource-locks)
 - [ ] **Use Azure Resource Graph for inventory and compliance:** Query resources at scale across subscriptions for governance and auditing. [Learn More](docs/resource-management.md#azure-resource-graph)
 - [ ] **Monitor subscription limits and quotas:** Track quota usage to prevent scaling failures and plan multi-subscription architecture. [Learn More](docs/resource-management.md#subscription-limits-and-quotas)
+- [ ] **Organize subscriptions with management groups:** Apply governance consistently across multiple subscriptions using a hierarchical structure. [Learn More](docs/resource-management.md)
 
 ## Cost Management & FinOps
 
@@ -57,6 +58,8 @@ Proactively manage Azure costs to avoid surprises and optimize spending.
 - [ ] **Regularly review Azure Advisor recommendations:** Leverage Advisor for cost optimization, performance, security, and reliability suggestions. [Learn More](docs/cost-finops.md#azure-advisor)
 - [ ] **Evaluate cost optimization options:** Explore Azure Reservations, Savings Plans, and Spot Virtual Machines for potential savings. [Learn More](docs/cost-finops.md#optimization-options)
 - [ ] **Understand FinOps basics:** Integrate financial accountability into the variable spend model of the cloud. [Learn More](docs/cost-finops.md#finops-basics)
+- [ ] **Use Dev/Test pricing and subscriptions:** Leverage discounted rates for non-production environments with Azure Dev/Test offers and B-series burstable VMs. [Learn More](docs/cost-finops.md)
+- [ ] **Enable auto-shutdown for non-production resources:** Schedule VM shutdowns to reduce non-production compute costs by 60–70%. [Learn More](docs/cost-finops.md)
 
 ## Monitoring & Observability
 
@@ -67,6 +70,9 @@ Gain visibility into your application and infrastructure health.
 - [ ] **Create meaningful dashboards with Azure Workbooks:** Visualize key metrics and logs to understand system performance and behavior. [Learn More](docs/monitoring-observability.md#workbooks)
 - [ ] **Configure advanced alerts:** Set up proactive alerts based on metrics, logs, or activity log events for critical conditions. [Learn More](docs/monitoring-observability.md#advanced-alerts)
 - [ ] **Understand and implement MELT (Metrics, Events, Logs, Traces):** Ensure comprehensive observability across your systems. [Learn More](docs/monitoring-observability.md#melt)
+- [ ] **Use OpenTelemetry for vendor-neutral observability:** Adopt OpenTelemetry SDKs with the Azure Monitor distro to avoid monitoring lock-in. [Learn More](docs/monitoring-observability.md)
+- [ ] **Deploy Azure Managed Grafana for dashboards:** Get native Azure integration with Grafana's visualization without managing the infrastructure. [Learn More](docs/monitoring-observability.md)
+- [ ] **Configure synthetic monitoring and availability tests:** Proactively detect outages before users report them with Application Insights availability tests. [Learn More](docs/monitoring-observability.md)
 
 ## Infrastructure as Code (IaC)
 
@@ -105,6 +111,8 @@ Align your Azure workloads with the Azure Well-Architected Framework for reliabl
 - [ ] **Understand the five pillars of the Well-Architected Framework:** Learn how Reliability, Security, Cost Optimization, Operational Excellence, and Performance Efficiency apply to your workloads. [Learn More](docs/well-architected.md)
 - [ ] **Run the Well-Architected Review:** Assess your workloads against WAF pillars using the official review tool. [Learn More](docs/well-architected.md)
 - [ ] **Align architecture decisions with WAF pillars:** Use the framework as a decision-making guide for every infrastructure and application choice. [Learn More](docs/well-architected.md)
+- [ ] **Leverage Azure Advisor for WAF recommendations:** Use Advisor's continuous analysis to surface actionable improvements across all five pillars. [Learn More](docs/well-architected.md)
+- [ ] **Use WAF service guides for specific Azure services:** Consult service-specific WAF guidance when deploying or reviewing any Azure service. [Learn More](docs/well-architected.md)
 
 ## Disaster Recovery & Business Continuity
 
@@ -114,6 +122,8 @@ Prepare for the unexpected with tested disaster recovery plans.
 - [ ] **Implement Azure Backup for critical resources:** Protect VMs, databases, and storage with automated backups. [Learn More](docs/disaster-recovery.md)
 - [ ] **Design for geo-redundancy with Azure Site Recovery:** Orchestrate disaster recovery across Azure regions. [Learn More](docs/disaster-recovery.md)
 - [ ] **Test your disaster recovery plan regularly:** Validate your DR plans with test failovers — untested plans are assumptions. [Learn More](docs/disaster-recovery.md)
+- [ ] **Leverage availability zones and paired regions:** Deploy across availability zones for HA and replicate to paired regions for DR. [Learn More](docs/disaster-recovery.md)
+- [ ] **Implement PaaS disaster recovery patterns:** Configure geo-replication, failover groups, and geo-redundant storage for PaaS services. [Learn More](docs/disaster-recovery.md)
 
 ## DevOps & CI/CD
 
@@ -123,6 +133,7 @@ Automate your software delivery pipeline for speed and reliability.
 - [ ] **Automate infrastructure deployment with IaC pipelines:** Run Bicep/Terraform through pipelines, not manually. [Learn More](docs/devops-cicd.md)
 - [ ] **Use deployment strategies to minimize risk:** Implement blue/green, canary, or rolling deployments to reduce blast radius. [Learn More](docs/devops-cicd.md)
 - [ ] **Secure your CI/CD pipelines:** Use OIDC/workload identity federation, protect secrets, and enable branch protection. [Learn More](docs/devops-cicd.md)
+- [ ] **Implement environment promotion workflows:** Promote code through dev → staging → production with approval gates and automated tests at each stage. [Learn More](docs/devops-cicd.md)
 
 ## Compliance & Governance
 
@@ -131,6 +142,7 @@ Establish guardrails and meet regulatory obligations from day one.
 - [ ] **Implement Azure Policy for guardrails:** Enforce organizational standards and assess compliance at scale. [Learn More](docs/compliance-governance.md)
 - [ ] **Organize resources with Management Groups:** Apply governance consistently across multiple subscriptions. [Learn More](docs/compliance-governance.md)
 - [ ] **Understand your compliance obligations:** Map applicable regulatory frameworks (SOC 2, HIPAA, GDPR) to Azure compliance offerings. [Learn More](docs/compliance-governance.md)
+- [ ] **Enable Microsoft Defender for Cloud regulatory compliance:** Use the compliance dashboard to continuously assess your environment against industry standards. [Learn More](docs/compliance-governance.md)
 - [ ] **Implement data governance with Microsoft Purview:** Use Purview for data cataloging, classification, and lineage tracking. [Learn More](docs/compliance-governance.md)
 
 ## Data Services
@@ -141,6 +153,7 @@ Choose and manage the right data services for your workloads.
 - [ ] **Implement database high availability and backups:** Configure geo-replication, failover, and point-in-time restore. [Learn More](docs/data-services.md)
 - [ ] **Secure database access with Private Endpoints and Managed Identities:** Never expose databases publicly; use Private Endpoints and Managed Identities. [Learn More](docs/data-services.md)
 - [ ] **Design your data tier for scalability:** Understand partitioning, read replicas, connection pooling, and elastic scaling. [Learn More](docs/data-services.md)
+- [ ] **Implement a data storage strategy:** Use the right storage tier for each data type — Blob for unstructured, Data Lake for analytics, access tiers for cost optimization. [Learn More](docs/data-services.md)
 
 ## Application Architecture
 
@@ -150,6 +163,7 @@ Design resilient, scalable applications on Azure.
 - [ ] **Design for resilience with retry and circuit breaker patterns:** Implement transient fault handling and circuit breakers. [Learn More](docs/app-architecture.md)
 - [ ] **Implement API management for your services:** Use Azure API Management for rate limiting, auth, versioning, and monitoring. [Learn More](docs/app-architecture.md)
 - [ ] **Use asynchronous messaging for loosely coupled architectures:** Leverage Service Bus and Event Grid to decouple services. [Learn More](docs/app-architecture.md)
+- [ ] **Follow the Azure Architecture Center reference architectures:** Start from proven, battle-tested designs for common application patterns. [Learn More](docs/app-architecture.md)
 
 ## SLA & SLO Management
 
@@ -159,6 +173,7 @@ Define, measure, and manage your reliability targets.
 - [ ] **Calculate composite SLAs for your architecture:** Multiply individual SLAs to understand end-to-end availability targets. [Learn More](docs/sla-slo.md)
 - [ ] **Define SLOs and SLIs for your application:** Set Service Level Objectives and Indicators that matter to your customers. [Learn More](docs/sla-slo.md)
 - [ ] **Implement error budgets and monitor SLO compliance:** Use error budgets to balance velocity against reliability. [Learn More](docs/sla-slo.md)
+- [ ] **Monitor and alert on SLO compliance:** Build dashboards and alerts that track SLI metrics and error budget consumption in real time. [Learn More](docs/sla-slo.md)
 
 ## Platform Engineering
 
@@ -167,6 +182,7 @@ Build internal developer platforms for self-service infrastructure and faster de
 - [ ] **Build an Internal Developer Platform (IDP):** Create self-service capabilities for developers to provision infrastructure and deploy apps without tickets. [Learn More](docs/platform-engineering.md)
 - [ ] **Standardize developer environments with Azure Deployment Environments:** Provide pre-configured, project-specific environments for developers. [Learn More](docs/platform-engineering.md)
 - [ ] **Implement service catalogs and golden paths:** Provide curated templates that enforce standards while empowering developer autonomy. [Learn More](docs/platform-engineering.md)
+- [ ] **Use Azure Developer CLI (azd) for developer experience:** Streamline the code-to-cloud workflow with consistent init, provision, and deploy commands. [Learn More](docs/platform-engineering.md)
 - [ ] **Measure platform adoption with developer experience metrics:** Track DORA metrics and developer satisfaction to iterate on your platform. [Learn More](docs/platform-engineering.md)
 
 ## GitHub Integration
@@ -177,6 +193,7 @@ Leverage GitHub for secure, integrated Azure development workflows.
 - [ ] **Authenticate securely with OIDC workload identity federation:** Replace long-lived secrets with OpenID Connect federation for secretless deployments. [Learn More](docs/github-integration.md)
 - [ ] **Enable GitHub Advanced Security (GHAS):** Use code scanning, secret scanning, and dependency review to find vulnerabilities early. [Learn More](docs/github-integration.md)
 - [ ] **Integrate GitHub Copilot into your development workflow:** Accelerate Azure development with AI-assisted code suggestions. [Learn More](docs/github-integration.md)
+- [ ] **Manage infrastructure repositories with branch protection and CODEOWNERS:** Ensure infrastructure changes receive mandatory review from qualified team members. [Learn More](docs/github-integration.md)
 
 ## Migration Strategies
 
@@ -185,6 +202,7 @@ Plan and execute workload migrations to Azure.
 - [ ] **Assess your workloads with Azure Migrate:** Discover, assess, and plan migration of on-premises or other-cloud workloads. [Learn More](docs/migration-strategies.md)
 - [ ] **Choose the right migration strategy (the 5 Rs):** Understand Rehost, Replatform, Refactor, Rearchitect, and Rebuild. [Learn More](docs/migration-strategies.md)
 - [ ] **Use Azure Database Migration Service for database migrations:** Migrate databases with minimal downtime. [Learn More](docs/migration-strategies.md)
+- [ ] **Plan for hybrid connectivity during migration:** Set up VPN Gateway or ExpressRoute, hub-spoke networking, and DNS forwarding for the migration period. [Learn More](docs/migration-strategies.md)
 - [ ] **Follow the Cloud Adoption Framework migration methodology:** Use CAF's structured approach for planning, migrating, and optimizing. [Learn More](docs/migration-strategies.md)
 
 ## Performance Efficiency
@@ -198,15 +216,18 @@ Optimize application performance with caching, CDN, load testing, and auto-scali
 - [ ] **Monitor application performance with Application Insights:** Use distributed tracing and performance counters to detect slow requests. [Learn More](docs/performance-efficiency.md)
 - [ ] **Configure auto-scaling across all compute tiers:** Enable autoscale for App Service, Container Apps, Functions, and AKS. [Learn More](docs/performance-efficiency.md)
 
-## Bonus
-
-- [ ] **Review Azure for AWS Professionals documentation (if applicable):** Understand Azure service equivalents if transitioning from AWS. [Learn More](https://aka.ms/Azure4AWSPros)
-
 ## VM Scale Sets (VMSS)
 
 Best practices for deploying and managing VM Scale Sets for custom compute workloads.
 
 - [ ] **Understand VMSS core concepts:** Learn about orchestration modes, scaling policies, and fault domain distribution. [Learn More](docs/vm-scale-sets.md)
-- [ ] **Plan VMSS networking and security:** Design NSG rules, load balancing, and secure access patterns for your scale sets. [Learn More](docs/vm-scale-sets.md)
-- [ ] **Implement automated scaling and updates:** Configure autoscale rules and upgrade policies for reliable operations. [Learn More](docs/vm-scale-sets.md)
+- [ ] **Configure auto-scaling rules:** Set metric-based and schedule-based rules with appropriate thresholds and cooldown periods. [Learn More](docs/vm-scale-sets.md)
+- [ ] **Implement golden image management:** Use Azure Compute Gallery and Image Builder for consistent, hardened VM images. [Learn More](docs/vm-scale-sets.md)
+- [ ] **Configure health monitoring and automatic repair:** Use the Application Health extension and automatic instance repairs for self-healing scale sets. [Learn More](docs/vm-scale-sets.md)
+- [ ] **Follow VMSS security best practices:** Use managed identities, private subnets, NSGs, and disk encryption across all instances. [Learn More](docs/vm-scale-sets.md)
+- [ ] **Optimize VMSS costs:** Use Spot VMs for fault-tolerant workloads, right-size SKUs, and purchase reservations for baseline capacity. [Learn More](docs/vm-scale-sets.md)
+
+## Bonus
+
+- [ ] **Review Azure for AWS Professionals documentation (if applicable):** Understand Azure service equivalents if transitioning from AWS. [Learn More](https://aka.ms/Azure4AWSPros)
 
