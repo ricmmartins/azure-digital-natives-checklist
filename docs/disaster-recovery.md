@@ -24,6 +24,16 @@ This document provides further details and context for implementing disaster rec
     *   [What is Azure Backup?](https://learn.microsoft.com/en-us/azure/backup/backup-overview)
     *   [Azure Backup architecture and components](https://learn.microsoft.com/en-us/azure/backup/backup-architecture)
     *   [Azure Backup best practices](https://learn.microsoft.com/en-us/azure/backup/guidance-best-practices)
+*   **Quick check:** Find VMs without backup protection using Azure Resource Graph:
+    ```bash
+    az graph query -q "RecoveryServicesResources \
+      | where type =~ 'microsoft.recoveryservices/vaults/backupfabrics/protectioncontainers/protecteditems' \
+      | where properties.backupManagementType == 'AzureIaasVM' \
+      | project vmId=tolower(properties.sourceResourceId) \
+      | join kind=rightanti (Resources | where type =~ 'microsoft.compute/virtualmachines' \
+        | project vmId=tolower(id), name, resourceGroup) on vmId" -o table
+    ```
+    Use [Azure Policy](https://learn.microsoft.com/en-us/azure/backup/backup-azure-auto-enable-backup) to auto-enable backup on new VMs.
 
 - [ ] **Design for geo-redundancy with Azure Site Recovery**
 

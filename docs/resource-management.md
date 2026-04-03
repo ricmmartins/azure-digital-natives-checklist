@@ -36,6 +36,11 @@ This document provides further details and context for the Resource Management &
     *   [Use tags to organize your Azure resources and management hierarchy](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging)
     *   [Azure Policy overview](https://learn.microsoft.com/en-us/azure/governance/policy/overview)
     *   [Common policy examples for tagging](https://learn.microsoft.com/en-us/azure/governance/policy/samples/pattern-tags)
+*   **Quick check:** Audit a resource group for missing tags:
+    ```bash
+    az resource list -g MyResourceGroup -o json | jq '[.[] | select(.tags.CostCenter == null)] | length'
+    ```
+    For continuous enforcement, use [Azure Policy tag rules](https://learn.microsoft.com/en-us/azure/governance/policy/samples/pattern-tags) instead of ad-hoc scripts.
 
 - [ ] **Establish naming conventions**
 
@@ -51,6 +56,10 @@ This document provides further details and context for the Resource Management &
 *   **How:** Apply **CanNotDelete** locks on all production resource groups to prevent accidental deletion while still allowing updates. Apply **ReadOnly** locks on critical infrastructure resources like hub virtual networks, DNS zones, and ExpressRoute circuits where unplanned modifications could cause cascading failures. Automate lock verification with Azure Policy to ensure locks are consistently applied. Document the process for temporarily removing locks during planned maintenance.
 *   **Resources:**
     *   [Lock your Azure resources to protect your infrastructure](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources)
+*   **Quick check:** Verify a production resource group has a CanNotDelete lock:
+    ```bash
+    az lock list -g MyProductionRG --query "[?level=='CanNotDelete']" -o table
+    ```
 
 - [ ] **Use Azure Resource Graph for at-scale querying**
 

@@ -2,6 +2,7 @@
 title: Scripts
 permalink: /scripts/ 
 nav_order: 4
+nav_exclude: true
 ---
 
 # Scripts Folder

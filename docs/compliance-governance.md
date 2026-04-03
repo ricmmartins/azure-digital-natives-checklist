@@ -17,6 +17,13 @@ This document provides further details and context for implementing compliance a
     *   [Azure Policy built-in policy definitions](https://learn.microsoft.com/en-us/azure/governance/policy/samples/built-in-policies)
     *   [Tutorial: Create and manage policies to enforce compliance](https://learn.microsoft.com/en-us/azure/governance/policy/tutorials/create-and-manage)
     *   [Azure Policy best practices](https://learn.microsoft.com/en-us/azure/governance/policy/overview)
+*   **Quick check:** Find storage accounts with public blob access enabled:
+    ```bash
+    az graph query -q "Resources | where type =~ 'microsoft.storage/storageaccounts' \
+      | where properties.allowBlobPublicAccess != false \
+      | project name, resourceGroup, subscriptionId" -o table
+    ```
+    Use the built-in policy *"Storage accounts should disable public network access"* for continuous enforcement.
 
 - [ ] **Organize resources with Management Groups**
 

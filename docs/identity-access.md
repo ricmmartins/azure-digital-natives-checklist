@@ -25,6 +25,11 @@ This document provides further details and context for the Identity & Access Man
     *   [What is Azure role-based access control (Azure RBAC)?](https://learn.microsoft.com/en-us/azure/role-based-access-control/overview)
     *   [Azure built-in roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles)
     *   [Best practices for Azure RBAC](https://learn.microsoft.com/en-us/azure/role-based-access-control/best-practices)
+*   **Quick check:** Audit who has Owner role on your subscription:
+    ```bash
+    az role assignment list --role "Owner" --all -o table
+    ```
+    Use [Entra PIM](https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-configure) to replace standing Owner assignments with just-in-time elevation.
 
 - [ ] **Utilize Managed Identities**
 

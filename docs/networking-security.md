@@ -15,6 +15,15 @@ This document provides further details and context for the Networking & Security
 *   **Resources:**
     *   [Azure Virtual Network concepts and best practices](https://learn.microsoft.com/en-us/azure/virtual-network/concepts-and-best-practices)
     *   [Network security groups](https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview)
+*   **Quick check:** Find NSG rules allowing inbound traffic from Any/Internet on risky ports:
+    ```bash
+    az graph query -q "Resources | where type =~ 'microsoft.network/networksecuritygroups' \
+      | mv-expand rule=properties.securityRules \
+      | where rule.properties.direction =~ 'Inbound' and rule.properties.access =~ 'Allow' \
+        and rule.properties.sourceAddressPrefix in ('*','Internet') \
+      | project nsgName=name, ruleName=rule.name, port=rule.properties.destinationPortRange" -o table
+    ```
+    Use [Microsoft Defender for Cloud](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction) for continuous network security monitoring.
 
 - [ ] **Plan VNet architecture early**
 
@@ -57,6 +66,12 @@ This document provides further details and context for the Networking & Security
     *   [Use Key Vault references for App Service and Azure Functions](https://learn.microsoft.com/en-us/azure/app-service/app-service-key-vault-references)
     *   [Authenticate to Key Vault using Managed Identity](https://learn.microsoft.com/en-us/azure/key-vault/general/managed-identity)
     *   *(From article)* [Building a Secure & Scalable Foundation](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/building-a-secure-and-scalable-foundation-for-your-startup-on-azure/4146456)
+*   **Quick check:** Audit Key Vault for secrets expiring within 30 days:
+    ```bash
+    az keyvault secret list --vault-name MyVault --query "[?attributes.expires]" -o json \
+      | jq '[.[] | select(.attributes.expires | fromdateiso8601 < (now + 2592000))] | length'
+    ```
+    Configure [Key Vault event notifications](https://learn.microsoft.com/en-us/azure/key-vault/general/event-grid-overview) for automated expiration alerts.
 
 - [ ] **Deploy Azure Web Application Firewall (WAF)**
 

@@ -16,6 +16,11 @@ This document provides further details and context for the Monitoring & Observab
     *   [Azure Monitor overview](https://learn.microsoft.com/en-us/azure/azure-monitor/overview)
     *   [Create a Log Analytics workspace in the Azure portal](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/quick-create-workspace)
     *   [What is Application Insights?](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
+*   **Quick check:** Verify a resource has diagnostic settings configured:
+    ```bash
+    az monitor diagnostic-settings list --resource <resource-id> -o table
+    ```
+    Use [Azure Policy](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings-policy) to enforce diagnostic settings at scale.
 
 - [ ] **Utilize Azure Service Health and Resource Health**
 
@@ -25,6 +30,11 @@ This document provides further details and context for the Monitoring & Observab
     *   [Azure Service Health overview](https://learn.microsoft.com/en-us/azure/service-health/service-health-overview)
     *   [Resource Health overview](https://learn.microsoft.com/en-us/azure/service-health/resource-health-overview)
     *   [Create activity log alerts on service notifications](https://learn.microsoft.com/en-us/azure/service-health/alerts-activity-log-service-notifications)
+*   **Quick check:** Verify Resource Health alerts exist in your subscription:
+    ```bash
+    az monitor activity-log alert list -o json \
+      | jq '[.[] | select(.condition.allOf[]? | .field=="category" and .equals=="ResourceHealth")] | length'
+    ```
 
 - [ ] **Create meaningful dashboards with Azure Workbooks**
 

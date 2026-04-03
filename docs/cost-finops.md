@@ -15,6 +15,7 @@ This document provides further details and context for the Cost Management & Fin
 *   **Resources:**
     *   [What is Azure Cost Management + Billing?](https://learn.microsoft.com/en-us/azure/cost-management-billing/cost-management-billing-overview)
     *   [Quickstart: Explore and analyze costs with cost analysis](https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/quick-acm-cost-analysis)
+*   **Quick check:** Use the Azure portal's **Cost Analysis → Group By → Tag** to view costs by tag. For programmatic access, use the [Cost Management API](https://learn.microsoft.com/en-us/rest/api/cost-management/).
 
 - [ ] **Set up budgets and spending alerts**
 
