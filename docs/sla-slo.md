@@ -53,3 +53,9 @@ This document provides further details and context for the SLA & SLO Management 
     *   [Overview of alerts in Microsoft Azure](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview)
     *   [Azure Monitor Workbooks overview](https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-overview)
     *   [Monitoring application health for reliability](https://learn.microsoft.com/en-us/azure/well-architected/reliability/monitoring-alerting-strategy)
+
+---
+
+## 📚 Recommended Reading
+
+- [Azure Service Level Agreements (SLAs)](https://learn.microsoft.com/en-us/azure/reliability/concept-service-level-agreements) — Official documentation on SLA concepts, composite SLAs, and availability calculations

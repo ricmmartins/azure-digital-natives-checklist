@@ -58,3 +58,9 @@ This document provides guidance for deploying and managing Azure Virtual Machine
 *   **Resources:**
     *   [Use Azure Spot Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/spot-vms)
     *   [What are Azure Reservations?](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/save-compute-costs-reservations)
+
+---
+
+## 📚 Recommended Reading
+
+- [Azure Capacity Planning Using Quotas, Reservations, VMSS Instance Mix, and Compute Fleet](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/azure-capacity-planning-using-quotas-reservations-vmss-instance-mix-and-compute-/4464893) — Deep dive into capacity planning strategies including instance mix and fleet management

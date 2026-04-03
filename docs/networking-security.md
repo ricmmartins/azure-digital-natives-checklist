@@ -99,3 +99,10 @@ This document provides further details and context for the Networking & Security
     *   [NSG flow logs overview](https://learn.microsoft.com/en-us/azure/network-watcher/nsg-flow-logs-overview)
     *   [Traffic Analytics](https://learn.microsoft.com/en-us/azure/network-watcher/traffic-analytics)
 
+---
+
+## 📚 Recommended Reading
+
+- [Dynamic Multi-Cloud Networking: Configuring a BGP-Enabled VPN Between Azure and AWS](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/dynamic-multi-cloud-networking-configuring-a-bgp-enabled-vpn-between-azure-and-a/4281443) — Advanced BGP-based VPN setup for dynamic routing between cloud providers
+- [How to Easily Set Up a VPN Between Azure and AWS Using Managed Services](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/how-to-easily-set-up-a-vpn-between-azure-and-aws-using-managed-services-updated-/4278966) — Step-by-step guide using Azure VPN Gateway and AWS Virtual Private Gateway
+

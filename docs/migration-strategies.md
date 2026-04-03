@@ -52,3 +52,9 @@ This document provides further details and context for planning and executing mi
     *   [Cloud Adoption Framework migration overview](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/migrate/)
     *   [Azure landing zones overview](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/)
     *   [Migration best practices](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/migrate/azure-best-practices/)
+
+---
+
+## 📚 Recommended Reading
+
+- [Key Architectural Differences Between AWS and Azure Explained](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/key-architectural-differences-between-aws-and-azure-explained/4244702) — Side-by-side comparison of Azure vs AWS services, networking, identity, and architectural patterns

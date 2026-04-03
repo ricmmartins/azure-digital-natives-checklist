@@ -82,3 +82,10 @@ This document provides further details and context for the Identity & Access Man
     *   [Workload identity federation](https://learn.microsoft.com/en-us/entra/workload-id/workload-identity-federation)
     *   [Configure an app to trust an external identity provider](https://learn.microsoft.com/en-us/entra/workload-id/workload-identity-federation-create-trust)
 
+---
+
+## 📚 Recommended Reading
+
+- [Demystifying Microsoft Entra ID Tenants and Azure Subscriptions](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/demystifying-microsoft-entra-id-tenants-and-azure-subscriptions/4155261) — Clear breakdown of tenant vs subscription hierarchy and common identity pitfalls
+- [The Comprehensive Playbook for Identity, Resource, and Billing Separation](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/the-comprehensive-playbook-for-identity-resource-and-billing-separation/4471854) — Production patterns for isolating environments, billing boundaries, and access control
+

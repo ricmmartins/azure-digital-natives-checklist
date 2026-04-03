@@ -59,3 +59,9 @@ Retrieval-Augmented Generation (RAG) grounds large language model responses in y
 - **Responsible AI** — Enable Azure OpenAI content filters, log all prompts and completions via Azure Monitor for audit trails, and implement input validation to prevent prompt injection attacks.
 
 📐 [Azure Architecture Center: RAG with Azure OpenAI and AI Search](https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat)
+
+---
+
+## 📚 Recommended Reading
+
+- [Production-Grade API Gateway Patterns for Microsoft Foundry](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/production-grade-api-gateway-patterns-for-microsoft-foundry/4490494) — API gateway architecture patterns for throttling, auth, and routing at scale

@@ -71,3 +71,9 @@ This document provides further details and context for the Cost Management & Fin
     *   [Configure auto-shutdown for VMs in DevTest Labs](https://learn.microsoft.com/azure/devtest-labs/devtest-lab-auto-shutdown)
     *   [Stop and start an AKS cluster](https://learn.microsoft.com/azure/aks/start-stop-cluster)
 
+---
+
+## 📚 Recommended Reading
+
+- [How Azure Advisor Can Help You to Optimize Cloud Resources](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/how-azure-advisor-can-help-you-to-optimize-cloud-resources/4372082) — Practical guide to using Advisor recommendations for cost, security, and performance
+

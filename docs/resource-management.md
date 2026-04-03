@@ -86,3 +86,10 @@ This document provides further details and context for the Resource Management &
     *   [What are Azure management groups?](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview)
     *   [Management groups — Cloud Adoption Framework](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-management-groups)
 
+---
+
+## 📚 Recommended Reading
+
+- [Introducing the Startup Scale Landing Zone: Get Azure Right from Day One](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/introducing-the-startup-scale-landing-zone-get-azure-right-from-day-one/4501566) — Purpose-built landing zone architecture for startups scaling on Azure
+- [From Zero to Hero with Azure Landing Zones](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/from-zero-to-hero-with-azure-landing-zones/4229195) — Complete walkthrough of landing zone concepts, design areas, and implementation paths
+

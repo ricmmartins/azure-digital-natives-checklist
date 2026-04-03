@@ -64,3 +64,9 @@ This document provides further details and context for the Azure AI section of t
     *   [Azure AI Search for RAG patterns](https://learn.microsoft.com/en-us/azure/search/search-what-is-azure-search)
     *   [Semantic Kernel overview](https://learn.microsoft.com/en-us/semantic-kernel/overview/)
 
+---
+
+## 📚 Recommended Reading
+
+- [Monitoring Azure OpenAI Without Switching from Your Existing Observability Platform](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/monitoring-azure-openai-without-switching-from-your-existing-observability-platf/4458898) — Integrate Azure OpenAI telemetry with Datadog, Grafana, or your existing monitoring stack
+

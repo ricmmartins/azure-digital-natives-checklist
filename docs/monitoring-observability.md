@@ -91,3 +91,11 @@ This document provides further details and context for the Monitoring & Observab
 *   **Resources:**
     *   [Application Insights availability tests](https://learn.microsoft.com/azure/azure-monitor/app/availability-overview)
     *   [Create a standard availability test](https://learn.microsoft.com/azure/azure-monitor/app/availability-standard-tests)
+
+---
+
+## 📚 Recommended Reading
+
+- [Azure Monitor 101: The Missing Guide to Understanding Monitoring on Azure](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/azure-monitor-101-the-missing-guide-to-understanding-monitoring-on-azure/4462799) — Comprehensive intro to Azure Monitor's data platform, agents, and alerting
+- [The Importance of Setting Up Service and Resource Health Monitoring in Azure](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/the-importance-of-setting-up-service-and-resource-health-monitoring-in-azure/4372478) — Proactively detect Azure platform issues affecting your workloads
+- [Azure Workbooks: Advanced Customization and Data Visualization](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/azure-workbooks-advanced-customization-and-data-visualization-in-azure/4369588) — Building interactive dashboards with parametric queries and cross-resource visualizations
