@@ -9,7 +9,7 @@ description: Deep-dive documentation for every section of the Azure Digital Nati
 
 Deep-dive guidance for every section of the [Azure Digital Natives Checklist](../CHECKLIST). Each page follows a consistent format: **Why** it matters, **How** to implement it, and **Resources** with links to official Azure documentation.
 
-## 🏗️ Foundation
+## Foundation
 
 Get these right first — identity, networking, and resource organization form the bedrock of every Azure environment.
 
@@ -17,7 +17,7 @@ Get these right first — identity, networking, and resource organization form t
 - [Networking & Security](/docs/networking-security) — VNets, NSGs, firewalls, private endpoints, Key Vault, WAF, DNS, and flow logs.
 - [Resource Management](/docs/resource-management) — Organization strategy, tagging, naming, locks, Resource Graph, and quotas.
 
-## ⚙️ Day 2 Operations
+## Day 2 Operations
 
 Keep your environment healthy, compliant, and cost-efficient as you scale.
 
@@ -27,7 +27,7 @@ Keep your environment healthy, compliant, and cost-efficient as you scale.
 - [SLA & SLO Management](/docs/sla-slo) — Azure SLAs, composite SLAs, SLOs/SLIs, error budgets, and SLO monitoring.
 - [Disaster Recovery & Business Continuity](/docs/disaster-recovery) — RPO/RTO, Azure Backup, Site Recovery, availability zones, and PaaS DR.
 
-## 🚀 Build & Deploy
+## Build & Deploy
 
 Automate everything — ship reliably, securely, and repeatably.
 
@@ -36,7 +36,7 @@ Automate everything — ship reliably, securely, and repeatably.
 - [GitHub Integration](/docs/github-integration) — GitHub Actions, OIDC federation, GHAS, Copilot, and branch protection.
 - [Platform Engineering](/docs/platform-engineering) — Internal developer platforms, deployment environments, golden paths, azd, and developer metrics.
 
-## 💻 Compute & Apps
+## Compute & Apps
 
 Choose the right compute, design for resilience, and optimize for performance.
 
@@ -45,14 +45,14 @@ Choose the right compute, design for resilience, and optimize for performance.
 - [VM Scale Sets](/docs/vm-scale-sets) — Orchestration modes, autoscaling, image management, health monitoring, and security.
 - [Performance Efficiency](/docs/performance-efficiency) — Caching, CDN, load testing, database optimization, APM, and auto-scaling.
 
-## 🧠 Data & AI
+## Data & AI
 
 Your data layer and AI capabilities — from choosing the right database to building production AI applications.
 
 - [Data Services](/docs/data-services) — Database selection, HA/backups, private access, scalability, and storage strategy.
 - [Azure AI Services](/docs/azure-openai) — Azure OpenAI, RAG patterns, data handling, responsible AI, and AI Foundry.
 
-## 📐 Architecture & Strategy
+## Architecture & Strategy
 
 Frameworks, patterns, comparisons, and migration playbooks to guide your Azure journey.
 
