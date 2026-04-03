@@ -1,7 +1,9 @@
 ---
 title: Cost Management & FinOps
-parent: Docs
-nav_order: 4
+parent: Day 2 Operations
+grand_parent: Docs
+nav_order: 1
+description: Azure cost analysis, budgets and alerts, Azure Advisor, reservations and savings plans, FinOps practices, right-sizing, and dev/test cost optimization.
 ---
 
 # Documentation: Cost Management & FinOps

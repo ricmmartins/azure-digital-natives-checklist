@@ -1,7 +1,9 @@
 ---
 title: AKS & Application Architecture
-parent: Docs
-nav_order: 7
+parent: Compute & Apps
+grand_parent: Docs
+nav_order: 2
+description: Azure Kubernetes Service guidance for startups — cluster planning, storage, upgrades, identity, monitoring, and AKS best practices.
 ---
 
 # Documentation: AKS & Application Architecture

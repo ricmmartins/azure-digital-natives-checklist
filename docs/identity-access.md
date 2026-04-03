@@ -1,7 +1,9 @@
 ---
 title: Identity & Access Management
-parent: Docs
+parent: Foundation
+grand_parent: Docs
 nav_order: 1
+description: Entra ID setup, RBAC, managed identities, MFA, conditional access, PIM, workload identity federation, and break-glass accounts for Azure startups.
 ---
 
 # Documentation: Identity & Access Management

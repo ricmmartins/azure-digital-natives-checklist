@@ -20,6 +20,16 @@ aux_links:
     - "https://github.com/ricmmartins/azure-digital-natives-checklist"
 aux_links_new_tab: true
 
+# Edit on GitHub link
+gh_edit_link: true
+gh_edit_link_text: "Edit this page on GitHub"
+gh_edit_repository: "https://github.com/ricmmartins/azure-digital-natives-checklist"
+gh_edit_source: docs
+gh_edit_view_mode: "tree"
+
+# Last modified date in footer
+last_edit_time_format: "%b %d, %Y"
+
 # Use the Kramdown parser in GFM mode to enable task lists
 markdown: kramdown
 kramdown:

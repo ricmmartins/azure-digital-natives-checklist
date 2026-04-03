@@ -1,7 +1,9 @@
 ---
 title: Infrastructure as Code
-parent: Docs
-nav_order: 6
+parent: Build & Deploy
+grand_parent: Docs
+nav_order: 1
+description: Bicep and Terraform for Azure, CI/CD integration, Azure Landing Zones, Azure Verified Modules, Azure Developer CLI (azd), and IaC best practices.
 ---
 
 # Documentation: Infrastructure as Code (IaC)

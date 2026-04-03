@@ -1,7 +1,9 @@
 ---
 title: Disaster Recovery & Business Continuity
-parent: Docs
-nav_order: 11
+parent: Day 2 Operations
+grand_parent: Docs
+nav_order: 5
+description: RPO/RTO planning, Azure Backup, Azure Site Recovery, availability zones, geo-redundancy, PaaS DR strategies, and DR testing.
 ---
 
 # Documentation: Disaster Recovery & Business Continuity

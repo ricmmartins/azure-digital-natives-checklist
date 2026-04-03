@@ -1,7 +1,9 @@
 ---
 title: Tech Stack Decisions
-parent: Docs
-nav_order: 20
+parent: Architecture & Strategy
+grand_parent: Docs
+nav_order: 2
+description: Side-by-side comparisons for key Azure decisions — AKS vs Container Apps, Bicep vs Terraform, database selection, and more.
 ---
 
 # Tech Stack Decisions

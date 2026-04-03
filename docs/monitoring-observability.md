@@ -1,7 +1,9 @@
 ---
 title: Monitoring & Observability
-parent: Docs
-nav_order: 5
+parent: Day 2 Operations
+grand_parent: Docs
+nav_order: 2
+description: Azure Monitor, Application Insights, health signals, workbooks, alerts, MELT data, OpenTelemetry, Managed Grafana, and synthetic monitoring.
 ---
 
 # Documentation: Monitoring & Observability

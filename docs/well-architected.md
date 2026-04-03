@@ -1,7 +1,9 @@
 ---
 title: Well-Architected Framework
-parent: Docs
-nav_order: 10
+parent: Architecture & Strategy
+grand_parent: Docs
+nav_order: 1
+description: Apply the Azure Well-Architected Framework five pillars — reliability, security, cost optimization, operational excellence, and performance efficiency.
 ---
 
 # Documentation: Azure Well-Architected Framework

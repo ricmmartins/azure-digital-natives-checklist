@@ -1,7 +1,9 @@
 ---
 title: Networking & Security
-parent: Docs
+parent: Foundation
+grand_parent: Docs
 nav_order: 2
+description: VNets, NSGs, Azure Firewall, private endpoints, Key Vault, WAF, DNS, DDoS protection, and network flow logging for production Azure environments.
 ---
 
 # Documentation: Networking & Security

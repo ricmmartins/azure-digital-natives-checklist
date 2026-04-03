@@ -1,7 +1,9 @@
 ---
 title: Platform Engineering
-parent: Docs
-nav_order: 17
+parent: Build & Deploy
+grand_parent: Docs
+nav_order: 4
+description: Internal developer platforms, Azure Deployment Environments, golden paths, Azure Developer CLI (azd), and developer productivity metrics.
 ---
 
 # Documentation: Platform Engineering

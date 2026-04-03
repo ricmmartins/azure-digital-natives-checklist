@@ -1,7 +1,9 @@
 ---
 title: Data Services
-parent: Docs
-nav_order: 14
+parent: Data & AI
+grand_parent: Docs
+nav_order: 1
+description: Azure database selection, high availability, backups, private access, scalability patterns, and storage strategy for startups.
 ---
 
 # Documentation: Data Services

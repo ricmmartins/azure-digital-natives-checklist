@@ -1,7 +1,9 @@
 ---
 title: Reference Architectures
-parent: Docs
-nav_order: 21
+parent: Architecture & Strategy
+grand_parent: Docs
+nav_order: 3
+description: Architecture diagrams and design decisions for SaaS multi-tenant, event-driven microservices, and AI RAG pattern applications on Azure.
 ---
 
 # Reference Architectures

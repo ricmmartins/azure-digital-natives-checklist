@@ -1,7 +1,9 @@
 ---
 title: Migration Strategies
-parent: Docs
-nav_order: 19
+parent: Architecture & Strategy
+grand_parent: Docs
+nav_order: 4
+description: Azure Migrate, the 5 Rs of migration, database migration, hybrid connectivity, and Cloud Adoption Framework methodology.
 ---
 
 # Documentation: Migration Strategies

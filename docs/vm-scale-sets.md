@@ -1,7 +1,9 @@
 ---
 title: VM Scale Sets
-parent: Docs
-nav_order: 9
+parent: Compute & Apps
+grand_parent: Docs
+nav_order: 3
+description: Azure VMSS orchestration modes, autoscaling policies, image management, health monitoring, networking, security hardening, and cost optimization.
 ---
 
 # Documentation: VM Scale Sets

@@ -1,7 +1,9 @@
 ---
 title: Compliance & Governance
-parent: Docs
-nav_order: 13
+parent: Day 2 Operations
+grand_parent: Docs
+nav_order: 3
+description: Azure Policy, management groups, regulatory compliance, Microsoft Defender for Cloud, Microsoft Purview, and governance best practices.
 ---
 
 # Documentation: Compliance & Governance

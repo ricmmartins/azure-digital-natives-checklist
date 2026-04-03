@@ -1,7 +1,9 @@
 ---
 title: DevOps & CI/CD
-parent: Docs
-nav_order: 12
+parent: Build & Deploy
+grand_parent: Docs
+nav_order: 2
+description: CI/CD pipelines, IaC automation, deployment strategies (blue/green, canary), environment promotion, and pipeline security for Azure workloads.
 ---
 
 # Documentation: DevOps & CI/CD Best Practices

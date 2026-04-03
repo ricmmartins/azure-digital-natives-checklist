@@ -1,7 +1,9 @@
 ---
 title: Application Architecture
-parent: Docs
-nav_order: 15
+parent: Compute & Apps
+grand_parent: Docs
+nav_order: 1
+description: Compute service selection, resilience patterns, API Management, messaging and eventing, caching, and reference architecture patterns.
 ---
 
 # Documentation: Application Architecture

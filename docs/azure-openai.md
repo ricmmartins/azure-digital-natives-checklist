@@ -1,7 +1,9 @@
 ---
 title: Azure OpenAI
-parent: Docs
-nav_order: 8
+parent: Data & AI
+grand_parent: Docs
+nav_order: 2
+description: Azure OpenAI best practices, RAG patterns, data privacy, token management, responsible AI, AI Foundry, and monitoring AI workloads.
 ---
 
 # Documentation: Azure AI Services

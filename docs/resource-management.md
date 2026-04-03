@@ -1,7 +1,9 @@
 ---
 title: Resource Management
-parent: Docs
+parent: Foundation
+grand_parent: Docs
 nav_order: 3
+description: Azure subscription organization, resource groups, tagging strategies, naming conventions, resource locks, Resource Graph, quotas, and management groups.
 ---
 
 # Documentation: Resource Management & Organization

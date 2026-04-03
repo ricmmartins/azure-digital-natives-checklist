@@ -1,6 +1,7 @@
 ---
 title: Welcome
 nav_order: 1
+description: The practical Azure reference for startups and digital-native companies — 100+ checklist items with deep-dive guidance on identity, networking, cost, monitoring, AI, and more.
 ---
 
 # Azure Digital Natives Guide

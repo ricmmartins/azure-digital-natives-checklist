@@ -2,6 +2,7 @@
 title: Docs
 nav_order: 3
 has_children: true
+description: Deep-dive documentation for every section of the Azure Digital Natives Checklist — Why it matters, How to implement it, and links to official Azure resources.
 ---
 
 # Documentation

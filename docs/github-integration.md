@@ -1,7 +1,9 @@
 ---
 title: GitHub Integration
-parent: Docs
-nav_order: 18
+parent: Build & Deploy
+grand_parent: Docs
+nav_order: 3
+description: GitHub Actions for Azure, OIDC workload identity, GitHub Advanced Security, GitHub Copilot, and branch protection strategies.
 ---
 
 # Documentation: GitHub Integration with Azure

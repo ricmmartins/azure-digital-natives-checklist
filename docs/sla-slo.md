@@ -1,7 +1,9 @@
 ---
 title: SLA & SLO Management
-parent: Docs
-nav_order: 16
+parent: Day 2 Operations
+grand_parent: Docs
+nav_order: 4
+description: Azure SLAs, composite SLA calculations, defining SLOs and SLIs, error budgets, and monitoring SLO compliance.
 ---
 
 # Documentation: SLA & SLO Management

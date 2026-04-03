@@ -1,7 +1,9 @@
 ---
 title: Performance Efficiency
-parent: Docs
-nav_order: 22
+parent: Compute & Apps
+grand_parent: Docs
+nav_order: 4
+description: Caching strategies, Azure CDN and Front Door, load testing, database query optimization, APM, and auto-scaling best practices.
 ---
 
 # Documentation: Performance Efficiency
