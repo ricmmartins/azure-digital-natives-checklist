@@ -6,9 +6,6 @@ lang: en
 
 remote_theme: just-the-docs/just-the-docs
 
-# Color scheme
-color_scheme: default
-
 # Search
 search_enabled: true
 search:
