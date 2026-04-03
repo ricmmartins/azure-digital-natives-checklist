@@ -29,10 +29,10 @@ This document provides further details and context for the Infrastructure as Cod
 *   **Resources:**
     *   [Integrate Bicep with Azure Pipelines](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/add-template-to-azure-pipelines)
     *   [Integrate ARM templates with Azure Pipelines](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/add-template-to-azure-pipelines)
-    *   [Use Terraform in Azure Pipelines](https://learn.microsoft.com/en-us/azure/developer/terraform/terraform-deploy-azure-pipelines)
+    *   [Use Terraform in Azure Pipelines](https://learn.microsoft.com/en-us/azure/developer/terraform/overview)
     *   [Deploy Bicep files by using GitHub Actions](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/deploy-github-actions)
     *   [Deploy ARM templates by using GitHub Actions](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-github-actions)
-    *   [Deploy Terraform using GitHub Actions](https://learn.microsoft.com/en-us/azure/developer/terraform/deploy-terraform-github-actions)
+    *   [Deploy Terraform using GitHub Actions](https://learn.microsoft.com/en-us/azure/developer/terraform/store-state-in-azure-storage)
 
 - [ ] **Consider Azure Landing Zones**
 

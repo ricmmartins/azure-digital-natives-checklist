@@ -49,6 +49,6 @@ This document provides further details and context for building internal develop
 *   **Why:** A platform is only valuable if developers actually use it and it measurably improves their productivity. Without metrics, platform teams cannot prioritize improvements, justify investment, or identify friction points in the developer experience.
 *   **How:** Track DORA metrics (deployment frequency, lead time for changes, change failure rate, time to restore service) as baseline indicators of delivery performance. Supplement with developer satisfaction surveys, platform adoption rates, and time-to-first-deployment for new team members. Use Azure Monitor and Application Insights to instrument platform usage.
 *   **Resources:**
-    *   [DORA metrics — DevOps Research and Assessment](https://learn.microsoft.com/en-us/devops/dora/dora-metrics)
-    *   [Measuring developer experience](https://learn.microsoft.com/en-us/platform-engineering/developer-experience/measure-developer-experience)
+    *   [DORA metrics — DevOps Research and Assessment](https://dora.dev/guides/dora-metrics/)
+    *   [Measuring developer experience](https://learn.microsoft.com/en-us/platform-engineering/)
     *   [Azure Monitor overview](https://learn.microsoft.com/en-us/azure/azure-monitor/overview)

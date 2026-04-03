@@ -31,9 +31,9 @@ This document provides further details and context for integrating GitHub with A
 *   **Why:** Vulnerabilities in code, leaked secrets, and insecure dependencies are among the most common attack vectors. GitHub Advanced Security provides automated scanning that catches these issues in the development workflow — before they reach production — significantly reducing your attack surface.
 *   **How:** Enable secret scanning to detect accidentally committed credentials (Azure keys, connection strings, tokens). Configure code scanning with CodeQL for static analysis of your codebase in pull requests. Turn on dependency review to flag vulnerable packages before they are merged. Set up security policies to require scanning checks to pass before merging.
 *   **Resources:**
-    *   [About GitHub Advanced Security](https://learn.microsoft.com/en-us/github/getting-started-with-github/learning-about-github/about-github-advanced-security)
+    *   [About GitHub Advanced Security](https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security)
     *   [Azure DevOps integration with GitHub Advanced Security](https://learn.microsoft.com/en-us/azure/devops/repos/security/configure-github-advanced-security-features)
-    *   [Secret scanning for Azure service principal credentials](https://learn.microsoft.com/en-us/azure/developer/github/github-secret-scanning)
+    *   [Secret scanning for Azure service principal credentials](https://docs.github.com/en/code-security/secret-scanning/introduction/about-secret-scanning)
 
 - [ ] **Integrate GitHub Copilot into your development workflow**
 
@@ -42,13 +42,13 @@ This document provides further details and context for integrating GitHub with A
 *   **Resources:**
     *   [GitHub Copilot documentation](https://learn.microsoft.com/en-us/copilot/overview)
     *   [Quickstart for GitHub Copilot](https://learn.microsoft.com/en-us/copilot/quickstart)
-    *   [GitHub Copilot for Azure](https://learn.microsoft.com/en-us/azure/developer/github/copilot-azure-overview)
+    *   [GitHub Copilot for Azure](https://learn.microsoft.com/en-us/azure/developer/github-copilot-azure/get-started)
 
 - [ ] **Manage infrastructure repositories with branch protection and CODEOWNERS**
 
 *   **Why:** Infrastructure-as-code changes can have outsized impact — a misconfigured Bicep or Terraform file can take down production or expose sensitive data. Branch protection rules and CODEOWNERS files ensure that infrastructure changes receive mandatory review from qualified team members before merging.
 *   **How:** Enable branch protection on `main` (or your default branch) requiring pull request reviews, status checks (linting, plan output), and signed commits. Create a `CODEOWNERS` file that assigns infrastructure directories (e.g., `/infra/`, `/bicep/`, `/terraform/`) to your platform or security team. Use required reviewers and dismiss stale reviews on new pushes to ensure every change is properly vetted.
 *   **Resources:**
-    *   [Manage branch protection rules](https://learn.microsoft.com/en-us/github/administering-a-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)
-    *   [About code owners](https://learn.microsoft.com/en-us/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-code-owners)
-    *   [GitHub and Azure DevOps integration](https://learn.microsoft.com/en-us/azure/devops/cross-service/github-integration)
+    *   [Manage branch protection rules](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule)
+    *   [About code owners](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)
+    *   [GitHub and Azure DevOps integration](https://learn.microsoft.com/en-us/azure/developer/github/integrate-azure-devops)

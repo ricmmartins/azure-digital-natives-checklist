@@ -13,8 +13,8 @@ set -euo pipefail
 # - jq installed (for JSON parsing)
 
 # --- Configuration ---
-PROD_TAG_KEY="$1"
-PROD_TAG_VALUE="$2"
+PROD_TAG_KEY="${1:-}"
+PROD_TAG_VALUE="${2:-}"
 LOCK_TYPE="CanNotDelete" # Or 'ReadOnly'
 
 # --- Validation ---
@@ -63,7 +63,7 @@ while read rg_json; do
     if [[ -z "$LOCK_EXISTS" || "$LOCK_EXISTS" == "[]" ]]; then
         echo "- Resource Group '$RG_NAME' (ID: $RG_ID) is MISSING a '$LOCK_TYPE' lock."
         MISSING_LOCK_RGS+="$RG_NAME "
-        ((MISSING_LOCK_COUNT++))
+        MISSING_LOCK_COUNT=$((MISSING_LOCK_COUNT + 1))
     # else
         # echo "- Resource Group '$RG_NAME' has a '$LOCK_TYPE' lock."
     fi

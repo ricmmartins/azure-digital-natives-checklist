@@ -46,7 +46,7 @@ This document provides further details and context for implementing DevOps pract
     *   [Using environments for deployment in GitHub Actions](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment)
     *   [Define approvals and checks for Azure DevOps environments](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals)
     *   [Azure App Configuration](https://learn.microsoft.com/en-us/azure/azure-app-configuration/overview)
-    *   [Release engineering with continuous deployment](https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/release-engineering-continuous)
+    *   [Release engineering with continuous deployment](https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/safe-deployments)
 
 - [ ] **Secure your CI/CD pipelines**
 

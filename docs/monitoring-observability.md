@@ -53,6 +53,6 @@ This document provides further details and context for the Monitoring & Observab
     *   **Logs:** Text records of events that happened in your system
     *   **Traces:** Records of requests as they flow through distributed systems, showing the path and timing
 *   **Resources:**
-    *   [Observability in Azure](https://learn.microsoft.com/en-us/azure/architecture/best-practices/observability)
+    *   [Observability in Azure](https://learn.microsoft.com/en-us/azure/architecture/best-practices/monitoring)
     *   [Distributed tracing in Azure](https://learn.microsoft.com/en-us/azure/azure-monitor/app/distributed-tracing)
     *   *(From article)* [MELT in Azure](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/azure-monitor--melt-a-comprehensive-approach-to-cloud-observability/4251166)

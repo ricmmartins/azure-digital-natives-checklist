@@ -13,7 +13,7 @@ set -euo pipefail
 # - jq installed (for JSON parsing)
 
 # --- Configuration ---
-RESOURCE_GROUP="$1"
+RESOURCE_GROUP="${1:-}"
 
 # --- Validation ---
 if [[ -z "${RESOURCE_GROUP:-}" ]]; then
@@ -59,7 +59,7 @@ while read -r res_json; do
         if [[ "$DIAG_COUNT" -eq 0 ]]; then
             echo "- MISSING: $RES_NAME (Type: $RES_TYPE)"
             MISSING_RESOURCES+="  $RES_NAME ($RES_TYPE)\n"
-            ((MISSING_COUNT++))
+            MISSING_COUNT=$((MISSING_COUNT + 1))
         fi
     fi
 done < <(echo "$RESOURCES" | jq -c '.[]')

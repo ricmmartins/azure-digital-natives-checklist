@@ -32,7 +32,7 @@ This document provides further details and context for the Identity & Access Man
 *   **How:** Enable system-assigned or user-assigned managed identities for Azure resources like VMs, App Service, Functions, AKS, etc. Grant these identities appropriate RBAC roles to access other resources (e.g., Key Vault, Storage Account, SQL Database).
 *   **Resources:**
     *   [What are managed identities for Azure resources?](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview)
-    *   [Azure services that support managed identities](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/services-support-managed-identities)
+    *   [Azure services that support managed identities](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/managed-identities-status)
     *   *(From article)* [From Zero to Hero: Identity in AKS](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/from-zero-to-hero-with-identity-and-access-control-in-azure-kubernetes-service/4386350) 
 
 - [ ] **Enable Privileged Identity Management (PIM)**
@@ -41,6 +41,6 @@ This document provides further details and context for the Identity & Access Man
 *   **How:** Identify critical roles (e.g., Global Administrator, Subscription Owner, Contributor). Configure these roles in PIM to require activation, potentially with justification or approval workflows. Regularly audit PIM activity.
 *   **Resources:**
     *   [What is Microsoft Entra Privileged Identity Management?](https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-configure)
-    *   [Assign Microsoft Entra roles in Privileged Identity Management](https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-how-to-assign-azure-ad-role)
-    *   [Assign Azure resource roles in Privileged Identity Management](https://learn.microsoft.com/en-us/azure/role-based-access-control/privileged-identity-management/pim-resource-roles-assign-roles)
+    *   [Assign Microsoft Entra roles in Privileged Identity Management](https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-how-to-add-role-to-user)
+    *   [Assign Azure resource roles in Privileged Identity Management](https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles)
 

@@ -21,7 +21,7 @@ This document provides further details and context for the Networking & Security
 *   **Why:** Even simple deployments benefit from considering future needs like VNet peering, VPN/ExpressRoute connectivity, and hub-spoke topologies. Planning avoids costly re-architecting.
 *   **How:** Consider if you'll need connectivity between multiple VNets (peering) or to on-premises networks (VPN Gateway/ExpressRoute). Evaluate if a hub-spoke model makes sense for centralizing shared services (like firewalls or domain controllers).
 *   **Resources:**
-    *   [Plan virtual networks](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-guide)
+    *   [Plan virtual networks](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm)
     *   [Hub-spoke network topology in Azure](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
 
 - [ ] **Enable Microsoft Defender for Cloud**
@@ -30,7 +30,7 @@ This document provides further details and context for the Networking & Security
 *   **How:** Enable Defender for Cloud at the subscription level. Review the Secure Score and implement recommendations. Consider enabling enhanced security features (paid tier) for advanced threat detection and protection for specific resource types (VMs, Storage, SQL, etc.).
 *   **Resources:**
     *   [What is Microsoft Defender for Cloud?](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction)
-    *   [Enable Defender for Cloud on your Azure subscriptions](https://learn.microsoft.com/en-us/azure/defender-for-cloud/enable-defender-for-cloud)
+    *   [Enable Defender for Cloud on your Azure subscriptions](https://learn.microsoft.com/en-us/azure/defender-for-cloud/connect-azure-subscription)
 
 - [ ] **Deploy Azure Firewall and DDoS Protection where appropriate**
 

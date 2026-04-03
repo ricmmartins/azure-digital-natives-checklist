@@ -22,15 +22,15 @@ This document provides further details and context for adopting the Azure Well-A
 *   **How:** Navigate to the Azure Well-Architected Review tool and complete the assessment for each critical workload. Answer the questions honestly to get the most useful recommendations. Review the generated report with your team and prioritize findings by impact and effort.
 *   **Resources:**
     *   [Azure Well-Architected Review](https://learn.microsoft.com/en-us/assessments/azure-architecture-review/)
-    *   [Azure Well-Architected Framework review - Overview](https://learn.microsoft.com/en-us/azure/well-architected/assessment)
+    *   [Azure Well-Architected Framework review - Overview](https://learn.microsoft.com/en-us/azure/well-architected/cross-cutting-guides/implementing-recommendations)
 
 - [ ] **Align architecture decisions with WAF pillars**
 
 *   **Why:** Every infrastructure and application design decision has implications across the five pillars. Without a deliberate framework, teams make ad-hoc choices that optimize for one concern (e.g., performance) while unknowingly degrading another (e.g., cost or security). Using WAF as a decision framework ensures trade-offs are made consciously and documented.
 *   **How:** When making architecture decisions — such as choosing a compute service, designing a data tier, or configuring networking — explicitly map the decision to the relevant WAF pillar(s). Document the trade-offs considered. Use the WAF design principles and checklists as a reference during architecture reviews and design sessions.
 *   **Resources:**
-    *   [Design principles - Azure Well-Architected Framework](https://learn.microsoft.com/en-us/azure/well-architected/design-principles)
-    *   [Azure Well-Architected Framework - Trade-offs](https://learn.microsoft.com/en-us/azure/well-architected/tradeoffs)
+    *   [Design principles - Azure Well-Architected Framework](https://learn.microsoft.com/en-us/azure/well-architected/pillars)
+    *   [Azure Well-Architected Framework - Trade-offs](https://learn.microsoft.com/en-us/azure/well-architected/reliability/tradeoffs)
 
 - [ ] **Leverage Azure Advisor for WAF recommendations**
 

@@ -11,7 +11,7 @@ Azure Virtual Machine Scale Sets (VMSS) provide a powerful, scalable computing s
 For detailed official documentation, see:
 
 * [Azure Virtual Machine Scale Sets overview](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview)
-* [Quickstart: Create a Virtual Machine Scale Set](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/quick-create-bicep)
+* [Quickstart: Create a Virtual Machine Scale Set](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/quick-create-bicep-windows)
 
 ## Overview and Key Concepts
 
@@ -29,7 +29,7 @@ VMSS allows you to create and manage a group of identical, load-balanced VMs. Th
 Further reading:
 
 * [VM Scale Set Automatic Scaling](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview)
-* [VM Scale Set Availability](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/availability)
+* [VM Scale Set Availability](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones)
 
 ## Technical Implementation (Bicep Example)
 
@@ -176,8 +176,12 @@ resource vmss 'Microsoft.Compute/virtualMachineScaleSets@2024-11-01' = {
             ]
           }
         }
-        customData: base64('#cloud-config\nruncmd:\n  - curl -s "${initScriptUrl}" -o /tmp/init.sh\n  - sed -i "s|__STORAGE_ACCOUNT__|${storageAcct.name}|g" /tmp/init.sh\n  - sed -i "s|__STORAGE_KEY__|${listKeys(storageAcct.id, storageAcct.apiVersion).keys[0].value}|g" /tmp/init.sh\n  - bash /tmp/init.sh')
+        customData: base64('#cloud-config\nruncmd:\n  - curl -s "${initScriptUrl}" -o /tmp/init.sh\n  - bash /tmp/init.sh')
       }
+
+      // NOTE: Storage access should use Managed Identity with Storage Blob Data Contributor role
+      // instead of embedding storage keys. See the identity block above for the system-assigned identity.
+
       networkProfile: {
         networkInterfaceConfigurations: [
           {
@@ -193,12 +197,6 @@ resource vmss 'Microsoft.Compute/virtualMachineScaleSets@2024-11-01' = {
                   properties: {
                     subnet: {
                       id: resourceId('Microsoft.Network/virtualNetworks/subnets', 'myVnet', 'default')
-                    }
-                    publicIPAddressConfiguration: {
-                      name: '${vmssName}-pip'
-                      properties: {
-                        idleTimeoutInMinutes: 10
-                      }
                     }
                   }
                 }
@@ -344,7 +342,7 @@ For further refinement of this implementation, explore advanced scenarios like a
 
 Refer to:
 
-* [Virtual Machine Scale Set Monitoring](https://learn.microsoft.com/en-us/azure/azure-monitor/vm/vm-scale-sets-monitor)
+* [Virtual Machine Scale Set Monitoring](https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-virtual-machine)
 * [Advanced Networking for VMSS](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking)
 
 ---

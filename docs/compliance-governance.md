@@ -16,7 +16,7 @@ This document provides further details and context for implementing compliance a
     *   [What is Azure Policy?](https://learn.microsoft.com/en-us/azure/governance/policy/overview)
     *   [Azure Policy built-in policy definitions](https://learn.microsoft.com/en-us/azure/governance/policy/samples/built-in-policies)
     *   [Tutorial: Create and manage policies to enforce compliance](https://learn.microsoft.com/en-us/azure/governance/policy/tutorials/create-and-manage)
-    *   [Azure Policy best practices](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/best-practices)
+    *   [Azure Policy best practices](https://learn.microsoft.com/en-us/azure/governance/policy/overview)
 
 - [ ] **Organize resources with Management Groups**
 
@@ -35,7 +35,7 @@ This document provides further details and context for implementing compliance a
 *   **Resources:**
     *   [Microsoft compliance offerings](https://learn.microsoft.com/en-us/compliance/regulatory/offering-home)
     *   [Azure compliance documentation](https://learn.microsoft.com/en-us/azure/compliance/)
-    *   [Microsoft Trust Center](https://learn.microsoft.com/en-us/compliance/assurance/assurance-compliance)
+    *   [Microsoft Trust Center](https://www.microsoft.com/en-us/trust-center/compliance/compliance-overview)
     *   [Shared responsibility in the cloud](https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility)
 
 - [ ] **Enable Microsoft Defender for Cloud regulatory compliance**
@@ -54,6 +54,6 @@ This document provides further details and context for implementing compliance a
 *   **How:** Deploy Microsoft Purview to scan and catalog data sources across your Azure environment and beyond. Use automated classification to identify sensitive data types (PII, financial data, health records). Define and enforce data access policies. Track data lineage to understand how data flows through your systems. Integrate Purview with Azure services such as Azure SQL, Azure Storage, Azure Synapse Analytics, and Azure Data Lake.
 *   **Resources:**
     *   [What is Microsoft Purview?](https://learn.microsoft.com/en-us/purview/purview)
-    *   [Microsoft Purview data governance](https://learn.microsoft.com/en-us/purview/concept-governance)
-    *   [Microsoft Purview Data Catalog](https://learn.microsoft.com/en-us/purview/data-catalog)
+    *   [Microsoft Purview data governance](https://learn.microsoft.com/en-us/purview/data-governance-overview)
+    *   [Microsoft Purview Data Catalog](https://learn.microsoft.com/en-us/purview/unified-catalog)
     *   [Data classification in Microsoft Purview](https://learn.microsoft.com/en-us/purview/concept-classification)

@@ -41,7 +41,7 @@ This document provides further details and context for the Cost Management & Fin
     *   **Spot Virtual Machines:** Utilize Azure's unused compute capacity at very low prices for workloads that can tolerate interruptions (e.g., batch processing, dev/test environments).
 *   **Resources:**
     *   [What are Azure Reservations?](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/save-compute-costs-reservations)
-    *   [What are Azure savings plans for compute?](https://learn.microsoft.com/en-us/azure/cost-management-billing/savings-plan/savings-plan-compute-overview)
+    *   [What are Azure savings plans for compute?](https://learn.microsoft.com/en-us/azure/cost-management-billing/savings-plan/savings-plan-overview)
     *   [Use Azure Spot Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/spot-vms)
 
 - [ ] **Understand FinOps basics**
@@ -49,7 +49,7 @@ This document provides further details and context for the Cost Management & Fin
 *   **Why:** FinOps is a cultural practice that brings financial accountability to the variable spend model of the cloud, enabling teams to make informed trade-offs between speed, cost, and quality.
 *   **How:** Familiarize your team with FinOps principles: collaboration between finance, tech, and business teams; visibility into cloud spending; accountability for costs; and ongoing optimization.
 *   **Resources:**
-    *   [What is FinOps? (Azure Documentation)](https://learn.microsoft.com/en-us/azure/cost-management-billing/finops/overview-finops)
+    *   [What is FinOps? (Azure Documentation)](https://learn.microsoft.com/en-us/azure/cost-management-billing/finops/)
     *   [FinOps Foundation](https://www.finops.org/)
     *   *(From article)* [FinOps Toolkit](https://microsoft.github.io/finops-toolkit/)
     *   *(From article)* [Slash Your Azure Bill – Tips for Startups](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/slash-your-azure-bill-top-tips-for-startups/4141839)
