@@ -6,7 +6,7 @@ nav_order: 16
 
 # Documentation: SLA & SLO Management
 
-This document provides further details and context for the SLA & SLO Management section of the Azure Startup Checklist.
+This document provides further details and context for the SLA & SLO Management section of the Azure Digital Natives Guide.
 
 - [ ] **Understand Azure SLAs for every service you use**
 

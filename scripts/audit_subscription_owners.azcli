@@ -39,7 +39,7 @@ echo "Listing principals assigned the 'Owner' role for subscription: $SUBSCRIPTI
 # Get role assignments for the 'Owner' role at the subscription scope (single API call)
 OWNERS_JSON=$(az role assignment list --role "Owner" --scope "$SCOPE" --all -o json)
 
-echo "$OWNERS_JSON" | jq -c '.[] | select(.principalType == "User" or .principalType == "Group") | {principalName: .principalName, principalType: .principalType, principalId: .principalId}'
+echo "$OWNERS_JSON" | jq -c '.[] | select(.principalType == "User" or .principalType == "Group") | {displayName: (.principalName // .principalId), principalType: .principalType, principalId: .principalId}'
 
 OWNER_COUNT=$(echo "$OWNERS_JSON" | jq '[.[] | select(.principalType == "User" or .principalType == "Group")] | length')
 
@@ -48,6 +48,6 @@ echo "Found $OWNER_COUNT User/Group principals assigned the 'Owner' role."
 SP_OWNER_COUNT=$(echo "$OWNERS_JSON" | jq '[.[] | select(.principalType == "ServicePrincipal")] | length')
 if [[ "$SP_OWNER_COUNT" -gt 0 ]]; then
     echo "Warning: Found $SP_OWNER_COUNT Service Principal(s) with 'Owner' role (not listed above). Review these for security:"
-    echo "$OWNERS_JSON" | jq -c '.[] | select(.principalType == "ServicePrincipal") | {principalName: .principalName, principalId: .principalId}'
+    echo "$OWNERS_JSON" | jq -c '.[] | select(.principalType == "ServicePrincipal") | {displayName: (.principalName // .principalId), principalId: .principalId}'
 fi
 

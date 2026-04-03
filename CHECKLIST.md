@@ -18,6 +18,10 @@ Getting identity right from the start is crucial. Cleaning it up later is signif
 - [ ] **Implement Role-Based Access Control (RBAC) properly:** Avoid using the broad "Owner" role. Assign least privilege access based on roles and responsibilities. [Learn More](docs/identity-access.md#rbac)
 - [ ] **Utilize Managed Identities:** Eliminate the need to store credentials in code or configuration for Azure service authentication. [Learn More](docs/identity-access.md#managed-identities)
 - [ ] **Enable Privileged Identity Management (PIM):** Implement just-in-time access for privileged roles to enhance security. [Learn More](docs/identity-access.md#pim)
+- [ ] **Enforce Multi-Factor Authentication (MFA):** Require MFA for all users, especially administrators. Use phishing-resistant methods like FIDO2 security keys. [Learn More](docs/identity-access.md#multi-factor-authentication-mfa)
+- [ ] **Configure Conditional Access policies:** Implement Zero Trust access controls based on user, device, location, and risk level. [Learn More](docs/identity-access.md#conditional-access-policies)
+- [ ] **Create break-glass emergency access accounts:** Ensure you can regain admin access if Conditional Access policies lock everyone out. [Learn More](docs/identity-access.md#break-glass-accounts)
+- [ ] **Use Workload Identity Federation:** Replace service principal secrets with federated credentials for GitHub Actions, Kubernetes, and external IdPs. [Learn More](docs/identity-access.md#workload-identity-federation)
 
 ## Networking & Security
 
@@ -29,6 +33,9 @@ Secure networking foundations are essential, even during prototyping.
 - [ ] **Deploy Azure Firewall and DDoS Protection where appropriate:** Protect perimeter networks and applications from common threats. [Learn More](docs/networking-security.md#firewall-ddos)
 - [ ] **Minimize public IP exposure:** Use Private Endpoints and Service Endpoints for secure access to Azure services. [Learn More](docs/networking-security.md#private-endpoints)
 - [ ] **Secure secrets with Azure Key Vault and Managed Identities:** Avoid hardcoding secrets; use Key Vault for secure storage and Managed Identities for access. [Learn More](docs/networking-security.md#key-vault)
+- [ ] **Deploy Azure Web Application Firewall (WAF):** Protect web applications from OWASP Top 10 attacks with managed rule sets. [Learn More](docs/networking-security.md#deploy-azure-web-application-firewall-waf)
+- [ ] **Configure Azure DNS and DNS security:** Use Azure DNS and Private DNS Zones for reliable, secure name resolution. [Learn More](docs/networking-security.md#configure-azure-dns-and-dns-security)
+- [ ] **Enable NSG flow logs and traffic analytics:** Gain visibility into network traffic patterns for security monitoring and troubleshooting. [Learn More](docs/networking-security.md#enable-nsg-flow-logs-and-traffic-analytics)
 
 ## Resource Management & Organization
 
@@ -36,6 +43,10 @@ Avoid resource sprawl and maintain clarity on ownership and purpose.
 
 - [ ] **Define and follow a resource organization strategy:** Utilize Management Groups, Subscriptions, and Resource Groups logically. [Learn More](docs/resource-management.md#organization-strategy)
 - [ ] **Implement a consistent tagging strategy:** Tag all resources with relevant information (e.g., owner, environment, cost center, application). [Learn More](docs/resource-management.md#tagging)
+- [ ] **Establish naming conventions:** Define consistent naming rules (type-workload-env-region-instance) and enforce with Azure Policy. [Learn More](docs/resource-management.md#naming-conventions)
+- [ ] **Apply resource locks on production resources:** Prevent accidental deletion of critical resource groups with CanNotDelete locks. [Learn More](docs/resource-management.md#resource-locks)
+- [ ] **Use Azure Resource Graph for inventory and compliance:** Query resources at scale across subscriptions for governance and auditing. [Learn More](docs/resource-management.md#azure-resource-graph)
+- [ ] **Monitor subscription limits and quotas:** Track quota usage to prevent scaling failures and plan multi-subscription architecture. [Learn More](docs/resource-management.md#subscription-limits-and-quotas)
 
 ## Cost Management & FinOps
 
@@ -175,6 +186,17 @@ Plan and execute workload migrations to Azure.
 - [ ] **Choose the right migration strategy (the 5 Rs):** Understand Rehost, Replatform, Refactor, Rearchitect, and Rebuild. [Learn More](docs/migration-strategies.md)
 - [ ] **Use Azure Database Migration Service for database migrations:** Migrate databases with minimal downtime. [Learn More](docs/migration-strategies.md)
 - [ ] **Follow the Cloud Adoption Framework migration methodology:** Use CAF's structured approach for planning, migrating, and optimizing. [Learn More](docs/migration-strategies.md)
+
+## Performance Efficiency
+
+Optimize application performance with caching, CDN, load testing, and auto-scaling.
+
+- [ ] **Implement caching strategies:** Use Azure Cache for Redis and CDN to reduce latency and database load. [Learn More](docs/performance-efficiency.md)
+- [ ] **Use Azure Front Door or CDN for global content delivery:** Serve static content from edge locations closest to users. [Learn More](docs/performance-efficiency.md)
+- [ ] **Perform load testing before production launches:** Use Azure Load Testing to establish performance baselines and identify bottlenecks. [Learn More](docs/performance-efficiency.md)
+- [ ] **Optimize database performance:** Implement indexing, connection pooling, read replicas, and query optimization. [Learn More](docs/performance-efficiency.md)
+- [ ] **Monitor application performance with Application Insights:** Use distributed tracing and performance counters to detect slow requests. [Learn More](docs/performance-efficiency.md)
+- [ ] **Configure auto-scaling across all compute tiers:** Enable autoscale for App Service, Container Apps, Functions, and AKS. [Learn More](docs/performance-efficiency.md)
 
 ## Bonus
 

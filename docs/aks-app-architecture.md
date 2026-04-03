@@ -6,7 +6,7 @@ nav_order: 7
 
 # Documentation: AKS & Application Architecture
 
-This document provides further details and context for the AKS & Application Architecture section of the Azure Startup Checklist, focusing on Azure Kubernetes Service (AKS).
+This document provides further details and context for the AKS & Application Architecture section of the Azure Digital Natives Guide, focusing on Azure Kubernetes Service (AKS).
 
 - [ ] **Review AKS guidance for startups**
 

@@ -6,7 +6,7 @@ nav_order: 14
 
 # Documentation: Data Services
 
-This document provides further details and context for the Data Services section of the Azure Startup Checklist.
+This document provides further details and context for the Data Services section of the Azure Digital Natives Guide.
 
 - [ ] **Choose the right database for your workload**
 

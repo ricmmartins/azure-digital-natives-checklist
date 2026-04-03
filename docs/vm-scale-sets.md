@@ -4,345 +4,57 @@ parent: Docs
 nav_order: 9
 ---
 
-# Azure Virtual Machine Scale Sets (VMSS)
-
-Azure Virtual Machine Scale Sets (VMSS) provide a powerful, scalable computing service designed to automate the deployment and management of identical virtual machines (VMs) in Azure. This document offers a technical primer focused on self-managed VMSS deployments, explaining core concepts, features, and best practices for advanced users. Although VMSS technology underpins services like Azure Kubernetes Service (AKS) and Azure CycleCloud, the scope here will specifically address standalone usage.
-
-For detailed official documentation, see:
-
-* [Azure Virtual Machine Scale Sets overview](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview)
-* [Quickstart: Create a Virtual Machine Scale Set](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/quick-create-bicep-windows)
-
-## Overview and Key Concepts
-
-### What are VM Scale Sets?
-
-VMSS allows you to create and manage a group of identical, load-balanced VMs. These sets are highly scalable, resilient, and ideal for workloads that require automatic scaling and redundancy. With VMSS, you can efficiently manage large-scale deployments without manual intervention, providing significant operational efficiencies.
-
-### Key Benefits
-
-* **Automated Scaling:** Automatically add or remove instances based on defined metrics or schedules.
-* **High Availability:** Distribute VMs across fault domains and availability zones.
-* **Simplified Management:** Centralized deployment, updating, and management through declarative templates.
-* **Integration:** Seamlessly integrates with load balancers, application gateways, and Azure Monitor.
-
-Further reading:
-
-* [VM Scale Set Automatic Scaling](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview)
-* [VM Scale Set Availability](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones)
-
-## Technical Implementation (Bicep Example)
-
-The following practical example utilizes Azure Bicep, Azure's declarative infrastructure-as-code language, providing clarity and simplicity compared to traditional ARM templates.
-
-### Summary of Attached Bicep File (`mi300x-vmss.bicep`)
-
-The provided Bicep file sets up a comprehensive environment in the `francecentral` region with:
-
-* A **Virtual Machine Scale Set** (`Standard_ND96isr_MI300X_v5` SKU) intended for high-performance computing workloads.
-* **Azure Storage Account** and a corresponding Azure File Share for shared storage.
-* **Virtual Network (VNet)** with a default subnet.
-* **Network Security Group (NSG)** with rules to allow SSH access.
-* **Custom initialization script (cloud-init)** via the `customData` parameter for additional configuration at VM boot.
-
-#### Resources Defined:
-
-* **Virtual Machine Scale Set (VMSS)**
-* **Storage Account** (Standard\_LRS)
-* **Azure File Share**
-* **Network Security Group (NSG)** allowing SSH (`TCP/22`)
-* **Virtual Network** (`myVnet`) and subnet (`default`)
-
-#### Special Notes:
-
-* The script leverages dynamic parameters to securely pass storage account credentials at runtime via cloud-init script processing (`sed` replacement within the VM during initialization).
-* SSH key-based authentication is enforced, enhancing security.
-
-### Cloud-Init Script (`mi300x-cloudinit.sh`)
-
-The VM initialization script automates mounting an Azure File Share (`vmshare`) onto each VM instance.
-
-Key operations in the script:
-
-* Updates package lists and installs required tools (`cifs-utils`).
-* Securely stores Azure Storage credentials.
-* Configures file share mounting via `/etc/fstab` for automatic persistence.
-
-#### Security Consideration:
-
-Credentials are securely handled by:
-
-* Placing them in a restricted permissions file (`600` mode).
-* Ensuring credentials are dynamically generated at VM creation, avoiding hardcoded secrets.
-
----
-
-## Example Bicep Code
-
-> ⚠️ **Cost Warning:** The `Standard_ND96isr_MI300X_v5` SKU used in this example is a high-end GPU instance. Running 16 instances will incur significant costs. Adjust `instanceCount` and SKU to match your actual workload requirements and budget.
-
-```bicep
-param location string = 'francecentral'
-param vmssName string = 'mi300x-vmss'
-param instanceCount int = 16
-param adminUsername string = 'azureuser'
-@secure()
-param sshPublicKey string
-param initScriptUrl string = 'https://public-url-to-cloudinit/mi300x-cloudinit.sh'
-
-resource storageAcct 'Microsoft.Storage/storageAccounts@2024-11-01' = {
-  name: toLower('stg${resourceGroup().name}')
-  location: location
-  sku: {
-    name: 'Standard_LRS'
-  }
-  kind: 'StorageV2'
-  properties: {
-    accessTier: 'Hot'
-  }
-}
-
-resource fileShare 'Microsoft.Storage/storageAccounts/fileServices/shares@2024-11-01' = {
-  name: '${storageAcct.name}/default/vmshare'
-  properties: {}
-}
-
-resource nsg 'Microsoft.Network/networkSecurityGroups@2024-11-01' = {
-  name: '${vmssName}-nsg'
-  location: location
-  properties: {
-    securityRules: [
-      {
-        name: 'Allow-SSH'
-        properties: {
-          priority: 1000
-          protocol: 'Tcp'
-          access: 'Allow'
-          direction: 'Inbound'
-          sourceAddressPrefix: '10.0.0.0/16' // Restrict to your VNet CIDR. Replace with your specific IP range for production.
-          sourcePortRange: '*'
-          destinationAddressPrefix: '*'
-          destinationPortRange: '22'
-        }
-      }
-    ]
-  }
-}
-
-resource vmss 'Microsoft.Compute/virtualMachineScaleSets@2024-11-01' = {
-  name: vmssName
-  location: location
-  sku: {
-    name: 'Standard_ND96isr_MI300X_v5'
-    tier: 'Standard'
-    capacity: instanceCount
-  }
-  identity: {
-    type: 'SystemAssigned'
-  }
-  properties: {
-    upgradePolicy: {
-      mode: 'Manual'
-    }
-    virtualMachineProfile: {
-      storageProfile: {
-        imageReference: {
-          publisher: 'microsoft-dsvm'
-          offer: 'ubuntu-hpc'
-          sku: '2204-rocm'
-          version: 'latest'
-        }
-        osDisk: {
-          createOption: 'FromImage'
-        }
-      }
-      diagnosticsProfile: {
-        bootDiagnostics: {
-          enabled: true
-          storageUri: storageAcct.properties.primaryEndpoints.blob
-        }
-      }
-      osProfile: {
-        computerNamePrefix: vmssName
-        adminUsername: adminUsername
-        linuxConfiguration: {
-          disablePasswordAuthentication: true
-          ssh: {
-            publicKeys: [
-              {
-                path: '/home/${adminUsername}/.ssh/authorized_keys'
-                keyData: sshPublicKey
-              }
-            ]
-          }
-        }
-        customData: base64('#cloud-config\nruncmd:\n  - curl -s "${initScriptUrl}" -o /tmp/init.sh\n  - bash /tmp/init.sh')
-      }
-
-      // NOTE: Storage access should use Managed Identity with Storage Blob Data Contributor role
-      // instead of embedding storage keys. See the identity block above for the system-assigned identity.
-
-      networkProfile: {
-        networkInterfaceConfigurations: [
-          {
-            name: '${vmssName}-nic'
-            properties: {
-              primary: true
-              networkSecurityGroup: {
-                id: nsg.id
-              }
-              ipConfigurations: [
-                {
-                  name: '${vmssName}-ipconfig'
-                  properties: {
-                    subnet: {
-                      id: resourceId('Microsoft.Network/virtualNetworks/subnets', 'myVnet', 'default')
-                    }
-                  }
-                }
-              ]
-            }
-          }
-        ]
-      }
-    }
-    overprovision: true
-  }
-}
-
-resource vnet 'Microsoft.Network/virtualNetworks@2024-05-01' = {
-  name: 'myVnet'
-  location: location
-  properties: {
-    addressSpace: {
-      addressPrefixes: [
-        '10.0.0.0/16'
-      ]
-    }
-    subnets: [
-      {
-        name: 'default'
-        properties: {
-          addressPrefix: '10.0.0.0/24'
-        }
-      }
-    ]
-  }
-}
-```
----
-
-## Summary and Documentation of Initialization Script (`mi300x-cloudinit.sh`)
-
-This bash-based cloud-init script is executed at first boot of each VMSS instance. It ensures the necessary environment and connectivity setup are completed:
-
-* Logs VM initialization timestamps and configuration details to `/var/log/cloud-init.log`.
-* Installs dependencies (`cifs-utils`) for mounting Azure File Shares.
-* Dynamically generates SMB credentials file securely.
-* Mounts an Azure File Share (`vmshare`) on each VM to enable shared storage access, facilitating collaboration or shared workloads.
-
-
-## Example CloudInit
-
-```bash
-#!/bin/bash
-
-echo "=== CLOUD INIT START ===" >> /var/log/cloud-init.log
-echo "VM initialized at $(date)" >> /var/log/cloud-init.log
-echo "Hello from cloud-init!" >> /var/log/cloud-init.log
-echo "Storage Acct: __STORAGE_ACCOUNT__" >> /var/log/cloud-init.log
-# These values are substituted via Bicep using `sed`
-STORAGE_ACCOUNT=__STORAGE_ACCOUNT__
-STORAGE_KEY=__STORAGE_KEY__
-
-# Install necessary tools
-apt-get update
-apt-get install -y cifs-utils
-
-# Mount Azure File Share
-mkdir -p /mnt/vmshare
-mkdir -p /etc/smbcredentials
-
-# Create credentials file
-cat <<EOF > /etc/smbcredentials/${STORAGE_ACCOUNT}.cred
-username=${STORAGE_ACCOUNT}
-password=${STORAGE_KEY}
-EOF
-
-chmod 600 /etc/smbcredentials/${STORAGE_ACCOUNT}.cred
-
-# Add to /etc/fstab
-echo "//${STORAGE_ACCOUNT}.file.core.windows.net/vmshare /mnt/vmshare cifs nofail,vers=3.0,credentials=/etc/smbcredentials/${STORAGE_ACCOUNT}.cred,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab
-
-# Mount file share
-mount -a
-
-echo "=== CLOUD INIT END ===" >> /var/log/cloud-init.log
-```
----
-
-## Deploying the Bicep Template
-
-### Prerequisites
-
-* **Azure CLI** installed (version 2.30.0 or later).
-* Logged in to Azure:
-
-  ```bash
-  az login
-  ```
-* (Optional) Set the right subscription if you have multiple:
-
-  ```bash
-  az account set --subscription <YOUR_SUBSCRIPTION_ID>
-  ```
-
-### 1. Create the Resource Group
-
-Before you deploy the VMSS you must have a resource group:
-
-```bash
-az group create \
-  --name myResourceGroup \
-  --location francecentral
-```
-
-This will create (or confirm) a resource group named `myResourceGroup` in the **francecentral** region.
-
-### 2. Deploy the VMSS via Bicep
-
-With your RG in place, deploy the template:
-
-```bash
-az deployment group create \
-  --resource-group myResourceGroup \
-  --template-file mi300x-vmss.bicep \
-  --parameters \
-      sshPublicKey="$(cat ~/.ssh/id_rsa.pub)" \
-      instanceCount=16 \
-      adminUsername=azureuser \
-      # (Optional) override init script URL:
-      # initScriptUrl="https://path/to/your-cloudinit.sh"
-```
-
-* **sshPublicKey**: Reads your local public key for VM SSH access.
-* **instanceCount**: Number of VM instances in the scale set.
-* **adminUsername**: Linux administrator user name.
-* **initScriptUrl**: URL to the cloud-init script (if you’ve forked or customized it).
-
-Once complete, Azure will provision the storage account, file share, VNet, NSG, and VM Scale Set as defined in `mi300x-vmss.bicep`.
-
----
-
-
-
-### Next Steps and Further Learning
-
-For further refinement of this implementation, explore advanced scenarios like automatic scaling based on custom metrics, integration with Azure Monitor, or continuous delivery pipelines.
-
-Refer to:
-
-* [Virtual Machine Scale Set Monitoring](https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-virtual-machine)
-* [Advanced Networking for VMSS](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking)
-
----
+# Documentation: VM Scale Sets
+
+This document provides guidance for deploying and managing Azure Virtual Machine Scale Sets (VMSS) following the Azure Digital Natives Guide.
+
+- [ ] **Virtual Machine Scale Sets Overview**
+
+*   **Why:** Auto-scaling groups of identical VMs reduce cost during low demand and improve availability during spikes, without manual intervention.
+*   **How:** Choose between Uniform and Flexible orchestration modes. Flexible mode is recommended for most new workloads — it supports mixed VM sizes, availability zones, and standard VM APIs. Uniform mode remains available for workloads requiring tight homogeneity. Distribute instances across availability zones for high availability.
+*   **Resources:**
+    *   [Virtual Machine Scale Sets overview](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview)
+    *   [Orchestration modes for Virtual Machine Scale Sets](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes)
+
+- [ ] **Auto-Scaling Configuration**
+
+*   **Why:** Manual scaling either wastes money on idle capacity or causes outages when demand exceeds provisioned resources.
+*   **How:** Configure metric-based autoscale rules using CPU, memory, or custom metrics. Set scale-out thresholds (e.g., CPU > 70%) and scale-in thresholds (e.g., CPU < 30%) with cooldown periods to prevent flapping. Use schedule-based rules for known traffic patterns and predictive autoscale for workloads with cyclical usage.
+*   **Resources:**
+    *   [Get started with autoscale in Azure](https://learn.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-get-started)
+    *   [Autoscale best practices](https://learn.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-best-practices)
+    *   [Predictive autoscale for Virtual Machine Scale Sets](https://learn.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-predictive)
+
+- [ ] **Image Management**
+
+*   **Why:** Inconsistent or unpatched images across instances cause configuration drift and security vulnerabilities.
+*   **How:** Use Azure Compute Gallery to store and distribute golden images across regions and subscriptions. Automate image builds with Azure Image Builder to produce hardened, tested images on a schedule. Enable automatic OS image upgrades with a rolling upgrade policy to keep instances patched without downtime.
+*   **Resources:**
+    *   [Azure Compute Gallery overview](https://learn.microsoft.com/en-us/azure/virtual-machines/azure-compute-gallery)
+    *   [Azure Image Builder overview](https://learn.microsoft.com/en-us/azure/virtual-machines/image-builder-overview)
+    *   [Automatic OS image upgrades for scale sets](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)
+
+- [ ] **Health Monitoring and Repair**
+
+*   **Why:** Unhealthy instances that remain in the pool serve bad traffic and degrade user experience.
+*   **How:** Configure the Application Health extension to monitor HTTP endpoints or TCP ports on each instance. Alternatively, use load balancer health probes. Enable automatic instance repairs with an appropriate grace period so that failed instances are automatically deleted and replaced.
+*   **Resources:**
+    *   [Application Health extension for Virtual Machine Scale Sets](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension)
+    *   [Automatic instance repairs for scale sets](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs)
+
+- [ ] **Security Best Practices**
+
+*   **Why:** Scale set instances are high-value targets — a single misconfiguration is replicated across every instance in the set.
+*   **How:** Use Managed Identity for all Azure service authentication — never embed credentials in customData or scripts. Place instances on private subnets behind a load balancer or application gateway with no public IPs. Apply Network Security Groups to restrict inbound and outbound traffic. Enable Azure Disk Encryption for data-at-rest protection.
+*   **Resources:**
+    *   [Assign a managed identity to a Virtual Machine Scale Set](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/qs-configure-cli-windows-vmss)
+    *   [Networking for Virtual Machine Scale Sets](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking)
+    *   [Architecture best practices for VMs and scale sets](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/virtual-machines)
+
+- [ ] **Cost Optimization**
+
+*   **Why:** Scale sets running large VM SKUs can become expensive quickly, especially when overprovisioned.
+*   **How:** Use Azure Spot VMs for fault-tolerant or batch workloads at significant discounts. Right-size VM SKUs based on actual utilization data from Azure Monitor. Configure scale-in rules to reduce to minimum capacity during off-peak hours. Purchase Azure Reservations or Savings Plans for predictable baseline capacity.
+*   **Resources:**
+    *   [Use Azure Spot Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/spot-vms)
+    *   [What are Azure Reservations?](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/save-compute-costs-reservations)

@@ -6,7 +6,7 @@ nav_order: 6
 
 # Documentation: Infrastructure as Code (IaC)
 
-This document provides further details and context for the Infrastructure as Code (IaC) section of the Azure Startup Checklist.
+This document provides further details and context for the Infrastructure as Code (IaC) section of the Azure Digital Natives Guide.
 
 - [ ] **Adopt an IaC tool (Bicep, ARM Templates, Terraform)**
 

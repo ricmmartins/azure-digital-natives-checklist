@@ -6,7 +6,7 @@ nav_order: 15
 
 # Documentation: Application Architecture
 
-This document provides further details and context for the Application Architecture section of the Azure Startup Checklist.
+This document provides further details and context for the Application Architecture section of the Azure Digital Natives Guide.
 
 - [ ] **Choose the right Azure compute service**
 

@@ -36,7 +36,7 @@ This document provides further details and context for implementing disaster rec
 
 - [ ] **Test your disaster recovery plan regularly**
 
-*   **Why:** A disaster recovery plan that has never been tested is an assumption, not a plan. Testing validates that your failover procedures work as expected, that your RTO and RTO targets are achievable, and that your team knows how to execute the recovery process under pressure. Untested DR plans frequently fail when needed most.
+*   **Why:** A disaster recovery plan that has never been tested is an assumption, not a plan. Testing validates that your failover procedures work as expected, that your RPO and RTO targets are achievable, and that your team knows how to execute the recovery process under pressure. Untested DR plans frequently fail when needed most.
 *   **How:** Use Azure Site Recovery test failovers to validate your DR plan without impacting production workloads. Schedule regular DR drills (at least quarterly) and involve all relevant teams. Document the results of each test, including any issues encountered and the actual recovery times achieved. Update your DR plan based on test findings.
 *   **Resources:**
     *   [Run a disaster recovery drill to Azure](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-dr-drill)

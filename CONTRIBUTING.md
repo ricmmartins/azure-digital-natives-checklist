@@ -3,7 +3,7 @@ title: Contributing
 nav_order: 5
 ---
 
-# Contributing to the Azure Startup Checklist
+# Contributing to the Azure Digital Natives Guide
 
 We welcome contributions to improve this checklist and make it even more valuable for the startup community!
 

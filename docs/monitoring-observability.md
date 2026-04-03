@@ -6,7 +6,7 @@ nav_order: 5
 
 # Documentation: Monitoring & Observability
 
-This document provides further details and context for the Monitoring & Observability section of the Azure Startup Checklist.
+This document provides further details and context for the Monitoring & Observability section of the Azure Digital Natives Guide.
 
 - [ ] **Enable Azure Monitor**
 

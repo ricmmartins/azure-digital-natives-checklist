@@ -6,7 +6,7 @@ nav_order: 4
 
 # Documentation: Cost Management & FinOps
 
-This document provides further details and context for the Cost Management & FinOps section of the Azure Startup Checklist.
+This document provides further details and context for the Cost Management & FinOps section of the Azure Digital Natives Guide.
 
 - [ ] **Utilize Azure Cost Management + Billing**
 
