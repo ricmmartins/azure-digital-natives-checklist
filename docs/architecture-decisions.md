@@ -12,7 +12,6 @@ Architecture Decision Records (ADRs) help teams document key technical decisions
 
 ## ADR: AKS vs Azure Container Apps vs App Service
 
-**Status:** Accepted  
 **Context:** Teams deploying containerized or web workloads on Azure must choose between three primary compute platforms. The right choice depends on operational maturity, workload complexity, and how much infrastructure control the team needs.
 
 | Option | Pros | Cons | Best For |
@@ -31,7 +30,6 @@ Architecture Decision Records (ADRs) help teams document key technical decisions
 
 ## ADR: Bicep vs Terraform
 
-**Status:** Accepted  
 **Context:** Infrastructure as Code is essential for repeatable, auditable Azure deployments. The two leading IaC tools for Azure — Bicep and Terraform — have meaningfully different strengths that affect team velocity, hiring, and long-term maintainability.
 
 | Option | Pros | Cons | Best For |
@@ -49,7 +47,6 @@ Architecture Decision Records (ADRs) help teams document key technical decisions
 
 ## ADR: Azure SQL vs Cosmos DB vs PostgreSQL Flexible Server
 
-**Status:** Accepted  
 **Context:** Choosing the right database impacts application design, operational costs, and scaling characteristics. Each option represents a fundamentally different data model and operational trade-off.
 
 | Option | Pros | Cons | Best For |
@@ -68,7 +65,6 @@ Architecture Decision Records (ADRs) help teams document key technical decisions
 
 ## ADR: Hub-Spoke vs Virtual WAN
 
-**Status:** Accepted  
 **Context:** As Azure environments grow beyond a single VNet, teams need a network topology that enables connectivity between workloads, on-premises networks, and the internet while maintaining security boundaries. The two primary patterns are customer-managed hub-spoke and Microsoft-managed Azure Virtual WAN.
 
 | Option | Pros | Cons | Best For |
@@ -86,7 +82,6 @@ Architecture Decision Records (ADRs) help teams document key technical decisions
 
 ## ADR: GitHub Actions vs Azure DevOps Pipelines
 
-**Status:** Accepted  
 **Context:** CI/CD pipeline choice affects developer experience, integration with source control, and operational workflows. Both platforms are mature and capable, but they serve different organizational profiles.
 
 | Option | Pros | Cons | Best For |
@@ -104,7 +99,6 @@ Architecture Decision Records (ADRs) help teams document key technical decisions
 
 ## ADR: Managed Identity vs Service Principal for Azure Authentication
 
-**Status:** Accepted  
 **Context:** Azure services frequently need to authenticate to each other (e.g., an App Service accessing a Key Vault, a Function App reading from Storage, or a CI/CD pipeline deploying resources). The primary options are Managed Identity (system-assigned or user-assigned), Service Principal with client secret or certificate, and Workload Identity Federation. The choice affects secret management burden, security posture, and operational complexity.
 
 | Option | Secret Management | Rotation Required | Security Risk | Supported Scenarios |
