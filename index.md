@@ -25,7 +25,7 @@ Derived from the Microsoft Tech Community article: [The Digital Native's Checkli
 | Section | What you'll find |
 |---------|-----------------|
 | [**The Checklist**](CHECKLIST) | 100+ actionable items with checkboxes — track your team's progress from MVP to production-ready |
-| [**Deep-dive docs**](docs/) | Why/How/Resources for every checklist item — identity, networking, cost, monitoring, IaC, AKS, AI, and more |
+| [**Deep-dive docs**](docs/) | 22 topic pages organized into 6 categories: Foundation, Day 2 Operations, Build & Deploy, Compute & Apps, Data & AI, and Architecture & Strategy |
 | [**Tech Stack Decisions**](docs/architecture-decisions) | Side-by-side comparisons: AKS vs Container Apps, Bicep vs Terraform, database selection, and more |
 | [**Reference Architectures**](docs/reference-architectures) | Architecture diagrams for SaaS multi-tenant, event-driven microservices, and RAG AI patterns |
 

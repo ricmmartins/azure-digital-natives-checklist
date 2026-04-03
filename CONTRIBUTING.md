@@ -25,6 +25,8 @@ Have an idea for a new checklist item, comparison table, or reference architectu
 ## Content Guidelines
 
 ### Structure
+The documentation is organized into 6 categories: **Foundation**, **Day 2 Operations**, **Build & Deploy**, **Compute & Apps**, **Data & AI**, and **Architecture & Strategy**. When adding a new page, place it under the appropriate category by setting `parent:` and `grand_parent: Docs` in the frontmatter.
+
 Every doc page follows a consistent format for each checklist item:
 
 - **`- [ ] Item title`** — The actionable item (matches the checklist)

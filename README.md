@@ -13,13 +13,23 @@ The practical Azure reference for **startups and digital-native companies** movi
 | Section | Description |
 |---------|-------------|
 | **[The Checklist](https://azdnguide.com/CHECKLIST)** | 100+ actionable items with interactive checkboxes — track your progress from MVP to production-ready |
-| **[Deep-Dive Docs](https://azdnguide.com/docs/)** | Why / How / Resources for every checklist item across 22 topic areas |
+| **[Deep-Dive Docs](https://azdnguide.com/docs/)** | Why / How / Resources for every checklist item, organized into 6 categories |
 | **[Tech Stack Decisions](https://azdnguide.com/docs/architecture-decisions)** | Side-by-side comparisons: AKS vs Container Apps, Bicep vs Terraform, and more |
 | **[Reference Architectures](https://azdnguide.com/docs/reference-architectures)** | Architecture diagrams for SaaS multi-tenant, event-driven microservices, and RAG AI patterns |
 
 ## 📋 Topics covered
 
-Identity & Access · Networking & Security · Resource Management · Cost & FinOps · Monitoring & Observability · Infrastructure as Code · AKS & App Architecture · Azure AI/OpenAI · VM Scale Sets · Well-Architected Framework · Disaster Recovery · DevOps & CI/CD · Compliance & Governance · Data Services · Application Architecture · SLA/SLO Management · Platform Engineering · GitHub Integration · Migration Strategies · Performance Efficiency
+**Foundation** — Identity & Access · Networking & Security · Resource Management
+
+**Day 2 Operations** — Cost & FinOps · Monitoring & Observability · Compliance & Governance · SLA/SLO Management · Disaster Recovery
+
+**Build & Deploy** — Infrastructure as Code · DevOps & CI/CD · GitHub Integration · Platform Engineering
+
+**Compute & Apps** — Application Architecture · AKS · VM Scale Sets · Performance Efficiency
+
+**Data & AI** — Data Services · Azure OpenAI & AI Foundry
+
+**Architecture & Strategy** — Well-Architected Framework · Tech Stack Decisions · Reference Architectures · Migration Strategies
 
 ## 🎯 Who is this for?
 
