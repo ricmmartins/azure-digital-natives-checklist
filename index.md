@@ -7,7 +7,7 @@ nav_order: 1
 
 ## Overview
 
-Welcome! This repository provides actionable guidance, checklists, docs and scripts for digital native startups building on Microsoft Azure. It aims to consolidate essential best practices, particularly for teams moving from Minimum Viable Product (MVP) stages towards more robust, and production-grade environments.
+Welcome! This repository provides actionable guidance, checklists, docs and scripts for digital native companies building on Microsoft Azure. It aims to consolidate essential best practices, particularly for teams moving from Minimum Viable Product (MVP) stages towards more robust, and production-grade environments.
 
 This guide is derived from insights shared in the Microsoft Tech Community article: [The Digital Native's Checklist for Azure: Stuff I wish every startup knew](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/the-digital-natives-checklist-for-azure-stuff-i-wish-every-startup-knew/4406669).
 
@@ -15,7 +15,7 @@ This guide is derived from insights shared in the Microsoft Tech Community artic
 
 *   **Provide a practical starting point:** Offer a clear list of crucial Azure configurations and practices.
 *   **Promote best practices early:** Encourage foundational security, cost management, and operational excellence from the beginning.
-*   **Facilitate knowledge sharing:** Create a reusable asset for teams and individuals within the startup ecosystem.
+*   **Facilitate knowledge sharing:** Create a reusable asset for teams and individuals within the digital native ecosystem.
 *   **Bridge the gap:** Help teams transition smoothly from rapid prototyping to scalable and maintainable solutions.
 
 ## How to Use

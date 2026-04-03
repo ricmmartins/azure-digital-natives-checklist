@@ -56,3 +56,28 @@ This document provides further details and context for the Monitoring & Observab
     *   [Observability in Azure](https://learn.microsoft.com/en-us/azure/architecture/best-practices/monitoring)
     *   [Distributed tracing in Azure](https://learn.microsoft.com/en-us/azure/azure-monitor/app/distributed-tracing)
     *   *(From article)* [MELT in Azure](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/azure-monitor--melt-a-comprehensive-approach-to-cloud-observability/4251166)
+
+- [ ] **Use OpenTelemetry for vendor-neutral observability**
+
+*   **Why:** OpenTelemetry provides a vendor-neutral standard for instrumentation, avoiding lock-in to any single monitoring backend. By adopting OpenTelemetry SDKs, you can switch or combine monitoring backends without re-instrumenting your applications.
+*   **How:** Use the Azure Monitor OpenTelemetry Distro for .NET, Node.js, Python, or Java applications. The distro bundles the OpenTelemetry SDK with the Azure Monitor Exporter, giving you automatic collection of traces, metrics, and logs that flow into Application Insights and Log Analytics. For custom telemetry, use the standard OpenTelemetry API — your code stays portable.
+*   **Resources:**
+    *   [Enable Azure Monitor OpenTelemetry](https://learn.microsoft.com/azure/azure-monitor/app/opentelemetry-enable)
+    *   [OpenTelemetry overview](https://learn.microsoft.com/azure/azure-monitor/app/opentelemetry-overview)
+    *   [Azure Monitor OpenTelemetry Distro](https://learn.microsoft.com/azure/azure-monitor/app/opentelemetry-configuration)
+
+- [ ] **Deploy Azure Managed Grafana for dashboards**
+
+*   **Why:** Teams already using Grafana get native Azure integration without managing Grafana infrastructure. Azure Managed Grafana provides built-in data source connections to Azure Monitor, Log Analytics, and Azure Data Explorer, making it easy to build rich operational dashboards.
+*   **How:** Deploy an Azure Managed Grafana workspace from the Azure portal. Connect it to your Azure Monitor and Log Analytics workspaces as data sources. Build dashboards using Grafana's visualization capabilities with your existing Azure telemetry data.
+*   **Resources:**
+    *   [What is Azure Managed Grafana?](https://learn.microsoft.com/azure/managed-grafana/overview)
+    *   [Create an Azure Managed Grafana instance](https://learn.microsoft.com/azure/managed-grafana/quickstart-managed-grafana-portal)
+
+- [ ] **Configure synthetic monitoring and availability tests**
+
+*   **Why:** Synthetic monitoring detects outages and performance degradation before users report them, by proactively testing your application endpoints from multiple global locations at regular intervals.
+*   **How:** Configure Application Insights availability tests to continuously monitor your application's responsiveness. Use URL ping tests for basic endpoint availability checks, and standard tests for more advanced scenarios including custom headers, SSL certificate validation, and HTTP verb selection. Set up alerts to notify your team immediately when availability drops below thresholds.
+*   **Resources:**
+    *   [Application Insights availability tests](https://learn.microsoft.com/azure/azure-monitor/app/availability-overview)
+    *   [Create a standard availability test](https://learn.microsoft.com/azure/azure-monitor/app/availability-standard-tests)

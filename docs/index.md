@@ -6,7 +6,7 @@ has_children: true
 
 # Docs Folder
 
-This folder contains supporting documentation and guides for the **Azure Digital Natives Guide** repository. The documents here are designed to help startups moving from MVP to production in their Azure environments.
+This folder contains supporting documentation and guides for the **Azure Digital Natives Guide** repository. The documents here are designed to help digital native companies moving from MVP to production in their Azure environments.
 
 ## Contents
 

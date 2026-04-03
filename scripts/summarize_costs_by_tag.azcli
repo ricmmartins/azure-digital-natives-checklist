@@ -40,6 +40,14 @@ if [[ -z "$SCOPE" || -z "$TAG_KEY" ]]; then
   exit 1
 fi
 
+# Validate timeframe values
+VALID_TIMEFRAMES="MonthToDate BillingMonthToDate TheLastMonth TheLastBillingMonth Custom"
+if [[ ! " $VALID_TIMEFRAMES " =~ [[:space:]]${TIMEFRAME}[[:space:]] ]]; then
+    echo "Error: Invalid timeframe '$TIMEFRAME'."
+    echo "Valid values: $VALID_TIMEFRAMES"
+    exit 1
+fi
+
 # Check if jq is installed
 if ! command -v jq &> /dev/null; then
     echo "Error: jq is not installed. Please install jq to run this script."

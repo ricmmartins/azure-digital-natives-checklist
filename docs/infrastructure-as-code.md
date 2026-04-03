@@ -36,7 +36,7 @@ This document provides further details and context for the Infrastructure as Cod
 
 - [ ] **Consider Azure Landing Zones**
 
-*   **Why:** Azure Landing Zones provide a prescriptive architectural approach, based on Cloud Adoption Framework principles, to set up your Azure environment with foundational capabilities for identity, governance, security, networking, and operations at scale. Even for startups, adopting Landing Zone concepts early can establish a solid foundation for future growth.
+*   **Why:** Azure Landing Zones provide a prescriptive architectural approach, based on Cloud Adoption Framework principles, to set up your Azure environment with foundational capabilities for identity, governance, security, networking, and operations at scale. Even for digital native companies, adopting Landing Zone concepts early can establish a solid foundation for future growth.
 *   **How:** Review the Azure Landing Zone conceptual architecture and implementation options. Start with a basic implementation tailored to your needs, focusing on core areas like subscription organization, identity, and basic governance (e.g., using Azure Policy for tagging). Consider the subscription vending approach for scaling across teams.
 *   **Resources:**
     *   [What is an Azure landing zone?](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/)

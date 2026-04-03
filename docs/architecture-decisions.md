@@ -99,3 +99,21 @@ Architecture Decision Records (ADRs) help teams document key technical decisions
 - [GitHub Actions documentation](https://docs.github.com/actions)
 - [Azure Pipelines documentation](https://learn.microsoft.com/azure/devops/pipelines/)
 - [Migrate from Azure Pipelines to GitHub Actions](https://docs.github.com/actions/learn-github-actions/migrating-from-azure-pipelines-to-github-actions)
+
+---
+
+## ADR: Managed Identity vs Service Principal for Azure Authentication
+
+**Status:** Accepted  
+**Context:** Azure services frequently need to authenticate to each other (e.g., an App Service accessing a Key Vault, a Function App reading from Storage, or a CI/CD pipeline deploying resources). The primary options are Managed Identity (system-assigned or user-assigned), Service Principal with client secret or certificate, and Workload Identity Federation. The choice affects secret management burden, security posture, and operational complexity.
+
+| Option | Secret Management | Rotation Required | Security Risk | Supported Scenarios |
+|--------|-------------------|-------------------|---------------|---------------------|
+| Managed Identity (system/user-assigned) | None — Azure manages credentials automatically | No — credentials are never exposed | Lowest — no secrets to leak, no credentials in code or config | Azure-hosted workloads only (App Service, Functions, VMs, AKS, Container Apps, etc.) |
+| Service Principal with client secret | Manual — secrets stored in Key Vault or CI/CD variables | Yes — secrets expire and must be rotated (recommended every 90 days) | High — secrets can leak through logs, repos, config files, or compromised pipelines | Any scenario, but introduces secret sprawl and rotation burden |
+| Workload Identity Federation | None — uses OIDC tokens from external identity providers | No — relies on short-lived tokens from the external IdP | Low — no long-lived secrets, tokens are scoped and time-limited | External workloads (GitHub Actions, Kubernetes, other clouds, on-premises) authenticating to Azure |
+
+**Decision:** Prefer **Managed Identity** for all Azure-hosted workloads — it eliminates secret management entirely and is the most secure option. Use **user-assigned Managed Identity** when multiple resources need to share the same identity, or when you need the identity to persist independently of the resource lifecycle. For external workloads like GitHub Actions or on-premises services, use **Workload Identity Federation** with Service Principal — it provides the security benefits of no long-lived secrets while supporting non-Azure environments. **Never use Service Principal with long-lived client secrets** for production workloads — the operational burden of rotation and the risk of secret leakage make this the least desirable option.  
+**Resources:**
+- [What are managed identities for Azure resources?](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/overview)
+- [Workload identity federation](https://learn.microsoft.com/entra/workload-id/workload-identity-federation)

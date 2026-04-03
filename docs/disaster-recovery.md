@@ -50,3 +50,15 @@ This document provides further details and context for implementing disaster rec
     *   [Azure regions and availability zones](https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview)
     *   [Azure cross-region replication](https://learn.microsoft.com/en-us/azure/reliability/cross-region-replication-azure)
     *   [Reliability in Azure](https://learn.microsoft.com/en-us/azure/reliability/overview)
+
+- [ ] **Implement PaaS disaster recovery patterns**
+
+*   **Why:** PaaS services have different DR mechanisms than IaaS. While Azure Site Recovery handles VM replication, PaaS services like Azure SQL, Cosmos DB, App Service, and Storage each have their own built-in geo-redundancy and failover capabilities that must be configured individually.
+*   **How:** Use active geo-replication and auto-failover groups for Azure SQL Database to automatically replicate and fail over databases across regions. Configure multi-region writes in Cosmos DB for globally distributed data with automatic failover. Deploy zone-redundant App Service plans for in-region high availability, and pair with Azure Front Door for global traffic routing and cross-region failover. Use geo-redundant storage (GRS) or geo-zone-redundant storage (GZRS) for blob and file data so that storage is replicated to a paired region automatically.
+*   **Resources:**
+    *   [Active geo-replication for Azure SQL Database](https://learn.microsoft.com/azure/azure-sql/database/active-geo-replication-overview)
+    *   [Failover groups overview (Azure SQL Database)](https://learn.microsoft.com/azure/azure-sql/database/failover-group-sql-db)
+    *   [Distribute data globally with Azure Cosmos DB](https://learn.microsoft.com/azure/cosmos-db/distribute-data-globally)
+    *   [Multi-region App Service disaster recovery](https://learn.microsoft.com/azure/app-service/overview-disaster-recovery)
+    *   [Azure Storage redundancy](https://learn.microsoft.com/azure/storage/common/storage-redundancy)
+    *   [What is Azure Front Door?](https://learn.microsoft.com/azure/frontdoor/front-door-overview)

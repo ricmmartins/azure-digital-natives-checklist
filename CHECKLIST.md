@@ -6,7 +6,7 @@ nav_order: 2
 
 # The Checklist
 
-This checklist provides actionable steps for digital native startups to implement Azure best practices, based on insights from the Microsoft Tech Community article "The Digital Native's Checklist for Azure".
+This checklist provides actionable steps for digital native companies to implement Azure best practices, based on insights from the Microsoft Tech Community article "The Digital Native's Checklist for Azure".
 
 Use this checklist to guide your Azure setup from MVP to a more production-grade environment. Check off items as you complete them. For more details on each item, refer to the corresponding documentation in the `docs/` directory or the linked official Azure resources.
 
@@ -82,7 +82,7 @@ Automate infrastructure deployment and management for consistency and repeatabil
 
 Best practices for running containerized applications on Azure Kubernetes Service.
 
-- [ ] **Review AKS guidance for startups:** Understand core concepts and recommended practices for AKS deployments. [Learn More](docs/aks-app-architecture.md#aks-guidance)
+- [ ] **Review AKS guidance for digital natives:** Understand core concepts and recommended practices for AKS deployments. [Learn More](docs/aks-app-architecture.md#aks-guidance)
 - [ ] **Plan AKS storage, upgrades, identity, and cluster models:** Make informed decisions about fundamental AKS configuration aspects. [Learn More](docs/aks-app-architecture.md#aks-fundamentals)
 - [ ] **Integrate AKS with Azure Monitor:** Enable container insights and monitoring for your Kubernetes clusters and workloads. [Learn More](docs/aks-app-architecture.md#aks-monitoring)
 - [ ] **Follow AKS best practices:** Adhere to recommended practices for security, networking, scaling, and operations. [Learn More](docs/aks-app-architecture.md#aks-best-practices)

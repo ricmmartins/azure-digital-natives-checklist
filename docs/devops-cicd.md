@@ -57,3 +57,4 @@ This document provides further details and context for implementing DevOps pract
     *   [Create a workload identity federation for Azure DevOps](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/connect-to-azure#create-an-azure-resource-manager-service-connection-that-uses-workload-identity-federation)
     *   [Security best practices for Azure Pipelines](https://learn.microsoft.com/en-us/azure/devops/pipelines/security/overview)
     *   [GitHub Advanced Security for Azure DevOps](https://learn.microsoft.com/en-us/azure/devops/repos/security/configure-github-advanced-security-features)
+    *   *See also:* [Identity — Workload Identity Federation](/docs/identity-access.html#workload-identity-federation) · [GitHub Integration — OIDC](/docs/github-integration.html)

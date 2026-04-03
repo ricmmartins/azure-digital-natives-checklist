@@ -54,3 +54,19 @@ This document provides further details and context for the Cost Management & Fin
     *   *(From article)* [FinOps Toolkit](https://microsoft.github.io/finops-toolkit/)
     *   *(From article)* [Slash Your Azure Bill – Tips for Startups](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/slash-your-azure-bill-top-tips-for-startups/4141839)
 
+- [ ] **Use Dev/Test pricing and subscriptions**
+
+*   **Why:** Non-production environments don't need production pricing. Azure Dev/Test subscription offers provide discounted rates on many services, and burstable VM sizes keep dev/test compute costs low while still providing adequate performance for development workloads.
+*   **How:** Use Azure Dev/Test subscription offers (available through Visual Studio subscriptions) to get discounted rates on Azure services for non-production workloads. Use B-series burstable VMs for dev/test environments — they provide a cost-effective baseline with the ability to burst when needed, rather than paying for sustained high-performance compute that dev/test rarely requires.
+*   **Resources:**
+    *   [What is the Azure Dev/Test offer?](https://learn.microsoft.com/azure/devtest/offer/overview-what-is-devtest-offer-visual-studio)
+    *   [B-series burstable VM sizes](https://learn.microsoft.com/azure/virtual-machines/sizes/general-purpose/b-family)
+
+- [ ] **Enable auto-shutdown for non-production resources**
+
+*   **Why:** Dev/test VMs and clusters running 24/7 waste money when developers only work 8–10 hours a day. Auto-shutdown can reduce non-production compute costs by 60–70% with minimal effort.
+*   **How:** Enable auto-shutdown on Azure VMs directly from the VM's Operations menu in the portal — set a shutdown time and optional notification. Use Azure DevTest Labs for more comprehensive scheduled start/stop policies across groups of VMs. For Kubernetes dev/test workloads, use the AKS cluster start/stop feature to completely deallocate clusters outside of business hours.
+*   **Resources:**
+    *   [Configure auto-shutdown for VMs in DevTest Labs](https://learn.microsoft.com/azure/devtest-labs/devtest-lab-auto-shutdown)
+    *   [Stop and start an AKS cluster](https://learn.microsoft.com/azure/aks/start-stop-cluster)
+

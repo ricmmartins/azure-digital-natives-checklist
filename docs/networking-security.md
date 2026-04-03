@@ -43,7 +43,7 @@ This document provides further details and context for the Networking & Security
 - [ ] **Minimize public IP exposure**
 
 *   **Why:** Every public IP address represents a potential attack surface. Limiting public exposure reduces risk.
-*   **How:** Use Private Endpoints to securely connect to PaaS services (Storage, SQL DB, Key Vault, etc.) over the Azure private network. Use Service Endpoints for specific services where Private Endpoints aren't needed or available. Place resources like VMs behind load balancers or Application Gateways instead of assigning them direct public IPs where possible.
+*   **How:** Use Private Endpoints as the preferred approach to securely connect to PaaS services (Storage, SQL DB, Key Vault, etc.) over the Azure private network. Private Endpoints provide full private IP connectivity and are recommended over Service Endpoints, which only restrict access to a VNet but still route traffic over the Microsoft backbone (not a true private connection). Place resources like VMs behind load balancers or Application Gateways instead of assigning them direct public IPs.
 *   **Resources:**
     *   [What is Azure Private Endpoint?](https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview)
     *   [Virtual Network service endpoints](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview)
