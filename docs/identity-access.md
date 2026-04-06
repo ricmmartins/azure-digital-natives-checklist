@@ -10,6 +10,7 @@ description: Entra ID setup, RBAC, managed identities, MFA, conditional access, 
 
 This document provides further details and context for the Identity & Access Management section of the Azure Digital Natives Guide.
 
+<a id="entra-id"></a>
 - [ ] **Use Microsoft Entra ID as the single source of truth**
 
 *   **Why:** Centralizing identity management simplifies user provisioning, access control, and security policy enforcement across all your Azure resources and potentially other SaaS applications.
@@ -19,6 +20,7 @@ This document provides further details and context for the Identity & Access Man
     *   [Associate or add an Azure subscription to your Microsoft Entra tenant](https://learn.microsoft.com/en-us/entra/fundamentals/how-subscriptions-associated-directory)
     *   *(From article)* [Demystifying Entra Tenants and Subscriptions](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/demystifying-microsoft-entra-id-tenants-and-azure-subscriptions/4155261) 
 
+<a id="rbac"></a>
 - [ ] **Implement Role-Based Access Control (RBAC) properly**
 
 *   **Why:** The principle of least privilege dictates granting users only the permissions necessary to perform their tasks. Over-assigning roles like "Owner" significantly increases the potential impact of compromised credentials or accidental misconfigurations.
@@ -33,6 +35,7 @@ This document provides further details and context for the Identity & Access Man
     ```
     Use [Entra PIM](https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-configure) to replace standing Owner assignments with just-in-time elevation.
 
+<a id="managed-identities"></a>
 - [ ] **Utilize Managed Identities**
 
 *   **Why:** Storing credentials (like connection strings, API keys, or certificates) directly in application code or configuration files is a major security risk. Managed Identities provide an Azure-managed identity for services to authenticate to other Azure services that support Microsoft Entra authentication, without needing credentials in your code.
@@ -42,6 +45,7 @@ This document provides further details and context for the Identity & Access Man
     *   [Azure services that support managed identities](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/managed-identities-status)
     *   *(From article)* [From Zero to Hero: Identity in AKS](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/from-zero-to-hero-with-identity-and-access-control-in-azure-kubernetes-service/4386350) 
 
+<a id="pim"></a>
 - [ ] **Enable Privileged Identity Management (PIM)**
 
 *   **Why:** PIM provides time-based and approval-based role activation to mitigate the risks associated with excessive privileged access permissions. It allows users to request elevation to privileged roles only when needed and for a limited duration.
@@ -51,6 +55,7 @@ This document provides further details and context for the Identity & Access Man
     *   [Assign Microsoft Entra roles in Privileged Identity Management](https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-how-to-add-role-to-user)
     *   [Assign Azure resource roles in Privileged Identity Management](https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles)
 
+<a id="multi-factor-authentication-mfa"></a>
 - [ ] **Enforce Multi-Factor Authentication (MFA)**
 
 *   **Why:** Without MFA, a stolen or guessed password grants an attacker full access to the compromised account. Microsoft reports that MFA blocks more than 99.2% of account-compromise attacks, making it the single most impactful security control you can enable.
@@ -60,6 +65,7 @@ This document provides further details and context for the Identity & Access Man
     *   [Security defaults in Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/fundamentals/security-defaults)
     *   [Passwordless authentication options — FIDO2 security keys](https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-passwordless#fido2-security-keys)
 
+<a id="conditional-access-policies"></a>
 - [ ] **Configure Conditional Access Policies**
 
 *   **Why:** Zero Trust security requires contextual access decisions — not just "does this user have the right password?" Conditional Access evaluates signals such as user identity, device health, location, client application, and sign-in risk to make real-time access decisions, ensuring that access is granted only when conditions are met.
@@ -69,6 +75,7 @@ This document provides further details and context for the Identity & Access Man
     *   [Conditional Access policy templates](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-policy-common)
     *   [Troubleshoot Conditional Access policies with the What If tool](https://learn.microsoft.com/en-us/entra/identity/conditional-access/troubleshoot-conditional-access-what-if)
 
+<a id="break-glass-accounts"></a>
 - [ ] **Create Break-Glass (Emergency Access) Accounts**
 
 *   **Why:** If Conditional Access policies, MFA, or federation services experience an outage or misconfiguration, you risk locking all administrators out of your tenant. Break-glass accounts provide a fail-safe mechanism to regain access during emergencies without bypassing your overall security posture.
@@ -76,6 +83,7 @@ This document provides further details and context for the Identity & Access Man
 *   **Resources:**
     *   [Manage emergency access accounts in Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/security-emergency-access)
 
+<a id="workload-identity-federation"></a>
 - [ ] **Use Workload Identity Federation for external services**
 
 *   **Why:** Service principals that use client secrets or certificates introduce security risks — secrets can leak through code repositories, logs, or configuration files, and they expire, causing service outages if not rotated. Workload Identity Federation eliminates these risks by using federated credentials that require no stored secrets.

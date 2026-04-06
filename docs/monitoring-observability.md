@@ -10,6 +10,7 @@ description: Azure Monitor, Application Insights, health signals, workbooks, ale
 
 This document provides further details and context for the Monitoring & Observability section of the Azure Digital Natives Guide.
 
+<a id="azure-monitor"></a>
 - [ ] **Enable Azure Monitor**
 
 *   **Why:** Azure Monitor provides comprehensive monitoring of your Azure resources and applications, collecting metrics, logs, and traces. Without proper monitoring, you'll be blind to performance issues, errors, and potential security incidents.
@@ -24,6 +25,7 @@ This document provides further details and context for the Monitoring & Observab
     ```
     Use [Azure Policy](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings-policy) to enforce diagnostic settings at scale.
 
+<a id="service-resource-health"></a>
 - [ ] **Utilize Azure Service Health and Resource Health**
 
 *   **Why:** Service Health provides personalized alerts and guidance about Azure service issues and planned maintenance that might affect your resources. Resource Health gives you visibility into the health of your specific resources.
@@ -38,6 +40,7 @@ This document provides further details and context for the Monitoring & Observab
       | jq '[.[] | select(.condition.allOf[]? | .field=="category" and .equals=="ResourceHealth")] | length'
     ```
 
+<a id="workbooks"></a>
 - [ ] **Create meaningful dashboards with Azure Workbooks**
 
 *   **Why:** Workbooks combine text, analytics queries, metrics, and parameters into interactive reports and dashboards. They help visualize complex data and share insights across teams.
@@ -46,6 +49,7 @@ This document provides further details and context for the Monitoring & Observab
     *   [Azure Monitor Workbooks overview](https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-overview)
     *   [Create interactive reports with Azure Monitor Workbooks](https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-create-workbook)
 
+<a id="advanced-alerts"></a>
 - [ ] **Configure advanced alerts**
 
 *   **Why:** Proactive alerting is essential for identifying and addressing issues before they impact users. Advanced alerts can monitor complex conditions across multiple signals and trigger automated responses.
@@ -56,6 +60,7 @@ This document provides further details and context for the Monitoring & Observab
     *   [Create, view, and manage log alerts](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-log)
     *   [Create and manage action groups](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/action-groups)
 
+<a id="melt"></a>
 - [ ] **Understand and implement MELT (Metrics, Events, Logs, Traces)**
 
 *   **Why:** MELT provides a comprehensive approach to observability, covering different aspects of system behavior. Metrics show what's happening, events record what happened, logs provide context, and traces show the path of requests through distributed systems.

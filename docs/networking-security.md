@@ -10,6 +10,7 @@ description: VNets, NSGs, Azure Firewall, private endpoints, Key Vault, WAF, DNS
 
 This document provides further details and context for the Networking & Security section of the Azure Digital Natives Guide.
 
+<a id="vnets-subnets-nsgs"></a>
 - [ ] **Design VNets, Subnets, and Network Security Groups (NSGs) thoughtfully**
 
 *   **Why:** A well-designed network foundation is critical for security, performance, and scalability. Poor planning can lead to complex rework later.
@@ -27,6 +28,7 @@ This document provides further details and context for the Networking & Security
     ```
     Use [Microsoft Defender for Cloud](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction) for continuous network security monitoring.
 
+<a id="vnet-architecture"></a>
 - [ ] **Plan VNet architecture early**
 
 *   **Why:** Even simple deployments benefit from considering future needs like VNet peering, VPN/ExpressRoute connectivity, and hub-spoke topologies. Planning avoids costly re-architecting.
@@ -35,6 +37,7 @@ This document provides further details and context for the Networking & Security
     *   [Plan virtual networks](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm)
     *   [Hub-spoke network topology in Azure](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
 
+<a id="defender-for-cloud"></a>
 - [ ] **Enable Microsoft Defender for Cloud**
 
 *   **Why:** Defender for Cloud provides security posture management and threat detection across your Azure (and potentially hybrid/multi-cloud) resources. The free tier offers valuable security recommendations and assessments.
@@ -43,6 +46,7 @@ This document provides further details and context for the Networking & Security
     *   [What is Microsoft Defender for Cloud?](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction)
     *   [Enable Defender for Cloud on your Azure subscriptions](https://learn.microsoft.com/en-us/azure/defender-for-cloud/connect-azure-subscription)
 
+<a id="firewall-ddos"></a>
 - [ ] **Deploy Azure Firewall and DDoS Protection where appropriate**
 
 *   **Why:** Azure Firewall provides centralized network traffic filtering (L3-L7) for your VNets. Azure DDoS Network Protection offers enhanced mitigation against volumetric and protocol-based DDoS attacks beyond the basic infrastructure protection.
@@ -51,6 +55,7 @@ This document provides further details and context for the Networking & Security
     *   [What is Azure Firewall?](https://learn.microsoft.com/en-us/azure/firewall/overview)
     *   [Azure DDoS Network Protection overview](https://learn.microsoft.com/en-us/azure/ddos-protection/ddos-protection-overview)
 
+<a id="private-endpoints"></a>
 - [ ] **Minimize public IP exposure**
 
 *   **Why:** Every public IP address represents a potential attack surface. Limiting public exposure reduces risk.
@@ -59,6 +64,7 @@ This document provides further details and context for the Networking & Security
     *   [What is Azure Private Endpoint?](https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview)
     *   [Virtual Network service endpoints](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview)
 
+<a id="key-vault"></a>
 - [ ] **Secure secrets with Azure Key Vault and Managed Identities**
 
 *   **Why:** Key Vault provides a secure, centralized store for application secrets, keys, and certificates. Combining it with Managed Identities allows Azure services to access Key Vault securely without needing credentials stored in code.
@@ -75,6 +81,7 @@ This document provides further details and context for the Networking & Security
     ```
     Configure [Key Vault event notifications](https://learn.microsoft.com/en-us/azure/key-vault/general/event-grid-overview) for automated expiration alerts.
 
+<a id="deploy-azure-web-application-firewall-waf"></a>
 - [ ] **Deploy Azure Web Application Firewall (WAF)**
 
 *   **Why:** Web applications are constantly targeted by OWASP Top 10 attacks (SQL injection, XSS, etc.). WAF provides centralized protection without modifying application code.
@@ -84,6 +91,7 @@ This document provides further details and context for the Networking & Security
     *   [WAF on Application Gateway](https://learn.microsoft.com/en-us/azure/web-application-firewall/ag/ag-overview)
     *   [WAF on Azure Front Door](https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/afds-overview)
 
+<a id="configure-azure-dns-and-dns-security"></a>
 - [ ] **Configure Azure DNS and DNS security**
 
 *   **Why:** DNS is foundational to every application. Misconfigurations cause outages, and DNS attacks can redirect traffic to malicious endpoints.
@@ -93,6 +101,7 @@ This document provides further details and context for the Networking & Security
     *   [Azure Private DNS zones](https://learn.microsoft.com/en-us/azure/dns/private-dns-overview)
     *   [Azure DNS Private Resolver](https://learn.microsoft.com/en-us/azure/dns/dns-private-resolver-overview)
 
+<a id="enable-nsg-flow-logs-and-traffic-analytics"></a>
 - [ ] **Enable NSG flow logs and traffic analytics**
 
 *   **Why:** Without network flow visibility, you cannot detect anomalous traffic patterns, unauthorized access attempts, or debug connectivity issues.

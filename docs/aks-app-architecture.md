@@ -10,6 +10,7 @@ description: Azure Kubernetes Service guidance for startups — cluster planning
 
 This document provides further details and context for the AKS & Application Architecture section of the Azure Digital Natives Guide, focusing on Azure Kubernetes Service (AKS).
 
+<a id="aks-guidance"></a>
 - [ ] **Review AKS guidance for digital natives**
 
 *   **Why:** AKS simplifies deploying, managing, and scaling containerized applications using Kubernetes. Understanding core concepts and digital-native-specific considerations is key to leveraging it effectively.
@@ -19,6 +20,7 @@ This document provides further details and context for the AKS & Application Arc
     *   [AKS baseline architecture](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks/baseline-aks)
     *   *(From article)* [AKS Guide for Startups](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/azure-kubernetes-service-%E2%80%93-a-friendly-guide-for-startups/4374796)
 
+<a id="aks-fundamentals"></a>
 - [ ] **Plan AKS storage, upgrades, identity, and cluster models**
 
 *   **Why:** These are fundamental aspects of your AKS cluster that impact performance, cost, security, and manageability.
@@ -31,6 +33,7 @@ This document provides further details and context for the AKS & Application Arc
 *   *(From article links for [storage](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/from-zero-to-hero-mastering-storage-in-azure-kubernetes-service-aks/4397734), [upgrades](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/embracing-aks-built-in-upgrade-features-and-exploring-custom-solutions/4398230), [identity](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/from-zero-to-hero-with-identity-and-access-control-in-azure-kubernetes-service/4386350), [cluster models](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/aks-standard-vs-aks-automatic-a-comprehensive-comparison/4264516))*
     
 
+<a id="aks-monitoring"></a>
 - [ ] **Integrate AKS with Azure Monitor**
 
 *   **Why:** Monitoring your cluster and containerized applications is crucial for troubleshooting, performance tuning, and understanding resource consumption.
@@ -39,6 +42,7 @@ This document provides further details and context for the AKS & Application Arc
     *   [Azure Monitor Container Insights overview](https://learn.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-overview)
     *   [Enable Container Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-enable-aks)
 
+<a id="aks-best-practices"></a>
 - [ ] **Follow AKS best practices**
 
 *   **Why:** Adhering to recommended practices helps ensure your AKS environment is secure, reliable, scalable, and cost-effective.

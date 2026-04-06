@@ -60,3 +60,9 @@ This document provides further details and context for the Application Architect
     *   [Azure application architecture fundamentals](https://learn.microsoft.com/en-us/azure/architecture/guide/)
     *   [Microsoft Azure Well-Architected Framework](https://learn.microsoft.com/en-us/azure/well-architected/)
     *   [Cloud design patterns](https://learn.microsoft.com/en-us/azure/architecture/patterns/)
+
+---
+
+## 📚 Recommended Reading
+
+- [Azure Support Slack Bot on Azure Container Apps: Production-Ready Guide](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/azure-support-slack-bot-on-azure-container-apps-production-ready-guide/4436423) — End-to-end guide for building and deploying a containerized app on Azure Container Apps

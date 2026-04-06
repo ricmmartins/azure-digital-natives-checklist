@@ -10,6 +10,7 @@ description: Azure subscription organization, resource groups, tagging strategie
 
 This document provides further details and context for the Resource Management & Organization section of the Azure Digital Natives Guide.
 
+<a id="organization-strategy"></a>
 - [ ] **Define and follow a resource organization strategy**
 
 *   **Why:** A clear hierarchy (Management Groups -> Subscriptions -> Resource Groups) provides structure for applying policies (Azure Policy), managing access (RBAC), organizing costs, and simplifying resource discovery. Without it, environments quickly become chaotic and difficult to manage.
@@ -23,6 +24,7 @@ This document provides further details and context for the Resource Management &
     *   [Azure subscription and service limits, quotas, and constraints](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits) (Understand subscription boundaries)
     *   [Azure Resource Manager overview](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview) (Resource Groups)
 
+<a id="tagging"></a>
 - [ ] **Implement a consistent tagging strategy**
 
 *   **Why:** Tags are key-value pairs that add metadata to Azure resources. They are essential for cost allocation, automation, resource filtering, security boundary definition, and operational management. Inconsistent or missing tags make these tasks difficult or impossible.
@@ -44,6 +46,7 @@ This document provides further details and context for the Resource Management &
     ```
     For continuous enforcement, use [Azure Policy tag rules](https://learn.microsoft.com/en-us/azure/governance/policy/samples/pattern-tags) instead of ad-hoc scripts.
 
+<a id="naming-conventions"></a>
 - [ ] **Establish naming conventions**
 
 *   **Why:** Consistent naming enables at-a-glance identification of a resource's type, workload, environment, and region. Without a naming convention, teams waste time deciphering resource purposes, and automation scripts become fragile and error-prone.
@@ -52,6 +55,7 @@ This document provides further details and context for the Resource Management &
     *   [Define your naming convention](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming)
     *   [Abbreviation recommendations for Azure resources](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations)
 
+<a id="resource-locks"></a>
 - [ ] **Apply resource locks to protect critical resources**
 
 *   **Why:** Accidental deletion or modification of production resources — such as a database, virtual network, or resource group — can cause severe outages and data loss. Resource locks provide a safety net that prevents destructive actions regardless of RBAC permissions.
@@ -63,6 +67,7 @@ This document provides further details and context for the Resource Management &
     az lock list -g MyProductionRG --query "[?level=='CanNotDelete']" -o table
     ```
 
+<a id="azure-resource-graph"></a>
 - [ ] **Use Azure Resource Graph for at-scale querying**
 
 *   **Why:** As your Azure environment grows across multiple subscriptions, you need the ability to query and analyze resources at scale efficiently. Azure Resource Graph enables fast, complex queries across your entire estate without needing to call each resource provider individually.
@@ -72,6 +77,7 @@ This document provides further details and context for the Resource Management &
     *   [Understanding the Azure Resource Graph query language](https://learn.microsoft.com/en-us/azure/governance/resource-graph/concepts/query-language)
     *   [Starter Resource Graph query samples](https://learn.microsoft.com/en-us/azure/governance/resource-graph/samples/starter)
 
+<a id="subscription-limits-and-quotas"></a>
 - [ ] **Monitor subscription limits and quotas**
 
 *   **Why:** Azure enforces per-subscription limits on resources such as vCPU cores, public IP addresses, storage accounts, and network interfaces. Hitting these limits during a scaling event or deployment can block critical operations and cause outages if not planned for in advance.

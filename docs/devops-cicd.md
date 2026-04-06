@@ -61,8 +61,4 @@ This document provides further details and context for implementing DevOps pract
     *   [GitHub Advanced Security for Azure DevOps](https://learn.microsoft.com/en-us/azure/devops/repos/security/configure-github-advanced-security-features)
     *   *See also:* [Identity — Workload Identity Federation](/docs/identity-access.html#workload-identity-federation) · [GitHub Integration — OIDC](/docs/github-integration.html)
 
----
 
-## 📚 Recommended Reading
-
-- [Azure Support Slack Bot on Azure Container Apps: Production-Ready Guide](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/azure-support-slack-bot-on-azure-container-apps-production-ready-guide/4436423) — Automate Azure support ticket creation directly from Slack instead of navigating the Azure Portal

@@ -1,6 +1,7 @@
 ---
 title: Checklist
 nav_order: 2
+description: 100+ actionable checklist items for startups and digital-native companies building production-ready workloads on Azure.
 
 ---
 
@@ -47,7 +48,6 @@ Avoid resource sprawl and maintain clarity on ownership and purpose.
 - [ ] **Apply resource locks on production resources:** Prevent accidental deletion of critical resource groups with CanNotDelete locks. [Learn More](docs/resource-management.md#resource-locks)
 - [ ] **Use Azure Resource Graph for inventory and compliance:** Query resources at scale across subscriptions for governance and auditing. [Learn More](docs/resource-management.md#azure-resource-graph)
 - [ ] **Monitor subscription limits and quotas:** Track quota usage to prevent scaling failures and plan multi-subscription architecture. [Learn More](docs/resource-management.md#subscription-limits-and-quotas)
-- [ ] **Organize subscriptions with management groups:** Apply governance consistently across multiple subscriptions using a hierarchical structure. [Learn More](docs/resource-management.md)
 
 ## Cost Management & FinOps
 
@@ -82,7 +82,6 @@ Automate infrastructure deployment and management for consistency and repeatabil
 - [ ] **Integrate IaC into CI/CD pipelines:** Automate infrastructure provisioning and updates as part of your deployment process. [Learn More](docs/infrastructure-as-code.md#cicd-integration)
 - [ ] **Consider Azure Landing Zones:** Implement a structured approach for governance, security, and scalability, even for smaller environments. [Learn More](docs/infrastructure-as-code.md#landing-zones)
 - [ ] **Use Azure Verified Modules for standardized IaC:** Leverage pre-built, tested Bicep/Terraform modules that follow Azure best practices. [Learn More](docs/infrastructure-as-code.md)
-- [ ] **Use Azure Developer CLI (azd) for streamlined development:** Simplify provisioning and deploying Azure apps from templates. [Learn More](docs/infrastructure-as-code.md)
 
 ## AKS & Application Architecture
 
@@ -190,7 +189,6 @@ Build internal developer platforms for self-service infrastructure and faster de
 Leverage GitHub for secure, integrated Azure development workflows.
 
 - [ ] **Use GitHub Actions for Azure deployments:** Leverage GitHub Actions with Azure-specific actions for CI/CD. [Learn More](docs/github-integration.md)
-- [ ] **Authenticate securely with OIDC workload identity federation:** Replace long-lived secrets with OpenID Connect federation for secretless deployments. [Learn More](docs/github-integration.md)
 - [ ] **Enable GitHub Advanced Security (GHAS):** Use code scanning, secret scanning, and dependency review to find vulnerabilities early. [Learn More](docs/github-integration.md)
 - [ ] **Integrate GitHub Copilot into your development workflow:** Accelerate Azure development with AI-assisted code suggestions. [Learn More](docs/github-integration.md)
 - [ ] **Manage infrastructure repositories with branch protection and CODEOWNERS:** Ensure infrastructure changes receive mandatory review from qualified team members. [Learn More](docs/github-integration.md)

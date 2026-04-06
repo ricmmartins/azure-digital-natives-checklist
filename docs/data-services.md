@@ -44,7 +44,7 @@ This document provides further details and context for the Data Services section
 - [ ] **Design your data tier for scalability**
 
 *   **Why:** As your application grows, your database must scale to meet increased demand without downtime or performance degradation. Understanding partitioning, read replicas, connection pooling, and elastic scaling ensures your data tier can grow with your business.
-*   **How:** Implement partitioning strategies in Cosmos DB by choosing an effective partition key that distributes data evenly. Use read replicas in Azure SQL Database and PostgreSQL Flexible Server to offload read traffic. Implement connection pooling to manage database connections efficiently and avoid connection exhaustion. Evaluate Azure SQL Database elastic pools for workloads with variable resource demands across multiple databases.
+*   **How:** Implement partitioning strategies in Cosmos DB by choosing an effective partition key that distributes data evenly. Use active geo-replication or Hyperscale named replicas for read scale-out in Azure SQL Database, and read replicas in PostgreSQL Flexible Server to offload read traffic. Implement connection pooling to manage database connections efficiently and avoid connection exhaustion. Evaluate Azure SQL Database elastic pools for workloads with variable resource demands across multiple databases.
 *   **Resources:**
     *   [Partitioning in Azure Cosmos DB](https://learn.microsoft.com/en-us/azure/cosmos-db/partitioning-overview)
     *   [Read replicas in Azure Database for PostgreSQL Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-read-replicas)

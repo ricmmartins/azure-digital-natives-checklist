@@ -1,15 +1,16 @@
 ---
-title: Azure OpenAI
+title: Azure OpenAI & AI Services
 parent: Data & AI
 grand_parent: Docs
 nav_order: 2
-description: Azure OpenAI best practices, RAG patterns, data privacy, token management, responsible AI, AI Foundry, and monitoring AI workloads.
+description: Azure OpenAI & AI Services best practices, RAG patterns, data privacy, token management, responsible AI, AI Foundry, and monitoring AI workloads.
 ---
 
-# Documentation: Azure AI Services
+# Documentation: Azure OpenAI & AI Services
 
 This document provides further details and context for the Azure AI section of the Azure Digital Natives Guide.
 
+<a id="aoai-best-practices"></a>
 - [ ] **Review AOAI best practices**
 
 *   **Why:** Leveraging large language models (LLMs) effectively requires understanding best practices for prompt engineering, model selection, security, and responsible AI.
@@ -21,6 +22,7 @@ This document provides further details and context for the Azure AI section of t
     *   [Everything you need to know about reasoning models (O1, O3, O4, Mini, and beyond)](https://techcommunity.microsoft.com/blog/azure-ai-services-blog/everything-you-need-to-know-about-reasoning-models-o1-o3-o4-mini-and-beyond/4406846)
     *   *(From article)* [AOAI Best Practices](https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/azure-openai-best-practices-a-quick-reference-guide-to-optimize-your-deployments/4403546)
 
+<a id="aoai-custom-data"></a>
 - [ ] **Follow guidance for using your own data with AOAI**
 
 *   **Why:** Retrieval-Augmented Generation (RAG) patterns allow you to ground LLM responses in your specific data, improving relevance and accuracy. Implementing this securely and effectively is crucial.
@@ -29,6 +31,7 @@ This document provides further details and context for the Azure AI section of t
     *   [Azure OpenAI on your data](https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/use-your-data)
     *   [Retrieval Augmented Generation (RAG) in Azure AI Search](https://learn.microsoft.com/en-us/azure/search/retrieval-augmented-generation-overview)
 
+<a id="aoai-data-handling"></a>
 - [ ] **Understand AOAI data processing and storage**
 
 *   **Why:** It's essential to know how your prompts, completions, embeddings, and training data (if applicable for fine-tuning) are processed and stored by the Azure OpenAI service to meet compliance and privacy requirements.
@@ -36,6 +39,7 @@ This document provides further details and context for the Azure AI section of t
 *   **Resources:**
     *   [Data, privacy, and security for Azure OpenAI Service](https://learn.microsoft.com/en-us/legal/cognitive-services/openai/data-privacy)
 
+<a id="aoai-operational-considerations"></a>
 - [ ] **Monitor AOAI data residency, concurrency, and cost**
 
 *   **Why:** As you scale your use of AOAI, these operational factors become critical.

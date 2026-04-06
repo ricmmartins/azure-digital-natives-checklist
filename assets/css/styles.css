@@ -22,11 +22,6 @@ body {
 }
 
 /* ── Quick check callout boxes ───────────────────── */
-/* Style the Quick check sections that appear in doc pages */
-.main-content strong:first-child {
-  /* Ensures bold items are prominent */
-}
-
 .main-content blockquote {
   border-left: 4px solid var(--azure-blue);
   background: var(--callout-bg);
@@ -135,11 +130,6 @@ a:not([class]):hover {
 
 .nav-list .nav-list-item > .nav-list .nav-list-item .nav-list-expander {
   color: #5c5962;
-}
-
-/* Site title */
-.site-title {
-  color: var(--azure-dark) !important;
 }
 
 .site-title:hover {

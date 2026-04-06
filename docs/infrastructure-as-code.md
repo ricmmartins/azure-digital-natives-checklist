@@ -10,6 +10,7 @@ description: Bicep and Terraform for Azure, CI/CD integration, Azure Landing Zon
 
 This document provides further details and context for the Infrastructure as Code (IaC) section of the Azure Digital Natives Guide.
 
+<a id="iac-tools"></a>
 - [ ] **Adopt an IaC tool (Bicep, ARM Templates, Terraform)**
 
 *   **Why:** Manually configuring infrastructure through the Azure portal (often called "click-ops") is error-prone, slow, and difficult to replicate consistently. IaC allows you to define your infrastructure in code, enabling automation, version control, consistency, and repeatability.
@@ -24,6 +25,7 @@ This document provides further details and context for the Infrastructure as Cod
     *   [What are ARM templates?](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview)
     *   [Terraform on Azure documentation](https://learn.microsoft.com/en-us/azure/developer/terraform/)
 
+<a id="cicd-integration"></a>
 - [ ] **Integrate IaC into CI/CD pipelines**
 
 *   **Why:** Automating infrastructure deployments through Continuous Integration/Continuous Deployment (CI/CD) pipelines ensures that changes are tested, validated, and deployed consistently, reducing manual effort and risk.
@@ -36,6 +38,7 @@ This document provides further details and context for the Infrastructure as Cod
     *   [Deploy ARM templates by using GitHub Actions](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-github-actions)
     *   [Deploy Terraform using GitHub Actions](https://learn.microsoft.com/en-us/azure/developer/terraform/store-state-in-azure-storage)
 
+<a id="landing-zones"></a>
 - [ ] **Consider Azure Landing Zones**
 
 *   **Why:** Azure Landing Zones provide a prescriptive architectural approach, based on Cloud Adoption Framework principles, to set up your Azure environment with foundational capabilities for identity, governance, security, networking, and operations at scale. Even for digital native companies, adopting Landing Zone concepts early can establish a solid foundation for future growth.
